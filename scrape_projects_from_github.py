@@ -50,11 +50,11 @@ if not os.path.exists("../data/travis_projects_with_comments.json"):
             print(found_projects[-1])
 
 
-    with open('travis_projects_with_comments.json', 'w') as fp:
+    with open('../data/travis_projects_with_comments.json', 'w') as fp:
         json.dump(found_projects, fp, sort_keys=True, indent=4,  default=json_util.default)
         
 else:
-    with open('travis_projects_with_comments.json', 'r') as fp:
+    with open('../data/travis_projects_with_comments.json', 'r') as fp:
         found_projects = json.load(fp)
         
 print("found {} projects".format(len(found_projects)))
