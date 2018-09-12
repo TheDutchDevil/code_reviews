@@ -3,7 +3,7 @@ import MySQLdb
 
 ASE_DATASET_NAME = "../data/travis_adoption_metrics_md5.csv"
 
-db = MySQLdb.connect(passwd="ghtorrent",db="ghtorrent",user="ghtorrent_restore")
+db = MySQLdb.connect(passwd="ghtorrent_restore",db="ghtorrent",user="ghtorrent")
 
 c = db.cursor()
 
