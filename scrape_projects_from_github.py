@@ -205,6 +205,21 @@ def parse_comment(comment):
         'user': parse_named_user(comment.user)
     }
     
+def parse_review_comment(review_comment):
+    return {
+        'body':review_comment.body,
+        'commit_id':review_comment.commit_id,
+        'created_at': review_comment.created_at,
+        'diff_hunk':review_comment.diff_hunk,
+        'id':review_comment.id,
+        'in_reply_to_id':review_comment.in_reply_to_id,
+        'original_commit_id':review_comment.original_commit_id,
+        'original_position':review_comment.original_position,
+        'path':review_comment.path,
+        'position':review_comment.position,
+        'user':parse_named_user(review_comment.user)
+    }
+    
 #%%
     
 from github import Github
@@ -324,6 +339,21 @@ with open(DONE_FILENAME, "rb+") as done_file:
                     
                     for comment in gh_comments:
                         pull_dict["raw_comments"].append(parse_comment(comment))
+                        
+                        did_comments += 1
+                        
+                        if did_comments == 30:
+                            check_header_and_refresh(g, token_queue)
+                            did_comments = 0
+                        
+                    pull_dict["review_comments"] = []
+                    
+                    gh_review_comments = pull.get_review_comments()
+                    
+                    did_comments = 0
+                    
+                    for review_comment in gh_review_comments:
+                        pull_dict["review_comments"].append(parse_review_comment(review_comment))
                         
                         did_comments += 1
                         
