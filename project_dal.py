@@ -13,7 +13,7 @@ class ProjectDal:
         return self.project_for_slug(slug) is not None
         
     def project_for_slug(self, slug):
-        project = self.collection.find_one({'slug': slug})
+        project = self.collection.find_one({'full_name': slug})
         
         return project
     
