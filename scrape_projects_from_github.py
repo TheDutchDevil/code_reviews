@@ -263,7 +263,7 @@ with open(DONE_FILENAME, "rb+") as done_file:
             try:
                 if project["slug"] in projects_done:
                     print("Skipping {}".format(project["slug"]))
-                    continue
+                    break
                     
                 split_slug = project['slug'].split("/")
             
@@ -288,7 +288,7 @@ with open(DONE_FILENAME, "rb+") as done_file:
                 if first_build_age_dict['@type'] == 'error' or len(first_build_age_dict['builds']) == 0 or first_build_age_dict['builds'][0]['started_at'] is None:
                     print("No builds or projects found for {}".format(project['slug']))
                     done_file.write("{}\n".format(project["slug"]).encode("utf-8"))
-                    continue    
+                    break    
                     
                 first_build_date = datetime.datetime.strptime(first_build_age_dict['builds'][0]['started_at'], '%Y-%m-%dT%H:%M:%SZ')
                                 
