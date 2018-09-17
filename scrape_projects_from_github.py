@@ -258,171 +258,170 @@ with open(DONE_FILENAME, "rb+") as done_file:
         
     for project in found_projects:
         fail_count = 0
-        try:
-            if project["slug"] in projects_done:
-                print("Skipping {}".format(project["slug"]))
-                continue
-                
-            split_slug = project['slug'].split("/")
         
-            first_build_age_url = travis_url_base.format(urllib.parse.quote_plus(project["slug"]))
-
-            first_build_age_response = requests.get(first_build_age_url, headers = travis_api_headers)
-
-            if first_build_age_response.status_code not in [200, 403, 404]:
-                print("Could not access data from travis")
-
-                time.sleep(2)
-
+        while True:
+            try:
+                if project["slug"] in projects_done:
+                    print("Skipping {}".format(project["slug"]))
+                    continue
+                    
+                split_slug = project['slug'].split("/")
+            
+                first_build_age_url = travis_url_base.format(urllib.parse.quote_plus(project["slug"]))
+    
                 first_build_age_response = requests.get(first_build_age_url, headers = travis_api_headers)
-
+    
                 if first_build_age_response.status_code not in [200, 403, 404]:
-                    print(first_build_age_url)
-                    print("Travis servers failed twice on above url")
-                    break
-
-            first_build_age_dict = first_build_age_response.json()
-
-            if first_build_age_dict['@type'] == 'error' or len(first_build_age_dict['builds']) == 0 or first_build_age_dict['builds'][0]['started_at'] is None:
-                print("No builds or projects found for {}".format(project['slug']))
-                done_file.write("{}\n".format(project["slug"]).encode("utf-8"))
-                continue    
+                    print("Could not access data from travis")
+    
+                    time.sleep(2)
+    
+                    first_build_age_response = requests.get(first_build_age_url, headers = travis_api_headers)
+    
+                    if first_build_age_response.status_code not in [200, 403, 404]:
+                        print(first_build_age_url)
+                        print("Travis servers failed twice on above url")
+                        break
+    
+                first_build_age_dict = first_build_age_response.json()
+    
+                if first_build_age_dict['@type'] == 'error' or len(first_build_age_dict['builds']) == 0 or first_build_age_dict['builds'][0]['started_at'] is None:
+                    print("No builds or projects found for {}".format(project['slug']))
+                    done_file.write("{}\n".format(project["slug"]).encode("utf-8"))
+                    continue    
+                    
+                first_build_date = datetime.datetime.strptime(first_build_age_dict['builds'][0]['started_at'], '%Y-%m-%dT%H:%M:%SZ')
+                                
+                check_header_and_refresh(g, token_queue)
                 
-            first_build_date = datetime.datetime.strptime(first_build_age_dict['builds'][0]['started_at'], '%Y-%m-%dT%H:%M:%SZ')
-                            
-            check_header_and_refresh(g, token_queue)
-            
-            repo = g.get_repo(project["slug"])
-            
-            repo_dict = parse_repo(repo)
-            
-            repo_dict["first_build_date"] = first_build_date
-            
-            check_header_and_refresh(g, token_queue)
-            
-            pulls = repo.get_pulls(state='closed')
-            
-            repo_dict["prs_before_ci"] = []
-            repo_dict["prs_after_ci"] = []
-            
-            did_pulls = 0
-            completed_pulls = 0
-            
-            for pull in pulls:
+                repo = g.get_repo(project["slug"])
                 
-                pull_dict = parse_pull_request(pull)
+                repo_dict = parse_repo(repo)
                 
-                pull_dict["raw_comments"] = []
+                repo_dict["first_build_date"] = first_build_date
                 
                 check_header_and_refresh(g, token_queue)
                 
-                gh_comments = pull.get_issue_comments()
+                pulls = repo.get_pulls(state='closed')
                 
-                did_comments = 0
+                repo_dict["prs_before_ci"] = []
+                repo_dict["prs_after_ci"] = []
                 
-                for comment in gh_comments:
-                    pull_dict["raw_comments"].append(parse_comment(comment))
+                did_pulls = 0
+                completed_pulls = 0
+                
+                for pull in pulls:
                     
-                    did_comments += 1
+                    pull_dict = parse_pull_request(pull)
                     
-                    if did_comments == 30:
-                        check_header_and_refresh(g, token_queue)
-                        did_comments = 0
-                
-                if (pull.created_at - repo_dict["first_build_date"]).days > 15:
-                    repo_dict["prs_after_ci"].append(pull_dict)
-                elif (pull.created_at - repo_dict["first_build_date"]).days < -15: 
-                    repo_dict["prs_before_ci"].append(pull_dict)
+                    pull_dict["raw_comments"] = []
                     
-                did_pulls += 1
-                completed_pulls += 1
-                
-                if completed_pulls % 500 == 0:
-                    print("Did {} pull requests".format(completed_pulls))
-                
-                if did_pulls == 30:
                     check_header_and_refresh(g, token_queue)
-                    did_pulls = 0
                     
-            issues = repo.get_issues(state='closed')
-            
-            repo_dict["issues_before_ci"] = []
-            repo_dict["issues_after_ci"] = []
-            
-            did_issues = 0
-            completed_issues = 0
-            
-            for issue in issues:
-                
-                if not isinstance(issue.pull_request, github.IssuePullRequest.IssuePullRequest):
-                
-                    issue_dict = parse_issue(issue)
-
-                    check_header_and_refresh(g, token_queue)
-
-                    gh_comments = issue.get_comments()
-
-                    issue_dict["raw_comments"] = []
-
+                    gh_comments = pull.get_issue_comments()
+                    
                     did_comments = 0
-
+                    
                     for comment in gh_comments:
-                        issue_dict["raw_comments"].append(parse_comment(comment))
-
+                        pull_dict["raw_comments"].append(parse_comment(comment))
+                        
                         did_comments += 1
-
+                        
                         if did_comments == 30:
                             check_header_and_refresh(g, token_queue)
                             did_comments = 0
                     
-                    completed_issues += 1
+                    if (pull.created_at - repo_dict["first_build_date"]).days > 15:
+                        repo_dict["prs_after_ci"].append(pull_dict)
+                    elif (pull.created_at - repo_dict["first_build_date"]).days < -15: 
+                        repo_dict["prs_before_ci"].append(pull_dict)
+                        
+                    did_pulls += 1
+                    completed_pulls += 1
                     
-                    if completed_issues % 500 == 0:
-                        print("Did {} issues".format(completed_issues))
-
-
-                    if (issue.created_at - repo_dict["first_build_date"]).days > 15:
-                        repo_dict["issues_after_ci"].append(issue_dict)
-                    elif (issue.created_at - repo_dict["first_build_date"]).days < -15: 
-                        repo_dict["issues_before_ci"].append(issue_dict)
+                    if completed_pulls % 500 == 0:
+                        print("Did {} pull requests".format(completed_pulls))
                     
-                did_issues += 1
+                    if did_pulls == 30:
+                        check_header_and_refresh(g, token_queue)
+                        did_pulls = 0
+                        
+                issues = repo.get_issues(state='closed')
                 
-                if did_issues == 30:
-                    check_header_and_refresh(g, token_queue)
-                    did_issues = 0
+                repo_dict["issues_before_ci"] = []
+                repo_dict["issues_after_ci"] = []
+                
+                did_issues = 0
+                completed_issues = 0
+                
+                for issue in issues:
                     
-            projects_with_text_data.append(repo_dict)
+                    if not isinstance(issue.pull_request, github.IssuePullRequest.IssuePullRequest):
+                    
+                        issue_dict = parse_issue(issue)
+    
+                        check_header_and_refresh(g, token_queue)
+    
+                        gh_comments = issue.get_comments()
+    
+                        issue_dict["raw_comments"] = []
+    
+                        did_comments = 0
+    
+                        for comment in gh_comments:
+                            issue_dict["raw_comments"].append(parse_comment(comment))
+    
+                            did_comments += 1
+    
+                            if did_comments == 30:
+                                check_header_and_refresh(g, token_queue)
+                                did_comments = 0
+                        
+                        completed_issues += 1
+                        
+                        if completed_issues % 500 == 0:
+                            print("Did {} issues".format(completed_issues))
+    
+    
+                        if (issue.created_at - repo_dict["first_build_date"]).days > 15:
+                            repo_dict["issues_after_ci"].append(issue_dict)
+                        elif (issue.created_at - repo_dict["first_build_date"]).days < -15: 
+                            repo_dict["issues_before_ci"].append(issue_dict)
+                        
+                    did_issues += 1
+                    
+                    if did_issues == 30:
+                        check_header_and_refresh(g, token_queue)
+                        did_issues = 0
+                        
+                projects_with_text_data.append(repo_dict)
+                    
+                with open(FILENAME, "rb+") as result_file:
+                    result_file.seek(-1 * len("]".encode("utf-16-le")), 2)
+                    result_file.truncate()
+                    
+                    json_text = json.dumps(repo_dict, default=json_util.default, ensure_ascii=False, sort_keys=True, indent=4) + "\n"
+                                    
+                    if os.path.getsize(FILENAME) > 500:
+                        json_text = ",\n" + json_text
+                    
+                    result_file.write(json_text.encode("utf-16-le"))
+                    
+                    result_file.write("\n]".encode('utf-16-le'))
+                    
+                    result_file.close()
+                    
+                    done_file.write("{}\n".format(project["slug"]).encode("utf-8"))
+                    
+                    print("Wrote {}".format(project["slug"]))     
+    
+            except Exception as e:
+                print("Failed {} with {}".format(project["slug"], e))
+                fail_count += 1
                 
-            with open(FILENAME, "rb+") as result_file:
-                result_file.seek(-1 * len("]".encode("utf-16-le")), 2)
-                result_file.truncate()
-                
-                json_text = json.dumps(repo_dict, default=json_util.default, ensure_ascii=False, sort_keys=True, indent=4) + "\n"
-                                
-                if os.path.getsize(FILENAME) > 500:
-                    json_text = ",\n" + json_text
-                
-                result_file.write(json_text.encode("utf-16-le"))
-                
-                result_file.write("\n]".encode('utf-16-le'))
-                
-                result_file.close()
-                
-                done_file.write("{}\n".format(project["slug"]).encode("utf-8"))
-                
-                print("Wrote {}".format(project["slug"]))     
-
-
-            fail_count = 0
-
-        except Exception as e:
-            print("Failed {} with {}".format(project["slug"], e))
-            fail_count += 1
-            
-            if fail_count > 3:
-                done_file.write("{}\n".format(project["slug"]).encode("utf-8"))
-                print("Skipped {} because of the too high failure count".format(project["slug"]))
-                continue
+                if fail_count >= 3:
+                    done_file.write("{}\n".format(project["slug"]).encode("utf-8"))
+                    print("Skipped {} because of the too high failure count".format(project["slug"]))
+                    break
             
 #%%
