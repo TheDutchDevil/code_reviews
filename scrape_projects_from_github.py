@@ -210,6 +210,7 @@ def parse_comment(comment):
 from github import Github
 from math import ceil
 from bson import json_util
+from project_dal import ProjectDal
 
 import urllib.parse
 import requests
@@ -237,8 +238,6 @@ if not os.path.isfile(FILENAME):
         fp.write("[\n]")
         fp.close()
         
-errors = []
-projects_with_text_data = []
 
 token_queue = gh_tokens.gh_tokens
 
@@ -247,6 +246,8 @@ new_token = token_queue.get()
 token_queue.put(new_token)
 
 g = Github(new_token)
+
+dal = ProjectDal()
 
 if not os.path.isfile(DONE_FILENAME):
     with open(DONE_FILENAME, "w") as fp:
@@ -261,7 +262,7 @@ with open(DONE_FILENAME, "rb+") as done_file:
         
         while True:
             try:
-                if project["slug"] in projects_done:
+                if dal.project_inserted(project["slug"]):
                     print("Skipping {}".format(project["slug"]))
                     break
                     
@@ -304,9 +305,8 @@ with open(DONE_FILENAME, "rb+") as done_file:
                 
                 pulls = repo.get_pulls(state='closed')
                 
-                repo_dict["prs_before_ci"] = []
-                repo_dict["prs_after_ci"] = []
-                
+                repo_dict["pull_requests"] = []
+                                
                 did_pulls = 0
                 completed_pulls = 0
                 
@@ -330,11 +330,8 @@ with open(DONE_FILENAME, "rb+") as done_file:
                         if did_comments == 30:
                             check_header_and_refresh(g, token_queue)
                             did_comments = 0
-                    
-                    if (pull.created_at - repo_dict["first_build_date"]).days > 15:
-                        repo_dict["prs_after_ci"].append(pull_dict)
-                    elif (pull.created_at - repo_dict["first_build_date"]).days < -15: 
-                        repo_dict["prs_before_ci"].append(pull_dict)
+                                            
+                    repo_dict["pull_requests"].append(pull_dict)
                         
                     did_pulls += 1
                     completed_pulls += 1
@@ -348,8 +345,7 @@ with open(DONE_FILENAME, "rb+") as done_file:
                         
                 issues = repo.get_issues(state='closed')
                 
-                repo_dict["issues_before_ci"] = []
-                repo_dict["issues_after_ci"] = []
+                repo_dict["issues"] = []
                 
                 did_issues = 0
                 completed_issues = 0
@@ -381,39 +377,16 @@ with open(DONE_FILENAME, "rb+") as done_file:
                         
                         if completed_issues % 500 == 0:
                             print("Did {} issues".format(completed_issues))
-    
-    
-                        if (issue.created_at - repo_dict["first_build_date"]).days > 15:
-                            repo_dict["issues_after_ci"].append(issue_dict)
-                        elif (issue.created_at - repo_dict["first_build_date"]).days < -15: 
-                            repo_dict["issues_before_ci"].append(issue_dict)
+                            
+                        repo_dict["issues"].append(issue_dict)
                         
                     did_issues += 1
                     
                     if did_issues == 30:
                         check_header_and_refresh(g, token_queue)
                         did_issues = 0
-                        
-                projects_with_text_data.append(repo_dict)
-                    
-                with open(FILENAME, "rb+") as result_file:
-                    result_file.seek(-1 * len("]".encode("utf-16-le")), 2)
-                    result_file.truncate()
-                    
-                    json_text = json.dumps(repo_dict, default=json_util.default, ensure_ascii=False, sort_keys=True, indent=4) + "\n"
-                                    
-                    if os.path.getsize(FILENAME) > 500:
-                        json_text = ",\n" + json_text
-                    
-                    result_file.write(json_text.encode("utf-16-le"))
-                    
-                    result_file.write("\n]".encode('utf-16-le'))
-                    
-                    result_file.close()
-                    
-                    done_file.write("{}\n".format(project["slug"]).encode("utf-8"))
-                    
-                    print("Wrote {}".format(project["slug"]))     
+                                            
+                dal.insert_project(repo_dict)  
     
             except Exception as e:
                 print("Failed {} with {}".format(project["slug"], e))
