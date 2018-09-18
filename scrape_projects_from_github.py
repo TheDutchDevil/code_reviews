@@ -226,6 +226,8 @@ from github import Github
 from math import ceil
 from bson import json_util
 from project_dal import ProjectDal
+from issue_dal import IssueDal
+from pull_request_dal import PullRequestDal
 
 import urllib.parse
 import requests
@@ -262,7 +264,9 @@ token_queue.put(new_token)
 
 g = Github(new_token)
 
-dal = ProjectDal()
+project_dal = ProjectDal()
+issue_dal = IssueDal()
+pull_request_dal = PullRequestDal();
 
 if not os.path.isfile(DONE_FILENAME):
     with open(DONE_FILENAME, "w") as fp:
@@ -277,7 +281,7 @@ with open(DONE_FILENAME, "rb+") as done_file:
         
         while True:
             try:
-                if dal.project_inserted(project["slug"]):
+                if project_dal.project_inserted(project["slug"]):
                     print("Skipping {}".format(project["slug"]))
                     break
                     
@@ -314,7 +318,7 @@ with open(DONE_FILENAME, "rb+") as done_file:
                 
                 repo_dict = parse_repo(repo)
                 
-                repo_dict["first_build_date"] = first_build_date
+                repo_dict["first_build_date_travis"] = first_build_date
                 
                 check_header_and_refresh(g, token_queue)
                 
@@ -328,6 +332,9 @@ with open(DONE_FILENAME, "rb+") as done_file:
                 for pull in pulls:
                     
                     pull_dict = parse_pull_request(pull)
+                    
+                    pull_dict["project_name"] = split_slug[1]
+                    pull_dict["project_owner"] = split_slug[0]
                     
                     pull_dict["raw_comments"] = []
                     
@@ -391,6 +398,9 @@ with open(DONE_FILENAME, "rb+") as done_file:
                         gh_comments = issue.get_comments()
     
                         issue_dict["raw_comments"] = []
+                        
+                        issue_dict["project_name"] = split_slug[1]
+                        issue_dict["project_owner"] = split_slug[0]
     
                         did_comments = 0
     
@@ -415,15 +425,23 @@ with open(DONE_FILENAME, "rb+") as done_file:
                     if did_issues == 30:
                         check_header_and_refresh(g, token_queue)
                         did_issues = 0
-                                            
-                dal.insert_project(repo_dict)  
+                                              
+                issue_dal.insert_issues(repo_dict["issues"])
+                repo_dict.pop("issues", None)
+                
+                pull_request_dal.insert_pull_requests(repo_dict["pull_requests"])
+                repo_dict.pop("pull_requests", None)
+                
+                repo_dict["succeeded"] = True
+                
+                project_dal.insert_project(repo_dict)                
     
             except Exception as e:
                 print("Failed {} with {}".format(project["slug"], e))
                 fail_count += 1
                 
-                if fail_count >= 3:
-                    done_file.write("{}\n".format(project["slug"]).encode("utf-8"))
+                if fail_count >= 5:
+                    project_dal.insert_project({"full_name": project["slug"], "succeeded": False})
                     print("Skipped {} because of the too high failure count".format(project["slug"]))
                     break
             
