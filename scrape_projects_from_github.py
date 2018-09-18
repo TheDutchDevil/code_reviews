@@ -89,10 +89,11 @@ def computeSleepDuration(g):
     return int(ceil((reset_time - curr_time).total_seconds()))
 
 
-def waitIfDepleted(g):
-    (remaining, _limit) = getRateLimit(g)
+def waitIfDepleted(g):    
+    rate_limit = getRateLimit(g)
+    
     sleep_duration = computeSleepDuration(g)
-    if not remaining > 55:
+    if not rate_limit.remaining > 55:
         sleep(sleep_duration)
     
 
