@@ -80,7 +80,7 @@ class GitHubEncoder(JSONEncoder):
                 
 
 def getRateLimit(g):
-    return g.rate_limiting
+    return g.get_rate_limit().core
 
 
 def computeSleepDuration(g):
@@ -101,7 +101,7 @@ def waitAndGetRepo(g, slug):
     return g.get_repo(slug)
 
 def check_header_and_refresh(g, token_queue):
-    remaining = g.rate_limiting[0]
+    remaining = g.get_rate_limit().core.remaining
 
     if remaining < 50:
         if token_queue.qsize() == 1:
@@ -112,7 +112,7 @@ def check_header_and_refresh(g, token_queue):
             token_queue.put(new_token)
             g._Github__requester._Requester__authorizationHeader = "token " + new_token
             
-            remaining = g.get_rate_limit().rate.remaining
+            remaining = g.get_rate_limit().core.remaining
             
             if remaining < 50:
                 print("New token is depleted, so waiting")
@@ -152,7 +152,8 @@ def parse_repo(repo):
         'subscribers_count': repo.subscribers_count,
         #'topics': repo.topics,
         'watchers': repo.watchers,
-        'html_url': repo.html_url
+        'html_url': repo.html_url,
+        'url': repo.url
     }
 
 def parse_pull_request(pull_request):
@@ -175,7 +176,8 @@ def parse_pull_request(pull_request):
         'title': pull_request.title,
         'updated_at': pull_request.updated_at,
         'user': parse_named_user(pull_request.user),
-        'html_url': pull_request.html_url
+        'html_url': pull_request.html_url,
+        'url': pull_request.url
     }
 
 def parse_issue(issue):
@@ -192,7 +194,8 @@ def parse_issue(issue):
         'title': issue.title,
         'updated_at': issue.updated_at,
         'user': parse_named_user(issue.user),
-        'html_url': issue.html_url
+        'html_url': issue.html_url,
+        'url': issue.url
     }
 
 def parse_comment(comment):
@@ -217,7 +220,52 @@ def parse_review_comment(review_comment):
         'original_position':review_comment.original_position,
         'path':review_comment.path,
         'position':review_comment.position,
-        'user':parse_named_user(review_comment.user)
+        'user':parse_named_user(review_comment.user),
+        'url': review_comment.url
+    }
+    
+def parse_commit(commit):
+    return {
+        'author': parse_named_user(commit.author),
+        'message': commit.commit.message,
+        'commit_html_url': commit.commit.html_url,
+        'commit_sha': commit.commit.sha,
+        'committer': parse_named_user(commit.committer),
+        'files': [parse_file(file) for file in commit.files],
+        'html_url': commit.html_url,
+        'parents': [pcommit.sha for pcommit in commit.parents],
+        'sha': commit.sha,
+        'additions': commit.stats.additions,
+        'deletions': commit.stats.deletions,
+        'total': commit.stats.total,
+        'statuses': [parse_status(status) for status in commit.get_statuses()],
+        'url': commit.url
+    }
+   
+def parse_status(commit_status):
+    return {
+        'created_at': commit_status.created_at,
+        'creator': parse_named_user(commit_status.creator),
+        'description': commit_status.description,
+        'id': commit_status.id,
+        'state': commit_status.state,
+        'context': commit_status.context,
+        'target_url': commit_status.target_url,
+        'url': commit_status.url
+    }
+    
+def parse_file(file):
+    return {
+         'additions':file.additions,
+         'changes':file.changes,
+         'contents_url': file.contents_url,
+         'deletions': file.deletions,
+         'filename': file.filename,
+         'patch': file.patch,
+         'previous_filename': file.previous_filename,
+         'raw_url': file.raw_url,
+         'sha': file.sha,
+         'status':file.status
     }
     
 #%%
@@ -262,7 +310,7 @@ new_token = token_queue.get()
 
 token_queue.put(new_token)
 
-g = Github(new_token)
+g = Github(new_token, per_page=100)
 
 project_dal = ProjectDal()
 issue_dal = IssueDal()
@@ -337,6 +385,23 @@ with open(DONE_FILENAME, "rb+") as done_file:
                     pull_dict["project_owner"] = split_slug[0]
                     
                     pull_dict["raw_comments"] = []
+                    
+                    check_header_and_refresh(g, token_queue)
+                    
+                    pull_dict["commits"] = []
+                    
+                    commits = pull.get_commits()
+                    
+                    did_commits = 0
+                    
+                    for commit in commits:
+                        pull_dict["commits"].append(parse_commit(commit))
+                        
+                        did_commits += 1
+                        
+                        if did_commits == 20:
+                            did_commits = 0
+                            check_header_and_refresh(g, token_queue)
                     
                     check_header_and_refresh(g, token_queue)
                     
