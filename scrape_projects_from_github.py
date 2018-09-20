@@ -270,6 +270,67 @@ def parse_file(file):
     }
     
 #%%
+   
+def process_pull_request(pull, split_slug, g, token_queue):
+    pull_dict = parse_pull_request(pull)
+                    
+    pull_dict["project_name"] = split_slug[1]
+    pull_dict["project_owner"] = split_slug[0]
+    
+    pull_dict["raw_comments"] = []
+    
+    check_header_and_refresh(g, token_queue)
+    
+    pull_dict["commits"] = []
+    
+    commits = pull.get_commits()
+    
+    did_commits = 0
+    
+    for commit in commits:
+        pull_dict["commits"].append(parse_commit(commit))
+        
+        did_commits += 1
+        
+        if did_commits == 10:
+            did_commits = 0
+            check_header_and_refresh(g, token_queue)
+    
+    check_header_and_refresh(g, token_queue)
+    
+    gh_comments = pull.get_issue_comments()
+    
+    did_comments = 0
+    
+    for comment in gh_comments:
+        pull_dict["raw_comments"].append(parse_comment(comment))
+        
+        did_comments += 1
+        
+        if did_comments == 25:
+            check_header_and_refresh(g, token_queue)
+            did_comments = 0
+        
+    pull_dict["review_comments"] = []
+    
+    gh_review_comments = pull.get_review_comments()
+    
+    did_comments = 0
+    
+    for review_comment in gh_review_comments:
+        pull_dict["review_comments"].append(parse_review_comment(review_comment))
+        
+        did_comments += 1
+        
+        if did_comments == 30:
+            check_header_and_refresh(g, token_queue)
+            did_comments = 0
+            
+    return pull_dict;
+    
+    
+    
+#%%
     
 from github import Github
 from math import ceil
@@ -380,60 +441,16 @@ with open(DONE_FILENAME, "rb+") as done_file:
                 
                 for pull in pulls:
                     
-                    pull_dict = parse_pull_request(pull)
+                    pull_fail_count = 0;
                     
-                    pull_dict["project_name"] = split_slug[1]
-                    pull_dict["project_owner"] = split_slug[0]
-                    
-                    pull_dict["raw_comments"] = []
-                    
-                    check_header_and_refresh(g, token_queue)
-                    
-                    pull_dict["commits"] = []
-                    
-                    commits = pull.get_commits()
-                    
-                    did_commits = 0
-                    
-                    for commit in commits:
-                        pull_dict["commits"].append(parse_commit(commit))
-                        
-                        did_commits += 1
-                        
-                        if did_commits == 20:
-                            did_commits = 0
-                            check_header_and_refresh(g, token_queue)
-                    
-                    check_header_and_refresh(g, token_queue)
-                    
-                    gh_comments = pull.get_issue_comments()
-                    
-                    did_comments = 0
-                    
-                    for comment in gh_comments:
-                        pull_dict["raw_comments"].append(parse_comment(comment))
-                        
-                        did_comments += 1
-                        
-                        if did_comments == 30:
-                            check_header_and_refresh(g, token_queue)
-                            did_comments = 0
-                        
-                    pull_dict["review_comments"] = []
-                    
-                    gh_review_comments = pull.get_review_comments()
-                    
-                    did_comments = 0
-                    
-                    for review_comment in gh_review_comments:
-                        pull_dict["review_comments"].append(parse_review_comment(review_comment))
-                        
-                        did_comments += 1
-                        
-                        if did_comments == 30:
-                            check_header_and_refresh(g, token_queue)
-                            did_comments = 0
-                                            
+                    while pull_fail_count < 3:
+                        try:
+                            pull_dict = process_pull_request(pull, split_slug, g, token_queue)
+                            break;
+                        except:
+                            pull_fail_count += 1
+                            print("Failed scraping pull request #{}".format(completed_pulls))
+                            
                     repo_dict["pull_requests"].append(pull_dict)
                         
                     did_pulls += 1
@@ -500,7 +517,11 @@ with open(DONE_FILENAME, "rb+") as done_file:
                 
                 repo_dict["succeeded"] = True
                 
-                project_dal.insert_project(repo_dict)                
+                project_dal.insert_project(repo_dict)   
+                
+                #If this project has been scraped break from the While True
+                #to start processing the next project.
+                break
     
             except Exception as e:
                 print("Failed {} with {}".format(project["slug"], e))
@@ -510,5 +531,7 @@ with open(DONE_FILENAME, "rb+") as done_file:
                     project_dal.insert_project({"full_name": project["slug"], "succeeded": False})
                     print("Skipped {} because of the too high failure count".format(project["slug"]))
                     break
+            
+            
             
 #%%
