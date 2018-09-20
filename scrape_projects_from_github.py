@@ -327,7 +327,175 @@ def process_pull_request(pull, split_slug, g, token_queue):
             did_comments = 0
             
     return pull_dict;
+
+#%%
+def process_project(project):   
+
+    token_queue = gh_tokens.gh_tokens
     
+    new_token = token_queue.get()
+    
+    token_queue.put(new_token)
+    
+    g = Github(new_token, per_page=100)
+    
+    fail_count = 0   
+
+    travis_api_headers = {'Travis-API-Version' : '3', 'Authorization' : 'token {}'.format(travis_token.travis_token)}
+    
+    #This returns the first build for that slug as recorded by travis. 
+    travis_url_base = "https://api.travis-ci.org/repo/{}/builds?sort_by=finished_at&limit=1"
+    
+    allowed_failures = 5
+    
+    project_dal = ProjectDal()
+    issue_dal = IssueDal()
+    pull_request_dal = PullRequestDal();
+        
+    while True:
+        try:
+            if project_dal.project_inserted(project["slug"]):
+                print("Skipping {}".format(project["slug"]))
+                break
+                
+            split_slug = project['slug'].split("/")
+        
+            first_build_age_url = travis_url_base.format(urllib.parse.quote_plus(project["slug"]))
+
+            first_build_age_response = requests.get(first_build_age_url, headers = travis_api_headers)
+
+            if first_build_age_response.status_code not in [200, 403, 404]:
+                print("Could not access data from travis")
+
+                time.sleep(2)
+
+                first_build_age_response = requests.get(first_build_age_url, headers = travis_api_headers)
+
+                if first_build_age_response.status_code not in [200, 403, 404]:
+                    print(first_build_age_url)
+                    print("Travis servers failed twice on above url")
+                    break
+
+            first_build_age_dict = first_build_age_response.json()
+
+            if first_build_age_dict['@type'] == 'error' or len(first_build_age_dict['builds']) == 0 or first_build_age_dict['builds'][0]['started_at'] is None:
+                print("No builds or projects found for {}".format(project['slug']))
+                project_dal.insert_project({"full_name": project["slug"], "succeeded": False})
+                break    
+                
+            first_build_date = datetime.datetime.strptime(first_build_age_dict['builds'][0]['started_at'], '%Y-%m-%dT%H:%M:%SZ')
+                            
+            check_header_and_refresh(g, token_queue)
+            
+            repo = g.get_repo(project["slug"])
+            
+            repo_dict = parse_repo(repo)
+            
+            repo_dict["first_build_date_travis"] = first_build_date
+            
+            check_header_and_refresh(g, token_queue)
+            
+            pulls = repo.get_pulls(state='closed')
+            
+            repo_dict["pull_requests"] = []
+                            
+            did_pulls = 0
+            completed_pulls = 0
+            
+            for pull in pulls:
+                
+                pull_fail_count = 0;
+                
+                pull_dict = {}
+                
+                while pull_fail_count < 3:
+                    try:
+                        pull_dict = process_pull_request(pull, split_slug, g, token_queue)
+                        break;
+                    except:
+                        pull_fail_count += 1
+                        print("Failed scraping pull request #{}".format(completed_pulls))
+                        
+                repo_dict["pull_requests"].append(pull_dict)
+                    
+                did_pulls += 1
+                completed_pulls += 1
+                
+                if completed_pulls % 500 == 0:
+                    print("Did {} pull requests".format(completed_pulls))
+                
+                if did_pulls == 30:
+                    check_header_and_refresh(g, token_queue)
+                    did_pulls = 0
+                    
+            issues = repo.get_issues(state='closed')
+            
+            repo_dict["issues"] = []
+            
+            did_issues = 0
+            completed_issues = 0
+            
+            for issue in issues:
+                
+                if not isinstance(issue.pull_request, github.IssuePullRequest.IssuePullRequest):
+                
+                    issue_dict = parse_issue(issue)
+
+                    check_header_and_refresh(g, token_queue)
+
+                    gh_comments = issue.get_comments()
+
+                    issue_dict["raw_comments"] = []
+                    
+                    issue_dict["project_name"] = split_slug[1]
+                    issue_dict["project_owner"] = split_slug[0]
+
+                    did_comments = 0
+
+                    for comment in gh_comments:
+                        issue_dict["raw_comments"].append(parse_comment(comment))
+
+                        did_comments += 1
+
+                        if did_comments == 30:
+                            check_header_and_refresh(g, token_queue)
+                            did_comments = 0
+                    
+                    completed_issues += 1
+                    
+                    if completed_issues % 500 == 0:
+                        print("Did {} issues".format(completed_issues))
+                        
+                    repo_dict["issues"].append(issue_dict)
+                    
+                did_issues += 1
+                
+                if did_issues == 30:
+                    check_header_and_refresh(g, token_queue)
+                    did_issues = 0
+                                          
+            issue_dal.insert_issues(repo_dict["issues"])
+            repo_dict.pop("issues", None)
+            
+            pull_request_dal.insert_pull_requests(repo_dict["pull_requests"])
+            repo_dict.pop("pull_requests", None)
+            
+            repo_dict["succeeded"] = True
+            
+            project_dal.insert_project(repo_dict)   
+            
+            #If this project has been scraped break from the While True
+            #to start processing the next project.
+            break
+
+        except Exception as e:
+            print("Failed {} with {}".format(project["slug"], e))
+            fail_count += 1
+            
+            if fail_count >= allowed_failures:
+                project_dal.insert_project({"full_name": project["slug"], "succeeded": False})
+                print("Skipped {} because of the too high failure count".format(project["slug"]))
+                break
     
     
 #%%
@@ -349,189 +517,12 @@ import datetime
 import gh_tokens
 import travis_token
 
-travis_api_headers = {'Travis-API-Version' : '3', 'Authorization' : 'token {}'.format(travis_token.travis_token)}
+import multiprocessing
 
-#This returns the first build for that slug as recorded by travis. 
-travis_url_base = "https://api.travis-ci.org/repo/{}/builds?sort_by=finished_at&limit=1"
+with multiprocessing.Pool(3) as p:
+    p.map(process_project, found_projects)
 
-FILENAME = "../data/projects_with_comment_data.json"
-
-DONE_FILENAME = "../data/processed.txt"
-
-allowed_failures = 5
-
-if not os.path.isfile(FILENAME):
-    with open(FILENAME, "w", encoding="utf-16") as fp:
-        fp.write("[\n]")
-        fp.close()
         
-
-token_queue = gh_tokens.gh_tokens
-
-new_token = token_queue.get()
-
-token_queue.put(new_token)
-
-g = Github(new_token, per_page=100)
-
-project_dal = ProjectDal()
-issue_dal = IssueDal()
-pull_request_dal = PullRequestDal();
-
-if not os.path.isfile(DONE_FILENAME):
-    with open(DONE_FILENAME, "w") as fp:
-        pass
-        
-with open(DONE_FILENAME, "rb+") as done_file:
-    
-    projects_done = done_file.read().decode('utf-8')
-        
-    for project in found_projects:
-        fail_count = 0
-        
-        while True:
-            try:
-                if project_dal.project_inserted(project["slug"]):
-                    print("Skipping {}".format(project["slug"]))
-                    break
-                    
-                split_slug = project['slug'].split("/")
-            
-                first_build_age_url = travis_url_base.format(urllib.parse.quote_plus(project["slug"]))
-    
-                first_build_age_response = requests.get(first_build_age_url, headers = travis_api_headers)
-    
-                if first_build_age_response.status_code not in [200, 403, 404]:
-                    print("Could not access data from travis")
-    
-                    time.sleep(2)
-    
-                    first_build_age_response = requests.get(first_build_age_url, headers = travis_api_headers)
-    
-                    if first_build_age_response.status_code not in [200, 403, 404]:
-                        print(first_build_age_url)
-                        print("Travis servers failed twice on above url")
-                        break
-    
-                first_build_age_dict = first_build_age_response.json()
-    
-                if first_build_age_dict['@type'] == 'error' or len(first_build_age_dict['builds']) == 0 or first_build_age_dict['builds'][0]['started_at'] is None:
-                    print("No builds or projects found for {}".format(project['slug']))
-                    done_file.write("{}\n".format(project["slug"]).encode("utf-8"))
-                    break    
-                    
-                first_build_date = datetime.datetime.strptime(first_build_age_dict['builds'][0]['started_at'], '%Y-%m-%dT%H:%M:%SZ')
-                                
-                check_header_and_refresh(g, token_queue)
-                
-                repo = g.get_repo(project["slug"])
-                
-                repo_dict = parse_repo(repo)
-                
-                repo_dict["first_build_date_travis"] = first_build_date
-                
-                check_header_and_refresh(g, token_queue)
-                
-                pulls = repo.get_pulls(state='closed')
-                
-                repo_dict["pull_requests"] = []
-                                
-                did_pulls = 0
-                completed_pulls = 0
-                
-                for pull in pulls:
-                    
-                    pull_fail_count = 0;
-                    
-                    while pull_fail_count < 3:
-                        try:
-                            pull_dict = process_pull_request(pull, split_slug, g, token_queue)
-                            break;
-                        except:
-                            pull_fail_count += 1
-                            print("Failed scraping pull request #{}".format(completed_pulls))
-                            
-                    repo_dict["pull_requests"].append(pull_dict)
-                        
-                    did_pulls += 1
-                    completed_pulls += 1
-                    
-                    if completed_pulls % 500 == 0:
-                        print("Did {} pull requests".format(completed_pulls))
-                    
-                    if did_pulls == 30:
-                        check_header_and_refresh(g, token_queue)
-                        did_pulls = 0
-                        
-                issues = repo.get_issues(state='closed')
-                
-                repo_dict["issues"] = []
-                
-                did_issues = 0
-                completed_issues = 0
-                
-                for issue in issues:
-                    
-                    if not isinstance(issue.pull_request, github.IssuePullRequest.IssuePullRequest):
-                    
-                        issue_dict = parse_issue(issue)
-    
-                        check_header_and_refresh(g, token_queue)
-    
-                        gh_comments = issue.get_comments()
-    
-                        issue_dict["raw_comments"] = []
-                        
-                        issue_dict["project_name"] = split_slug[1]
-                        issue_dict["project_owner"] = split_slug[0]
-    
-                        did_comments = 0
-    
-                        for comment in gh_comments:
-                            issue_dict["raw_comments"].append(parse_comment(comment))
-    
-                            did_comments += 1
-    
-                            if did_comments == 30:
-                                check_header_and_refresh(g, token_queue)
-                                did_comments = 0
-                        
-                        completed_issues += 1
-                        
-                        if completed_issues % 500 == 0:
-                            print("Did {} issues".format(completed_issues))
-                            
-                        repo_dict["issues"].append(issue_dict)
-                        
-                    did_issues += 1
-                    
-                    if did_issues == 30:
-                        check_header_and_refresh(g, token_queue)
-                        did_issues = 0
-                                              
-                issue_dal.insert_issues(repo_dict["issues"])
-                repo_dict.pop("issues", None)
-                
-                pull_request_dal.insert_pull_requests(repo_dict["pull_requests"])
-                repo_dict.pop("pull_requests", None)
-                
-                repo_dict["succeeded"] = True
-                
-                project_dal.insert_project(repo_dict)   
-                
-                #If this project has been scraped break from the While True
-                #to start processing the next project.
-                break
-    
-            except Exception as e:
-                print("Failed {} with {}".format(project["slug"], e))
-                fail_count += 1
-                
-                if fail_count >= 5:
-                    project_dal.insert_project({"full_name": project["slug"], "succeeded": False})
-                    print("Skipped {} because of the too high failure count".format(project["slug"]))
-                    break
-            
             
             
 #%%
