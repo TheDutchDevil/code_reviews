@@ -6,6 +6,7 @@ Created on Wed Sep 26 11:16:31 2018
 """
 
 import random
+import datetime
 
 def split_prs_on_build_date(project, prs, equal_number = False):
     
