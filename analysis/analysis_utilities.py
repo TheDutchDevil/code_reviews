@@ -12,13 +12,13 @@ import matplotlib.pyplot as plt
 import seaborn as sn
 import numpy as np
 
-def split_prs_on_build_date(project, prs, equal_number = False):
+def split_prs_on_build_date(project, prs, equal_number = False, field_name="status_travis_date"):
     
-    if "status_travis_date" not in project.keys():
+    if field_name not in project.keys():
         raise ValueError("No status date in project")
     
-    prs_before = [pr for pr in prs if pr["created_at"] < (project["status_travis_date"] - datetime.timedelta(days=15))]
-    prs_after = [pr for pr in prs if pr["created_at"] > (project["status_travis_date"] + datetime.timedelta(days=15))]
+    prs_before = [pr for pr in prs if pr["created_at"] < (project[field_name] - datetime.timedelta(days=15))]
+    prs_after = [pr for pr in prs if pr["created_at"] > (project[field_name] + datetime.timedelta(days=15))]
     
     if equal_number:
         if len(prs_before) > len(prs_after):
