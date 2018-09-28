@@ -18,4 +18,10 @@ class PullRequestDal:
 
     
     def insert_pull_requests(self, pull_requests):
-        self.collection.insert_many(pull_requests)
+        try:
+            for pr in pull_requests:
+                self.collection.insert(pr)
+        except Exception as e:
+            print("Failed inserting PR {} with url {}, error: {}".format(pr["number"], pr["html_url"], e))
+            raise e
+        
