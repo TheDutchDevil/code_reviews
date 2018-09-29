@@ -288,7 +288,12 @@ def process_pull_request(pull, split_slug, g, token_queue):
     did_commits = 0
     
     for commit in commits:
-        pull_dict["commits"].append(parse_commit(commit))
+        parsed_commit = parse_commit(commit)
+        
+        parsed_commit["project_name"] = split_slug[1]
+        parsed_commit["project_owner"] = split_slug[0]
+        
+        pull_dict["commits"].append(parsed_commit)
         
         did_commits += 1
         
@@ -350,7 +355,8 @@ def process_project(project):
     
     project_dal = ProjectDal()
     issue_dal = IssueDal()
-    pull_request_dal = PullRequestDal();
+    pull_request_dal = PullRequestDal()
+    commit_dal = CommitDal()
         
     while True:
         try:
@@ -477,6 +483,12 @@ def process_project(project):
             issue_dal.insert_issues(repo_dict["issues"])
             repo_dict.pop("issues", None)
             
+            # Ensure that we save commits to their own collection
+            # then replace the commit objects with an array of sha hashes
+            for pr in repo_dict["pull_requests"]:
+                commit_dal.insert_commits(pr["commits"])
+                pr["commits"] = [commit["sha"] for commit in pr["commits"]]
+            
             pull_request_dal.insert_pull_requests(repo_dict["pull_requests"])
             repo_dict.pop("pull_requests", None)
             
@@ -506,6 +518,7 @@ from bson import json_util
 from project_dal import ProjectDal
 from issue_dal import IssueDal
 from pull_request_dal import PullRequestDal
+from commit_dal import CommitDal
 
 import urllib.parse
 import requests
