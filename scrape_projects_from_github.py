@@ -519,7 +519,7 @@ import travis_token
 
 import multiprocessing
 
-with multiprocessing.Pool(3) as p:
+with multiprocessing.Pool(4) as p:
     p.map(process_project, found_projects)
 
         
