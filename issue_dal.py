@@ -18,4 +18,5 @@ class IssueDal:
 
     
     def insert_issues(self, issues):
-        self.collection.insert_many(issues)
+        if len(issues) > 0:
+            self.collection.insert_many(issues)
