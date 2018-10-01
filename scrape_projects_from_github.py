@@ -502,6 +502,7 @@ def process_project(project):
 
         except Exception as e:
             print("Failed {} with {}".format(project["slug"], e))
+            print(traceback.format_exc())
             fail_count += 1
             
             if fail_count >= allowed_failures:
@@ -529,6 +530,7 @@ import os
 import datetime
 import gh_tokens
 import travis_token
+import traceback
 
 import multiprocessing
 
