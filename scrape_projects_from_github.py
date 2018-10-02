@@ -417,12 +417,12 @@ def process_project(project):
                 while pull_fail_count < 3:
                     try:
                         pull_dict = process_pull_request(pull, split_slug, g, token_queue)
+                        
+                        repo_dict["pull_requests"].append(pull_dict)
                         break;
                     except:
                         pull_fail_count += 1
                         print("Failed scraping pull request #{}".format(completed_pulls))
-                        
-                repo_dict["pull_requests"].append(pull_dict)
                     
                 did_pulls += 1
                 completed_pulls += 1
