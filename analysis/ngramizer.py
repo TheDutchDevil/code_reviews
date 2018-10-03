@@ -33,6 +33,16 @@ meta_tokens = ["M_EMAIL",
 
 USERNAME_REGEX = "(\ |^)@(\S*\s?)"
 
+BOT_NAMES = ["coveralls", 
+             "codecov-io",
+             "slnode", 
+             "pep8speaks", 
+             "rh-atomic-bot", 
+             "cesium-concierge", 
+             "azurecla", 
+             "greenkeeperio-bot", 
+             "msftclas"]
+
 
 def given_text_extract_usernames(text):
     if text is None:
@@ -41,6 +51,9 @@ def given_text_extract_usernames(text):
     matches = re.findall(USERNAME_REGEX, text)
 
     return [match[1] for match in matches]
+
+def is_bot_comment(user_name):
+    return user_name in BOT_NAMES
 
 
 def add_text_ngrams_to_counter(text, html_url, ngram_length, counter, linkback, usernames):
