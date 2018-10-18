@@ -118,15 +118,3 @@ for project in projects_collection.find({'travis_is_oldest_ci' : True}):
         pull_requests_collection.replace_one({"_id":pr["_id"]}, pr)
         
 #%%
-
-# Process all pull requests in the dataset and run them through the ngramizer. 
-# After generating the bigrams, these are stored in mongodb instance. 
-
-import ngramizer
-
-
-
-
-
-
-        
