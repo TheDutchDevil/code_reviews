@@ -91,29 +91,46 @@ pull_requests_collection = database["pull_requests"]
 
 projects_collection = database["projects"]
 
-for project in projects_collection.find({'travis_is_oldest_ci' : True}):
+projects = list(projects_collection.find({'travis_is_oldest_ci' : True}))
+
+for project in projects:
+        
     print("Analyzing: {}".format(project["full_name"]))
     
     split_name = project["full_name"].split("/")
     
+    all_prs_done_count = pull_requests_collection.find(
+            {
+                    'project_name': split_name[1], 
+                    'project_owner': split_name[0],
+                    'from_outsider': {'$exists':True}
+                    }).count()
+        
+    all_prs = list(pull_requests_collection.find(
+            {
+                    'project_name': split_name[1], 
+                    'project_owner': split_name[0]
+                    }
+            ).sort([('created_at', 1)]))
+    
+    if all_prs_done_count == len(all_prs):
+        continue
+    
     insiders = []
     
-    for pr in pull_requests_collection.find({'project_name':
-        split_name[1], 'project_owner':
-            split_name[0], 
-            'from_outsider' : {'$exists':False}}).sort([('created_at', 1)]):
+    for pr in all_prs:
     
+        contributor = pr["user"]["login"]
+        
+        pr["from_outsider"] = not (contributor in insiders)
+        
         if "merged_by" in pr and pr["merged_by"] is not None:
-            contributor = pr["user"]["login"]
             
             closer = pr["merged_by"]["login"]
             
-            pr["from_outsider"] = contributor not in insiders
-            
             if contributor != closer:
                 insiders.append(closer)
-        else:
-            pr["from_outsider"] = False
+        
             
         pull_requests_collection.replace_one({"_id":pr["_id"]}, pr)
         
