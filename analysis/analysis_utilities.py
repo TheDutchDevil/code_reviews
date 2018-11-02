@@ -12,7 +12,9 @@ import matplotlib.pyplot as plt
 import seaborn as sn
 import numpy as np
 
-def split_prs_on_build_date(project, prs, equal_number = False, field_name="status_travis_date"):
+def split_prs_on_build_date(project, prs, equal_number = False, field_name="status_travis_date", seed = None):
+    
+    random.seed(seed)
     
     if field_name not in project.keys():
         raise ValueError("No status date in project")

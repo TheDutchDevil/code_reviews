@@ -83,6 +83,8 @@ for failed_project in projects_collection.find({'succeeded': False}):
 from pymongo import MongoClient
 from commit_dal import CommitDal
 
+import multiprocessing
+
 mongo_client = MongoClient()
 
 database = mongo_client["graduation"]
@@ -93,8 +95,7 @@ projects_collection = database["projects"]
 
 projects = list(projects_collection.find({'travis_is_oldest_ci' : True}))
 
-for project in projects:
-        
+def do_insiders_for_project(project):
     print("Analyzing: {}".format(project["full_name"]))
     
     split_name = project["full_name"].split("/")
@@ -114,7 +115,7 @@ for project in projects:
             ).sort([('created_at', 1)]))
     
     if all_prs_done_count == len(all_prs):
-        continue
+        return
     
     insiders = []
     
@@ -133,5 +134,13 @@ for project in projects:
         
             
         pull_requests_collection.replace_one({"_id":pr["_id"]}, pr)
+
+
+for project in projects:
+    do_insiders_for_project(project)
+
+    
         
  #%%
+
+        
