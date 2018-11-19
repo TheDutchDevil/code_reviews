@@ -1,20 +1,49 @@
 import pandas as pd
 import MySQLdb
 
-ASE_DATASET_NAME = "../data/travis_adoption_metrics_md5.csv"
+def read_data_and_execute():
 
-db = MySQLdb.connect(passwd="ghtorrent_restore",db="ghtorrent_restore",user="ghtorrent")
+    ASE_DATASET_NAME = "../data/travis_adoption_metrics_md5.csv"
+    
+    db = MySQLdb.connect(passwd="ghtorrent_restore",db="ghtorrent_restore",user="ghtorrent")
+    
+    c = db.cursor()
+    
+    ase_data = pd.read_csv(ASE_DATASET_NAME, sep=";")
+    
+    ase_data.head()
+    
+    # This mimics the selection done in the Travis script for the ASE paper. 
+    merge_data = ase_data.loc[ase_data["period"] != 0].groupby(['Repo'], as_index=False)[['num_merge_commits', 'num_non_merge_commits']].min().query('num_merge_commits > 0 & num_non_merge_commits > 0')
+    
+    merge_data.head()
+    
+    ase_repos = merge_data['Repo']
 
-c = db.cursor()
+    print("Total of {} repos".format(len(ase_repos)))
+    
+    found_projects = []
+    
+    if not os.path.exists("../data/travis_projects_with_comments.json"):
+    
+        for slug in ase_repos:
+            res = project_has_more_than_1000_comments(slug)
+            if res is not None:
+                found_projects.append(res)
+                print(found_projects[-1])
+    
+    
+        with open('../data/travis_projects_with_comments.json', 'w') as fp:
+            json.dump(found_projects, fp, sort_keys=True, indent=4,  default=json_util.default)
+            
+    else:
+        with open('../data/travis_projects_with_comments.json', 'r') as fp:
+            found_projects = json.load(fp)
+            
+    print("found {} projects".format(len(found_projects)))
 
-ase_data = pd.read_csv(ASE_DATASET_NAME, sep=";")
-
-ase_data.head()
-
-# This mimics the selection done in the Travis script for the ASE paper. 
-merge_data = ase_data.loc[ase_data["period"] != 0].groupby(['Repo'], as_index=False)[['num_merge_commits', 'num_non_merge_commits']].min().query('num_merge_commits > 0 & num_non_merge_commits > 0')
-
-merge_data.head()
+        
+    execute_scrape_list(found_projects)
 
 #%%
 import json
@@ -40,29 +69,7 @@ def project_has_more_than_1000_comments(slug):
     else:
         return None
 
-ase_repos = merge_data['Repo']
 
-print("Total of {} repos".format(len(ase_repos)))
-
-found_projects = []
-
-if not os.path.exists("../data/travis_projects_with_comments.json"):
-
-    for slug in ase_repos:
-        res = project_has_more_than_1000_comments(slug)
-        if res is not None:
-            found_projects.append(res)
-            print(found_projects[-1])
-
-
-    with open('../data/travis_projects_with_comments.json', 'w') as fp:
-        json.dump(found_projects, fp, sort_keys=True, indent=4,  default=json_util.default)
-        
-else:
-    with open('../data/travis_projects_with_comments.json', 'r') as fp:
-        found_projects = json.load(fp)
-        
-print("found {} projects".format(len(found_projects)))
 
 #%%
 
@@ -543,8 +550,8 @@ def execute_scrape_list(found_projects):
     
     with multiprocessing.Pool(4) as p:
         p.map(process_project, found_projects)
-
-        
-execute_scrape_list(found_projects)
             
 #%%
+
+if __name__ == "__main__":
+    read_data_and_execute()
