@@ -12,15 +12,33 @@ ase_data = pd.read_csv(ASE_DATASET_NAME, sep=";")
 ase_data.head()
 
 # This mimics the selection done in the Travis script for the ASE paper. 
-
 merge_data = ase_data.loc[ase_data["period"] != 0].groupby(['Repo'], as_index=False)[['num_merge_commits', 'num_non_merge_commits']].min().query('num_merge_commits > 0 & num_non_merge_commits > 0')
 
 merge_data.head()
 
 #%%
-
 import json
 import os
+
+def project_has_more_than_1000_comments(slug):
+    split = slug.split("/")
+
+    username = split[0]
+    reponame = split[1]
+
+    c.execute("""select proj.id, proj.language
+                    from projects proj, users user 
+                    where proj.name = '{}'
+                        and proj.owner_id = user.id 
+                        and user.login = '{}' 
+                        and total_number_pr_comments > 1000""".format(reponame, username))
+
+    res = c.fetchone()
+
+    if res is not None:
+        return {'slug': slug, 'id': res[0], 'lang': res[1]}
+    else:
+        return None
 
 ase_repos = merge_data['Repo']
 
@@ -31,22 +49,9 @@ found_projects = []
 if not os.path.exists("../data/travis_projects_with_comments.json"):
 
     for slug in ase_repos:
-        split = slug.split("/")
-
-        username = split[0]
-        reponame = split[1]
-
-        c.execute("""select proj.id, proj.language
-                        from projects proj, users user 
-                        where proj.name = '{}'
-                            and proj.owner_id = user.id 
-                            and user.login = '{}' 
-                            and total_number_pr_comments > 1000""".format(reponame, username))
-
-        res = c.fetchone()
-
+        res = project_has_more_than_1000_comments(slug)
         if res is not None:
-            found_projects.append({'slug': slug, 'id': res[0], 'lang': res[1]})
+            found_projects.append(res)
             print(found_projects[-1])
 
 
@@ -534,10 +539,12 @@ import traceback
 
 import multiprocessing
 
-with multiprocessing.Pool(4) as p:
-    p.map(process_project, found_projects)
+def execute_scrape_list(found_projects):
+    
+    with multiprocessing.Pool(4) as p:
+        p.map(process_project, found_projects)
 
         
-            
+execute_scrape_list(found_projects)
             
 #%%
