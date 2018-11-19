@@ -27,7 +27,7 @@ def read_data_and_execute():
     if not os.path.exists("../data/travis_projects_with_comments.json"):
     
         for slug in ase_repos:
-            res = project_has_more_than_1000_comments(slug)
+            res = project_has_more_than_1000_comments(slug, c)
             if res is not None:
                 found_projects.append(res)
                 print(found_projects[-1])
@@ -49,7 +49,7 @@ def read_data_and_execute():
 import json
 import os
 
-def project_has_more_than_1000_comments(slug):
+def project_has_more_than_1000_comments(slug, c):
     split = slug.split("/")
 
     username = split[0]

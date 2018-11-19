@@ -37,7 +37,7 @@ found_projects = []
 if not os.path.exists("../data/travis_projects_with_comments_reaper.json"):
 
     for slug in ase_repos:
-        res = scraper.project_has_more_than_1000_comments(slug)
+        res = scraper.project_has_more_than_1000_comments(slug, c)
         if res is not None:
             found_projects.append(res)
             print(found_projects[-1])
