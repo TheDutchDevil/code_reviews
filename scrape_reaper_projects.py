@@ -27,6 +27,7 @@ reaper_project_data["slugs"] = reaper_project_data["github_url"].str.replace("ht
 import json
 import os
 
+import json_util
 
 ase_repos = reaper_project_data['slugs']
 
