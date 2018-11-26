@@ -253,7 +253,7 @@ def parse_commit(commit):
         'total': commit.stats.total,
         'statuses': [parse_status(status) for status in commit.get_statuses()],
         'url': commit.url,
-        'date': commit["commit"]["author"]["date"]
+        'date': commit.commit.author.date
     }
    
 def parse_status(commit_status):
