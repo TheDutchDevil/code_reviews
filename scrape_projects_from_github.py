@@ -434,6 +434,7 @@ def process_project(project):
                         repo_dict["pull_requests"].append(pull_dict)
                         break;
                     except:
+                        traceback.print_exc()
                         pull_fail_count += 1
                         print("Failed scraping pull request #{}".format(completed_pulls))
                     
