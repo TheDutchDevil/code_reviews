@@ -84,7 +84,7 @@ commits_done = 0
 
 projects_with_missing_prs = []
 
-for project in list(projects_collection.find({'travis_is_oldest_ci':True}))[:1]:
+for project in list(projects_collection.find({'travis_is_oldest_ci':True})):
     owner = project["full_name"].split("/")[0]
     name = project["full_name"].split("/")[1]
         
