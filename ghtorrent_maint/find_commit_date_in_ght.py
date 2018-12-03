@@ -29,12 +29,11 @@ def update_function():
         
         print("{}% is dated, {}% is left".format(done/total*100,todo/total*100))
         
-        sleep(10)
+        sleep(3600)
 
 import MySQLdb
 
 from pymongo import MongoClient
-from commit_dal import CommitDal
 
 print("Starting date backscrape")
  
