@@ -134,13 +134,10 @@ def do_insiders_for_project(project):
         
             
         pull_requests_collection.replace_one({"_id":pr["_id"]}, pr)
-
-
+        
+ 
 for project in projects:
     do_insiders_for_project(project)
 
     
-        
- #%%
-
-        
+    
