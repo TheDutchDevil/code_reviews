@@ -25,7 +25,7 @@ def update_function():
         
         total = cc.count()
         todo = cc.find({'date':{'$exists':False}}).count()
-        done = cc.find({'date':{'$exists':True}}).count()
+        done = total - todo
         
         print("{}% is dated, {}% is left".format(done/total*100,todo/total*100))
         
