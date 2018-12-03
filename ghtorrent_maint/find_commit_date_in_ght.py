@@ -56,7 +56,7 @@ def resolve_ghtorrent_project_id(owner, name):
         return res[0]
 
 thread = Thread(target = update_function)
-#thread.start()
+thread.start()
 
 mongo_client = MongoClient()
 
