@@ -47,7 +47,9 @@ for project in list(projects_collection.find({'travis_is_oldest_ci':True})):
                  'project_owner': owner,
                  'pr_number': pr["number"]}
                 
-                undated_commit_pointers_collection.insert(commit_pointer)
+                if undated_commit_pointers_collection.find({'sha': commit_hash}).count() == 0:
+                
+                    undated_commit_pointers_collection.insert_one(commit_pointer)
                 
     print("Analyzed {}".format(project["full_name"]))
 
