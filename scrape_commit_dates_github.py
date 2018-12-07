@@ -136,7 +136,14 @@ def date_undated_commit_pointer(commit_pointer, github, commits_collection,
     
     res = github.search_issues(query_string)
     
-    if res.totalCount == 0:
+    extracted_el = True
+    
+    try:
+        tmp = res[0]
+    except:
+        extracted_el= False
+    
+    if not extracted_el:
         print("Could not find pull request")
     else:
         pr = res[0].as_pull_request()
