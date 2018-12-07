@@ -35,6 +35,9 @@ class GitHubEncoder(JSONEncoder):
 def getRateLimit(g):
     return g.get_rate_limit().core
 
+def getRateLimitSearch(g):
+    return g.get_rate_limit().search
+
 
 def computeSleepDuration(g):
     reset_time = datetime.datetime.fromtimestamp(g.rate_limiting_resettime)
@@ -55,9 +58,11 @@ def waitAndGetRepo(g, slug):
     return g.get_repo(slug)
 
 def check_header_and_refresh(g, token_queue):
-    remaining = g.get_rate_limit().core.remaining
+    rate_limits = g.get_rate_limit()
+    remaining_core = rate_limits.core.remaining
+    remaining_search = rate_limits.search.remaining
 
-    if remaining < 50:
+    if remaining_core < 50 or remaining_search < 2:
         if token_queue.qsize() == 1:
             print("Only one token so waiting")
             waitIfDepleted(g)
@@ -66,14 +71,22 @@ def check_header_and_refresh(g, token_queue):
             token_queue.put(new_token)
             g._Github__requester._Requester__authorizationHeader = "token " + new_token
             
-            remaining = g.get_rate_limit().core.remaining
+            rate_limits = g.get_rate_limit()
+            remaining_core = rate_limits.core.remaining
+            remaining_search = rate_limits.search.remaining
             
-            if remaining < 50:
+            if remaining_core < 50:
                 print("New token is depleted, so waiting")
                 waitIfDepleted(g)
                 print("Done waiting")
+            elif remaining_search < 2:
+                print("Search of new token is depleted, so waiting")
+                sleep(60)
+                print("Done waiting for search")
             else:
                 print("Switched token")
+                
+    
         
 
 def chunkIt(seq, num):
@@ -91,13 +104,9 @@ def chunkIt(seq, num):
 Take a chunk of the undated commits and process them one by one, keep track
 of how many have been updated to refresh the GitHub token
 '''
-def process_undated_commits_chunk(chunk):
+def process_undated_commits_chunk(token_queue, chunk):
     
     print("Starting processing a chunk of size {}".format(len(chunk)))
-    
-    
-
-    token_queue = gh_tokens.gh_tokens    
     
     new_token = token_queue.get()    
     token_queue.put(new_token)    
@@ -194,6 +203,18 @@ print("Loaded and chunked the commit list")
 
 import multiprocessing
 from functools import partial
+    
+    
+
+token_queue = gh_tokens.gh_tokens    
+
+m = multiprocessing.Manager()
+
+shared_token_queue = m.Queue()
+
+for token in token_queue:
+    shared_token_queue.put(token)
 
 with multiprocessing.Pool(4) as p:
-    p.map(process_undated_commits_chunk, undated_commit_chunks)
+    func = partial(process_undated_commits_chunk, shared_token_queue)
+    p.map(func, undated_commit_chunks)
