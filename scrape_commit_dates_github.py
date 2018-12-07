@@ -117,13 +117,13 @@ def process_undated_commits_chunk(chunk):
     did = 0
     
     for undated_commit_pointer in chunk:
-        date_undated_commit_pointer(undated_commit_pointer, g)
+        date_undated_commit_pointer(undated_commit_pointer, g, commits_collection,
+                                     undated_commit_pointers_collection)
         
         did += 1
         
         if did % 20:
-            check_header_and_refresh(g, token_queue, commits_collection,
-                                     undated_commit_pointers_collection)
+            check_header_and_refresh(g, token_queue)
 
 def date_undated_commit_pointer(commit_pointer, github, commits_collection, 
                                 undated_commits_collection):
