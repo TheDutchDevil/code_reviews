@@ -182,9 +182,9 @@ def date_undated_commit_pointer(commit_pointer, github, commits_collection,
                 
                 undated_commit["date"] = actual_date
                 
-                #commits_collection.replace_one({'_id':undated_commit['_id']}, undated_commit)
+                commits_collection.replace_one({'_id':undated_commit['_id']}, undated_commit)
                 
-                #undated_commits_collection.delete_one({"_id":commit_pointer["_id"]})
+                undated_commits_collection.delete_one({"_id":commit_pointer["_id"]})
                 
                 updated = True
                 
