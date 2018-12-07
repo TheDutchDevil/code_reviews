@@ -19,7 +19,7 @@ from github import Github
 from math import ceil
 from pymongo import MongoClient
 
-from queue import Queue
+import queue
 
 class IterableQueue():
     def __init__(self,source_queue):
@@ -28,7 +28,7 @@ class IterableQueue():
         while True:
             try:
                yield self.source_queue.get_nowait()
-            except Queue.Empty:
+            except queue.Empty:
                return
 
 class GitHubEncoder(JSONEncoder):
