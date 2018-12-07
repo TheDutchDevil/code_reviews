@@ -19,6 +19,18 @@ from github import Github
 from math import ceil
 from pymongo import MongoClient
 
+import Queue
+
+class IterableQueue():
+    def __init__(self,source_queue):
+            self.source_queue = source_queue
+    def __iter__(self):
+        while True:
+            try:
+               yield self.source_queue.get_nowait()
+            except Queue.Empty:
+               return
+
 class GitHubEncoder(JSONEncoder):
     
     def default(self, o):
@@ -212,7 +224,7 @@ m = multiprocessing.Manager()
 
 shared_token_queue = m.Queue()
 
-for token in token_queue:
+for token in IterableQueue(token_queue):
     shared_token_queue.put(token)
 
 with multiprocessing.Pool(4) as p:
