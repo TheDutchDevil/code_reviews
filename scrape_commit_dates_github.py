@@ -19,7 +19,7 @@ from github import Github
 from math import ceil
 from pymongo import MongoClient
 
-import Queue
+from queue import Queue
 
 class IterableQueue():
     def __init__(self,source_queue):
