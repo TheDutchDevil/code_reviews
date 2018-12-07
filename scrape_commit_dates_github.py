@@ -149,7 +149,7 @@ def date_undated_commit_pointer(commit_pointer, github, commits_collection,
             if commit.sha == sha:
                 actual_date = commit.commit.author.date
                 
-                undated_commit = commits_collection.findOne({'sha':sha})
+                undated_commit = commits_collection.find_one({'sha':sha})
                 
                 undated_commit["date"] = actual_date
                 
