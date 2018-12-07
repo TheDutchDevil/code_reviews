@@ -144,7 +144,8 @@ def date_undated_commit_pointer(commit_pointer, github, commits_collection,
         extracted_el= False
     
     if not extracted_el:
-        print("Could not find pull request")
+        print("Could not find pull request for {}/{} number {}".format(
+                owner,name, commit_pointer["pr_number"]))
     else:
         pr = res[0].as_pull_request()
         
