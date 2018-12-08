@@ -62,6 +62,7 @@ def waitIfDepleted(g):
     
     sleep_duration = computeSleepDuration(g)
     if not rate_limit.remaining > 55:
+        print("Waiting {} minutes".format(sleep_duration/60))
         sleep(sleep_duration)
     
 
