@@ -61,7 +61,7 @@ def waitIfDepleted(g):
     rate_limit = getRateLimit(g)
     
     sleep_duration = computeSleepDuration(g)
-    if not rate_limit.remaining > 55:
+    if not rate_limit.remaining > 49:
         print("Waiting {} minutes".format(sleep_duration/60))
         sleep(sleep_duration)
     
@@ -70,7 +70,7 @@ def waitAndGetRepo(g, slug):
     waitIfDepleted(g)
     return g.get_repo(slug)
 
-def check_header_and_refresh(g, token_queue):
+def check_header_and_refresh(g, token_queue, depth = 0):
     rate_limits = g.get_rate_limit()
     remaining_core = rate_limits.core.remaining
     remaining_search = rate_limits.search.remaining
@@ -89,9 +89,12 @@ def check_header_and_refresh(g, token_queue):
             remaining_search = rate_limits.search.remaining
             
             if remaining_core < 50:
-                print("New token is depleted, so waiting")
-                waitIfDepleted(g)
-                print("Done waiting")
+                if depth < 3:
+                    check_header_and_refresh(g, token_queue, depth=depth+1)
+                else:
+                    print("New token is depleted, so waiting")
+                    waitIfDepleted(g)
+                    print("Done waiting")
             elif remaining_search < 2:
                 print("Search of new token is depleted, so waiting")
                 sleep(60)
