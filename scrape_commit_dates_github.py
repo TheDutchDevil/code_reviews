@@ -57,7 +57,7 @@ def computeSleepDuration(g):
     return int(ceil((reset_time - curr_time).total_seconds()))
 
 def computeSleepDurationForRate(rate):
-    reset_time = datetime.datetime.fromtimestamp(rate.reset)
+    reset_time == rate.reset
     curr_time = datetime.datetime.now()
     return int(ceil((reset_time - curr_time).total_seconds()))
 
