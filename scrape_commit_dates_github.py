@@ -57,7 +57,7 @@ def computeSleepDuration(g):
     return int(ceil((reset_time - curr_time).total_seconds()))
 
 def computeSleepDurationForRate(rate):
-    reset_time == rate.reset
+    reset_time = rate.reset
     curr_time = datetime.datetime.now()
     return int(ceil((reset_time - curr_time).total_seconds()))
 
@@ -101,14 +101,15 @@ def check_header_and_refresh(g, token_queue, depth = 0):
                     waitIfDepleted(g)
                     print("Done waiting")
             elif remaining_search < 2:
-                print("Search of new token is depleted, so waiting")
-                sleep(60)
-                print("Done waiting for search")
+                sleep_time = computeSleepDurationForRate(rate_limits.search)
+                print("Waiting {}s to reset the search timer of new token".format(sleep_time))
+                sleep(sleep_time)
             else:
                 print("Switched token")
     elif remaining_search < 2:
-        print("Waiting to reset the search timer")
-        sleep(computeSleepDurationForRate(rate_limits.search))
+        sleep_time = computeSleepDurationForRate(rate_limits.search)
+        print("Waiting {}s to reset the search timer".format(sleep_time))
+        sleep(sleep_time)
                 
     
         
