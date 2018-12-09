@@ -102,14 +102,14 @@ def check_header_and_refresh(g, token_queue, depth = 0):
                     print("Done waiting")
             elif remaining_search < 2:
                 sleep_time = computeSleepDurationForRate(rate_limits.search)
-                print("Waiting {}s to reset the search timer of new token".format(sleep_time))
-                sleep(sleep_time)
+                print("Waiting 60s to reset the search timer of new token")
+                sleep(60)
             else:
                 print("Switched token")
     elif remaining_search < 2:
         sleep_time = computeSleepDurationForRate(rate_limits.search)
-        print("Waiting {}s to reset the search timer".format(sleep_time))
-        sleep(sleep_time)
+        print("Waiting {}s to reset the search timer".format(60))
+        sleep(60)
                 
     
         
