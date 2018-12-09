@@ -56,6 +56,11 @@ def computeSleepDuration(g):
     curr_time = datetime.datetime.now()
     return int(ceil((reset_time - curr_time).total_seconds()))
 
+def computeSleepDurationForRate(rate):
+    reset_time = datetime.datetime.fromtimestamp(rate.reset)
+    curr_time = datetime.datetime.now()
+    return int(ceil((reset_time - curr_time).total_seconds()))
+
 
 def waitIfDepleted(g):    
     rate_limit = getRateLimit(g)
@@ -75,7 +80,7 @@ def check_header_and_refresh(g, token_queue, depth = 0):
     remaining_core = rate_limits.core.remaining
     remaining_search = rate_limits.search.remaining
 
-    if remaining_core < 50 or remaining_search < 2:
+    if remaining_core < 50:
         if token_queue.qsize() == 1:
             print("Only one token so waiting")
             waitIfDepleted(g)
@@ -101,6 +106,9 @@ def check_header_and_refresh(g, token_queue, depth = 0):
                 print("Done waiting for search")
             else:
                 print("Switched token")
+    elif remaining_search < 2:
+        print("Waiting to reset the search timer")
+        sleep(computeSleepDurationForRate(rate_limits.search))
                 
     
         
