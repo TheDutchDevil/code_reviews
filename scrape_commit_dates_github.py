@@ -122,6 +122,8 @@ def process_undated_commits_chunk(token_queue, chunk):
     print("Starting processing a chunk of size {}".format(len(chunk)))
     
     new_token = token_queue.get()    
+    
+    print("Using token {}".format(new_token))
     token_queue.put(new_token)    
     g = Github(new_token, per_page=100)
     
