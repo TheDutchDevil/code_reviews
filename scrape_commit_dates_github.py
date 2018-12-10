@@ -230,8 +230,8 @@ print("Loaded and chunked the commit list")
 
 import multiprocessing
 from functools import partial
-    
-    
+
+print("Starting to split of threads \n")   
 
 token_queue = gh_tokens.gh_tokens    
 
