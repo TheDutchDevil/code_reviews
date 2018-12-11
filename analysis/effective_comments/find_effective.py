@@ -178,6 +178,7 @@ def process_pr(pr):
                             if file_comment["eff_track_line"] == curr_pos_in_old:
                                 placed_line_comments.remove(file_comment)
                                 num_effective_comments += 1
+                                break
                                 
                             
                 # If the file is deleted any comments in the 
