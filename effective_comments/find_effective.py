@@ -44,6 +44,8 @@ for the lines that have been added or removed in diffs.
 '''
 def process_pr(pr):
     
+    num_effective_comments = 0
+    
     comments = sorted([rc for rc in pr["review_comments"] if rc["in_reply_to_id"] is None], key=lambda comment : comment["created_at"])
     commits = list([commits_collection.find_one({'sha': commit, 'date': {'$exists': True}}) for commit in pr["commits"]])
     
@@ -129,7 +131,9 @@ def process_pr(pr):
                 # fact that they have changed by position by this commit
                 if file["status"] == 'modified':
                     
-                    for file_comment in [rc for rc in placed_line_comments if rc["path"] == file["filename"] and "eff_track_line" in rc]:
+                    for file_comment in list([rc for 
+                                              rc in placed_line_comments 
+                                              if rc["path"] == file["filename"] and "eff_track_line" in rc]):
                         patch = file["patch"]
                         
                         if patch is None:
@@ -172,7 +176,8 @@ def process_pr(pr):
                                 raise ValueError("Horror, there is diff panic")
 
                             if file_comment["eff_track_line"] == curr_pos_in_old:
-                                #print("EFFECTIVE {}".format(file_comment["url"]))
+                                placed_line_comments.remove(file_comment)
+                                num_effective_comments += 1
                                 
                             
                 # If the file is deleted any comments in the 
@@ -184,10 +189,11 @@ def process_pr(pr):
                         print("filename: {}".format(file["filename"]))
                         print("url: {}".format(pr["html_url"]))
                         print("found effective comment")"""
-                        #print("EFFECTIVE {}".format(file_comment["url"]))
+                        num_effective_comments += 1
                         placed_line_comments.remove(file_comment)
                     
         else:
             raise ValueError("Ehm this is not a code comment or commit")
+    return num_effective_comments
     
 
