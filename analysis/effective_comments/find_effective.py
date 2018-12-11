@@ -103,6 +103,7 @@ def process_pr(pr):
                 elif line.startswith("\\"):
                     pass
                 else:
+                    print(line)
                     raise ValueError("Horror, there is diff panic")
                     
                 lines_done += 1
