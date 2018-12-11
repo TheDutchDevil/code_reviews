@@ -54,11 +54,11 @@ def process_pr(pr):
     commits.sort(key = lambda commit : commit["date"])
     
     if len(comments) == 0:
-        return
+        return 0
         
     if len(commits)  == 0:
         print("\tOh misery! PR with number {} has no dated commits".format(pr["number"]))
-        return
+        return 0
         
     merged_list = commits + comments
     
@@ -138,7 +138,7 @@ def process_pr(pr):
                         
                         if patch is None:
                             # This is a serious error condition!
-                            return
+                            return 0
                         
                         curr_pos_in_old = 0
                         curr_pos_in_new = 0
