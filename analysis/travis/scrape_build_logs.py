@@ -73,4 +73,35 @@ def retrieve_build_log_for_job_id(job_identifier):
               format(log_response.status_code))
         
     return log_response.text
-                
+
+def retrieve_build_identifier_from_travis_url(url):
+    if "travis-ci.org" not in url:
+        raise ValueError("The url {} is not a valid travis url"
+                        .format(url))
+        
+    identifier = url.split("builds/")[1].split("/")[0]
+    
+    return identifier
+
+'''
+Given a set of build identifiers, goes to Travis to collects all 
+assorted logs and returns these logs. As a travis build consists 
+out of several jobs one build identifier might return more than 
+one logs.
+
+Return type is an array of string, where each string is a complete
+build log as recorded by Travis. 
+'''
+def build_logs_for_identifiers(identifiers):
+    log_output = []
+    
+    for identifier in identifiers:
+        build_data = retrieve_build_for_identifier(identifier)
+        
+        job_ids = extract_job_ids_for_build(build_data)
+        
+        for job_id in job_ids:
+            log_output.append(retrieve_build_log_for_job_id(job))
+            
+    return log_output
+            
