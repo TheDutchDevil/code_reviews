@@ -11,7 +11,7 @@ import time
 import requests
 
 
-
+import travis.travis_token as tt
 
 TRAVIS_TOKEN = tt.travis_token
 
