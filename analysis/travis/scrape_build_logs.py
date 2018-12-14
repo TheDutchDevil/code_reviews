@@ -7,8 +7,6 @@ Script that scrapes the Travis API to collect build logs for a build identifier
 @author: natha
 """
 
-import travis_token as tt
-
 import time
 import requests
 
