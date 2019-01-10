@@ -158,10 +158,16 @@ def process_pr(pr):
                                 # negative for removed lines
                                 lines_delta = curr_pos_in_new - curr_pos_in_old
                                 
+                                #
+                                # What about a patch adding or removing lines above the current comment !!!! ?????
+                                # To account there should be a break
+                                #
+                                
                                 # At this point the diff passed the location of the comment. 
                                 # We update the old position and we're done.
                                 if curr_pos_in_old > file_comment["eff_track_line"]:
                                     file_comment["eff_track_line"] += lines_delta
+                                    break
 
                             elif line.startswith("-"):
                                 curr_pos_in_old += 1
@@ -181,16 +187,15 @@ def process_pr(pr):
                                 num_effective_comments += 1
                                 break
                                 
+                                # what if after processing all lines the comment is below the diff? then the
+                                # position of the comment should still be updated with the delta in total number
+                                # of lines. 
+                                
                             
                 # If the file is deleted any comments in the 
                 # file have induced some form of change
                 elif file["status"] == "removed":
                     for file_comment in [rc for rc in placed_line_comments if rc["path"] == file["filename"]]:
-                        """print("body: {}".format(file_comment["body"]))
-                        print("sha: {}".format(item["sha"]))
-                        print("filename: {}".format(file["filename"]))
-                        print("url: {}".format(pr["html_url"]))
-                        print("found effective comment")"""
                         num_effective_comments += 1
                         placed_line_comments.remove(file_comment)
                     
