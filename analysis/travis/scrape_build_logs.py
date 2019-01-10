@@ -87,7 +87,7 @@ def retrieve_build_identifier_from_travis_url(url):
 Given a set of build identifiers, goes to Travis to collects all 
 assorted logs and returns these logs. As a travis build consists 
 out of several jobs one build identifier might return more than 
-one logs.
+one log.
 
 Return type is an array of string, where each string is a complete
 build log as recorded by Travis. 
@@ -101,7 +101,7 @@ def build_logs_for_identifiers(identifiers):
         job_ids = extract_job_ids_for_build(build_data)
         
         for job_id in job_ids:
-            log_output.append(retrieve_build_log_for_job_id(job))
+            log_output.append(retrieve_build_log_for_job_id(job_id))
             
     return log_output
             
