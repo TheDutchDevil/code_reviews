@@ -6,13 +6,6 @@ Created on Tue Dec 11 10:22:54 2018
 """
 
 import re
-from pymongo import MongoClient
-
-mongo_client = MongoClient()
-
-database = mongo_client["graduation"]
-
-commits_collection = database["commits"]
 
 line_number_hunk_regex_raw = "((^|\\n)\@\@\ -(\d+(|,\d+))\ \+(\d+(|,\d+))\ \@\@)"
 
@@ -47,7 +40,7 @@ def process_pr(pr):
     num_effective_comments = 0
     
     comments = sorted([rc for rc in pr["review_comments"] if rc["in_reply_to_id"] is None], key=lambda comment : comment["created_at"])
-    commits = list([commits_collection.find_one({'sha': commit, 'date': {'$exists': True}}) for commit in pr["commits"]])
+    commits = list([commit for commit in pr["commits"] if "date" in commit])
     
     commits = list([cmt for cmt in commits if cmt is not None])
        
