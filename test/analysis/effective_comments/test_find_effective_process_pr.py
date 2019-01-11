@@ -30,7 +30,7 @@ class TestFindEffectiveProcessPr():
 
     def test_zero_returned_for_pr_with_one_commit_and_one_comment(self):
         pr = pull_request_object(comments=[
-            review_comment_object(relativedelta(days=5), 4)
+            review_comment_object(relativedelta(days=5), 12)
         ],
         commits=[
             commit_object(relativedelta(days=4))
@@ -38,13 +38,76 @@ class TestFindEffectiveProcessPr():
 
         assert find_effective.process_pr(pr) == 0
 
+    def test_one_returned_for_pr_with_two_commits_in_same_area(self):
+        
+        pr = pull_request_object(comments=[
+            review_comment_object(relativedelta(days=5), 12)
+        ],
+        commits=[
+            commit_object(relativedelta(days=4)),
+            commit_object(relativedelta(days=7))
+        ])        
 
+        assert find_effective.process_pr(pr) == 1
+
+    def test_no_effective_comments_for_two_different_files(self):
+        pr = pull_request_object(comments=[
+            review_comment_object(relativedelta(days=5), 12)
+        ],
+        commits=[
+            commit_object(relativedelta(days=4)),
+            commit_object(relativedelta(days=7), files =[
+                file_object(filename="b/something.py")
+            ])
+        ])        
+
+        assert find_effective.process_pr(pr) == 0
+
+    def test_effective_comment_found_after_removing_lines(self):
+        pr = pull_request_object(
+            comments=[
+                review_comment_object(relativedelta(days=2), 8, hunks=[
+                    hunk(100,116,100,116, modified_lines = 6)
+                ])
+            ],
+            commits= [
+                commit_object(relativedelta(days=1)),
+                commit_object(relativedelta(days=3), files=[
+                    file_object(hunks=[hunk(10,60,10,20)])
+                ]),
+                commit_object(relativedelta(days=8), files= [
+                    file_object(hunks=[hunk(55,15,55,15,modified_lines=5)])
+                ])
+            ]
+        )
+
+        assert find_effective.process_pr(pr) == 1
+
+    def test_effective_comment_found_after_adding_lines(self):
+        pr = pull_request_object(
+            comments=[
+                review_comment_object(relativedelta(days=2), 8, hunks=[
+                    hunk(100,116,100,116, modified_lines = 6)
+                ])
+            ],
+            commits= [
+                commit_object(relativedelta(days=1)),
+                commit_object(relativedelta(days=3), files=[
+                    file_object(hunks=[hunk(10,20,10,60)])
+                ]),
+                commit_object(relativedelta(days=8), files= [
+                    file_object(hunks=[hunk(140,15,140,15,modified_lines=5)])
+                ])
+            ]
+        )
+
+        assert find_effective.process_pr(pr) == 1
 
 '''
 Given 5 pieces of information creates a hunk of x modified lines, with the right
 @@ header. 
 '''
-def hunk(start_old, length_old, start_new, length_new, modified_lines):
+def hunk(start_old, length_old, start_new, length_new, modified_lines = 0):
     header_line = "@@ -{},{} +{},{} @@".format(start_old, length_old,
                                                     start_new, length_new)
     
@@ -72,10 +135,11 @@ def hunk(start_old, length_old, start_new, length_new, modified_lines):
 
     return '\n'.join(lines)
 
-def file_object(filename = "a/something.py", 
+def file_object(filename = "a/something.py", file_status = 'modified',
             hunks = [hunk(10, 15, 10, 15, modified_lines = 5)]):
     return {
         'filename': filename,
+        'status': file_status,
         'patch': "\n".join(hunks)
     }
 
@@ -84,7 +148,7 @@ def file_object(filename = "a/something.py",
 def commit_object(created_at_offset, files = [file_object()]):
     return {
         'date': base_date + created_at_offset,
-        'files': [],
+        'files': files,
         'sha': 'fdjakl fdafj das f32r'
     }
 
