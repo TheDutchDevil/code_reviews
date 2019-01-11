@@ -3,7 +3,7 @@ Yes, even the test code has its own tests! this is to test the validity of the
 create hunk method
 '''
 
-from code_reviews.test.analysis.effective_comments.test_find_effective_process_pr import create_hunk
+from code_reviews.test.analysis.effective_comments.test_find_effective_process_pr import hunk as create_hunk
 
 class TestCreateHunk():
 

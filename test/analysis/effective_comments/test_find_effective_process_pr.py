@@ -29,39 +29,22 @@ class TestFindEffectiveProcessPr():
         assert find_effective.process_pr(pr) == 0
 
     def test_zero_returned_for_pr_with_one_commit_and_one_comment(self):
-        pass
+        pr = pull_request_object(comments=[
+            review_comment_object(relativedelta(days=5), 4)
+        ],
+        commits=[
+            commit_object(relativedelta(days=4))
+        ])
+
+        assert find_effective.process_pr(pr) == 0
 
 
-'''
-Helper method that returns a review comment object suited for the 
-process_pr method. 
-'''
-def review_comment_object(created_at_offset, original_position, path = "a/something.py"):
-    return {
-        'in_reply_to_id': None,
-        'created_at': base_date + created_at_offset,
-        'original_commit_id': 'fdasfdjakl234',
-        'original_position': original_position,
-        'path': path
-    }
-
-def pull_request_object(comments = [], commits = [], number = 342):
-    return {
-        'number': number,
-        'review_comments': comments,
-        'commits': commits
-    }
-
-def commit_object(created_at_offset):
-    return {
-        'date': base_date + created_at_offset
-    }
 
 '''
 Given 5 pieces of information creates a hunk of x modified lines, with the right
 @@ header. 
 '''
-def create_hunk(start_old, length_old, start_new, length_new, modified_lines):
+def hunk(start_old, length_old, start_new, length_new, modified_lines):
     header_line = "@@ -{},{} +{},{} @@".format(start_old, length_old,
                                                     start_new, length_new)
     
@@ -88,4 +71,42 @@ def create_hunk(start_old, length_old, start_new, length_new, modified_lines):
     lines += [" fjdklasjfklasd  " for i in range(unchanged_bottom)]
 
     return '\n'.join(lines)
+
+def file_object(filename = "a/something.py", 
+            hunks = [hunk(10, 15, 10, 15, modified_lines = 5)]):
+    return {
+        'filename': filename,
+        'patch': "\n".join(hunks)
+    }
+
+    
+
+def commit_object(created_at_offset, files = [file_object()]):
+    return {
+        'date': base_date + created_at_offset,
+        'files': [],
+        'sha': 'fdjakl fdafj das f32r'
+    }
+
+'''
+Helper method that returns a review comment object suited for the 
+process_pr method. 
+'''
+def review_comment_object(created_at_offset, original_position, path = "a/something.py",
+                        hunks = [hunk(10,15,10,15, modified_lines = 5)]):
+    return {
+        'in_reply_to_id': None,
+        'created_at': base_date + created_at_offset,
+        'original_commit_id': 'fdasfdjakl234',
+        'original_position': original_position,
+        'path': path,
+        'diff_hunk': "\n".join(hunks)
+    }
+
+def pull_request_object(comments = [], commits = [], number = 342):
+    return {
+        'number': number,
+        'review_comments': comments,
+        'commits': commits
+    }
 
