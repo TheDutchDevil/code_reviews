@@ -155,7 +155,7 @@ class TestFindEffectiveProcessPr():
                             hunk(90,20,100,60)])
                 ]),
                 commit_object(relativedelta(days=8), files= [
-                    file_object(hunks=[hunk(60,10,70,10,modified_lines=5)])
+                    file_object(hunks=[hunk(60,10,60,10,modified_lines=5)])
                 ])
             ]
         )
