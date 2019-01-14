@@ -131,13 +131,16 @@ def process_pr(pr):
                         patch = file["patch"]
                         
                         if patch is None:
-                            # This is a serious error condition!
-                            return 0
+                            # This is a serious error condition! Meaning this file can not be processed
+                            break
                         
                         curr_pos_in_old = 0
                         curr_pos_in_new = 0
                         
+                        # Update this to reflect the running delta of all hunks in this file
                         lines_delta = 0
+
+                        updated_position = False
                         
                         for line in patch.split("\n"):
                             if line.startswith("@@"):
@@ -147,20 +150,18 @@ def process_pr(pr):
 
                                 curr_pos_in_new = int(hunk_header_match.group(5).split(",")[0])
                                 
+                                # At this point the diff passed the location of the comment. 
+                                # We update the old position with the new position in the
+                                # file so far (we do not care about a delta below the comment) and
+                                # we're done
+                                if curr_pos_in_old > file_comment["eff_track_line"]:
+                                    file_comment["eff_track_line"] += lines_delta
+                                    updated_position = True
+                                    break
+                                
                                 # Positive for added lines
                                 # negative for removed lines
                                 lines_delta = curr_pos_in_new - curr_pos_in_old
-                                
-                                #
-                                # What about a patch adding or removing lines above the current comment !!!! ?????
-                                # To account there should be a break
-                                #
-                                
-                                # At this point the diff passed the location of the comment. 
-                                # We update the old position and we're done.
-                                if curr_pos_in_old > file_comment["eff_track_line"]:
-                                    file_comment["eff_track_line"] += lines_delta
-                                    break
 
                             elif line.startswith("-"):
                                 curr_pos_in_old += 1
@@ -178,11 +179,21 @@ def process_pr(pr):
                             if file_comment["eff_track_line"] == curr_pos_in_old:
                                 placed_line_comments.remove(file_comment)
                                 num_effective_comments += 1
+                                updated_position = True
                                 break
+
+                        if not updated_position:
+                            # Calculate the new lines delta and update the position
+
+                            lines_delta = curr_pos_in_new - curr_pos_in_old
+                            file_comment["eff_track_line"] += lines_delta
                                 
                                 # what if after processing all lines the comment is below the diff? then the
                                 # position of the comment should still be updated with the delta in total number
                                 # of lines. 
+                        # If the hunks are processed without finding the comment the hunks have all been above
+                        # the comment itself, if this is the case, we update the position of the comment with
+                        # the delta in lines over all the hunks.
                                 
                             
                 # If the file is deleted any comments in the 
