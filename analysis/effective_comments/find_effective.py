@@ -150,6 +150,10 @@ def process_pr(pr):
 
                                 curr_pos_in_new = int(hunk_header_match.group(5).split(",")[0])
                                 
+                                # Positive for added lines
+                                # negative for removed lines
+                                lines_delta = curr_pos_in_new - curr_pos_in_old
+                                
                                 # At this point the diff passed the location of the comment. 
                                 # We update the old position with the new position in the
                                 # file so far (we do not care about a delta below the comment) and
@@ -158,10 +162,6 @@ def process_pr(pr):
                                     file_comment["eff_track_line"] += lines_delta
                                     updated_position = True
                                     break
-                                
-                                # Positive for added lines
-                                # negative for removed lines
-                                lines_delta = curr_pos_in_new - curr_pos_in_old
 
                             elif line.startswith("-"):
                                 curr_pos_in_old += 1
@@ -187,13 +187,6 @@ def process_pr(pr):
 
                             lines_delta = curr_pos_in_new - curr_pos_in_old
                             file_comment["eff_track_line"] += lines_delta
-                                
-                                # what if after processing all lines the comment is below the diff? then the
-                                # position of the comment should still be updated with the delta in total number
-                                # of lines. 
-                        # If the hunks are processed without finding the comment the hunks have all been above
-                        # the comment itself, if this is the case, we update the position of the comment with
-                        # the delta in lines over all the hunks.
                                 
                             
                 # If the file is deleted any comments in the 
