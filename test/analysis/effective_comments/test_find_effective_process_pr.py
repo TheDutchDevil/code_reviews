@@ -161,6 +161,63 @@ class TestFindEffectiveProcessPr():
         )
         assert find_effective.process_pr(pr) == 1
 
+    def test_comment_found_after_file_rename(self):
+        pr = pull_request_object(
+            comments=[
+                review_comment_object(relativedelta(days=2), 5, hunks=[
+                    hunk(50,10,50,10, modified_lines = 4)
+                ])
+            ],
+            commits= [
+                commit_object(relativedelta(days=1)),
+                commit_object(relativedelta(days=3), files=[
+                    file_object(hunks=[hunk(10,10,10,20), 
+                            hunk(90,20,100,60)])
+                ]),
+                commit_object(relativedelta(days=8), files= [
+                    file_object(hunks=[hunk(60,10,60,10,modified_lines=5)])
+                ])
+            ]
+        )
+        assert find_effective.process_pr(pr) == 1
+
+    def test_comment_found_after_many_inserts(self):
+        pr = pull_request_object(
+            comments=[
+                review_comment_object(relativedelta(days=2), 5, hunks=[
+                    hunk(300,10,300,10, modified_lines = 4)
+                ])
+            ],
+            commits= [
+                commit_object(relativedelta(days=1)),
+                commit_object(relativedelta(days=3), files=[
+                    file_object(hunks=[hunk(10,10,10,20), 
+                            hunk(200,20,210,80),
+                            hunk(302, 20, 372, 20, modified_lines=10)])
+                ])
+            ]
+        )
+        assert find_effective.process_pr(pr) == 1
+
+    def test_no_comment_found_after_many_inserts(self):
+        pr = pull_request_object(
+            comments=[
+                review_comment_object(relativedelta(days=2), 5, hunks=[
+                    hunk(370,10,370,10, modified_lines = 4)
+                ])
+            ],
+            commits= [
+                commit_object(relativedelta(days=1)),
+                commit_object(relativedelta(days=3), files=[
+                    file_object(hunks=[hunk(10,10,10,20), 
+                            hunk(200,20,210,80),
+                            hunk(302, 20, 372, 20, modified_lines=10)])
+                ])
+            ]
+        )
+        assert find_effective.process_pr(pr) == 0
+
+
 '''
 Given 5 pieces of information creates a hunk of x modified lines, with the right
 @@ header. 
