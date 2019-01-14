@@ -217,6 +217,69 @@ class TestFindEffectiveProcessPr():
         )
         assert find_effective.process_pr(pr) == 0
 
+    def test_file_rename_comment_found_1(self):
+        pr = pull_request_object(
+            comments=[
+                review_comment_object(relativedelta(days=2), 5, hunks=[
+                    hunk(370,10,370,10, modified_lines = 4)
+                ])
+            ],
+            commits= [
+                commit_object(relativedelta(days=1)),
+                commit_object(relativedelta(days=3), files=[
+                    file_object(hunks=[hunk(10,10,10,10, modified_lines=4)],
+                    file_status='renamed', previous_filename='a/something.py',
+                    filename='b/something.py'),
+                    file_object(hunks=[
+                        hunk(370,10,370,10, modified_lines=4)
+                    ], filename='b/something.py')
+                ])
+            ]
+        )
+
+        assert find_effective.process_pr(pr) == 1
+
+    def test_file_rename_comment_found_2(self):
+        pr = pull_request_object(
+            comments=[
+                review_comment_object(relativedelta(days=2), 5, hunks=[
+                    hunk(370,10,370,10, modified_lines = 4)
+                ])
+            ],
+            commits= [
+                commit_object(relativedelta(days=1)),
+                commit_object(relativedelta(days=3), files=[
+                    file_object(hunks=[hunk(370,10,370,10, modified_lines=4)],
+                    file_status='renamed', previous_filename='a/something.py',
+                    filename='b/something.py')
+                ])
+            ]
+        )
+
+        assert find_effective.process_pr(pr) == 1
+
+    def test_file_renamed_no_comment_found(self):
+        pr = pull_request_object(
+            comments=[
+                review_comment_object(relativedelta(days=2), 5, hunks=[
+                    hunk(370,10,370,10, modified_lines = 4)
+                ])
+            ],
+            commits= [
+                commit_object(relativedelta(days=1)),
+                commit_object(relativedelta(days=3), files=[
+                    file_object(hunks=[hunk(10,10,10,10, modified_lines=4)],
+                    file_status='renamed', previous_filename='a/something.py',
+                    filename='b/something.py'),
+                    file_object(hunks=[
+                        hunk(370,10,370,10, modified_lines=4)
+                    ], filename='c/something.py')
+                ])
+            ]
+        )
+
+        assert find_effective.process_pr(pr) == 0
+
 
 '''
 Given 5 pieces of information creates a hunk of x modified lines, with the right
@@ -251,12 +314,18 @@ def hunk(start_old, length_old, start_new, length_new, modified_lines = 0):
     return '\n'.join(lines)
 
 def file_object(filename = "a/something.py", file_status = 'modified',
-            hunks = [hunk(10, 15, 10, 15, modified_lines = 5)]):
-    return {
+            hunks = [hunk(10, 15, 10, 15, modified_lines = 5)], 
+            previous_filename = None):
+    ret = {
         'filename': filename,
         'status': file_status,
         'patch': "\n".join(hunks)
     }
+
+    if file_status == "renamed":
+        ret['previous_filename'] = previous_filename
+
+    return ret
 
     
 
