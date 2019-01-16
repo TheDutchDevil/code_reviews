@@ -166,7 +166,7 @@ for project in projects:
                 if random.randint(1, 11) < 2:
                     print(pr.html_url)
                     print(old_pr["html_url"])
-                    print(mathcing[0]["sha"])
+                    print(matching[0]["sha"])
             else:
                 right_date += 1
             
