@@ -138,10 +138,12 @@ for project in projects:
         
         commits = pr.get_commits()
 
+        print("{} gh found, we have {}".format(len(commits), len(full_commits)))
+
         for commit in commits:
             matching = [cmt for cmt in full_commits if cmt["sha"] == commit.sha and 'date' in cmt]
 
-            if len(matching) != 1:
+            if len(matching) == 0:
                 unmatched += 1
             elif commit.commit.author.date != matching[0]["date"]:
                 wrong_date += 1
