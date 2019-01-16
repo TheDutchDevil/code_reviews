@@ -138,7 +138,7 @@ for project in projects:
         
         commits = pr.get_commits()
 
-        print("{} gh found, we have {}".format(len(commits), len(full_commits)))
+        print("{} gh found, we have {}".format(commits.totalCount, len(full_commits)))
 
         for commit in commits:
             matching = [cmt for cmt in full_commits if cmt["sha"] == commit.sha and 'date' in cmt]
