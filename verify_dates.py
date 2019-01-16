@@ -9,6 +9,8 @@ from time import sleep
 import datetime
 from math import ceil
 
+import random
+
 
 def getRateLimit(g):
     return g.get_rate_limit().core
@@ -110,7 +112,7 @@ wrong_projs = []
 for project in projects:
     prs = list(pull_requests_collection.find({'project_owner':project["full_name"].split("/")[0], 'project_name':project["full_name"].split("/")[1]}))
 
-    for pr in prs[:5]:
+    for pr in random.sample(prs, 10):
 
         check_header_and_refresh(g, token_queue)
 
