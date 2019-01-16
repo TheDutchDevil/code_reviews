@@ -89,7 +89,7 @@ new_token = token_queue.get()
     
 token_queue.put(new_token)    
 
-g = Github(token_queue, per_page=100)
+g = Github(new_token, per_page=100)
 
 from pymongo import MongoClient
 from bson.objectid import ObjectId
