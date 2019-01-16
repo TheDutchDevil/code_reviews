@@ -173,5 +173,5 @@ for project in projects:
                 unmatched, right_date, wrong_date, unmatched / (unmatched +right_date+wrong_date) * 100,
                 wrong_date / (right_date + wrong_date) * 100
             ))
-        except e:
+        except Exception as e:
             print(e)
