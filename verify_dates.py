@@ -8,7 +8,7 @@ import gh_tokens
 from time import sleep
 import datetime
 from math import ceil
-
+from random import shuffle
 import random
 
 
@@ -104,6 +104,8 @@ pull_requests_collection = database["pull_requests"]
 
 projects_collection = database["projects"]
 
+res_collection = database["wrong_dates"]
+
 commits_collection = database["commits"]
 projects = list(projects_collection.find({'succeeded' : True, 'travis_is_oldest_ci': True}))
 
@@ -111,67 +113,71 @@ wrong_projs = []
 
 wrongly_dated_commit_pairs = []
 
+shuffle(projects)
+
 for project in projects:
     prs = list(pull_requests_collection.find({'project_owner':project["full_name"].split("/")[0], 'project_name':project["full_name"].split("/")[1]}))
 
     for pr in random.sample(prs, 10):
-
-        check_header_and_refresh(g, token_queue)
-
-        full_commits = list([commits_collection.find_one({'sha': commit_hash}) for commit_hash in pr["commits"]])
-
-        query_string = "type:pr repo:{}/{} SHA:{} '{}' in:title".format(
-            project["full_name"].split("/")[0] , project["full_name"].split("/")[1], pr["commits"][0], pr["title"])
-    
-        res = g.search_issues(query_string)
-
-        old_html_url = pr["html_url"]
-
-        extracted_el = True
-
-        old_pr = pr
-
         try:
-            tmp = res[0]
-        except:
-            extracted_el= False
+
+            check_header_and_refresh(g, token_queue)
+
+            full_commits = list([commits_collection.find_one({'sha': commit_hash}) for commit_hash in pr["commits"]])
+
+            query_string = "type:pr repo:{}/{} SHA:{} '{}' in:title".format(
+                project["full_name"].split("/")[0] , project["full_name"].split("/")[1], pr["commits"][0], pr["title"])
         
-        if not extracted_el:
-            print("Could not find pull request for {}".format(project["full_name"]))
-            break
+            res = g.search_issues(query_string)
 
-        for item in res:
-            if item.as_pull_request().number == pr["number"]:
-                pr = item.as_pull_request()
-                break
-        
-        
-        commits = pr.get_commits()
+            old_html_url = pr["html_url"]
 
-        if(commits.totalCount - len(full_commits) > 100):
-            print(pr.html_url)
-            print(old_html_url)
+            extracted_el = True
 
-        print("{} gh found, we have {}".format(commits.totalCount, len(full_commits)))
+            old_pr = pr
 
-        for commit in commits:
-            matching = [cmt for cmt in full_commits if cmt["sha"] == commit.sha and 'date' in cmt]
-
-            if len(matching) == 0:
-                unmatched += 1
-            elif commit.commit.author.date != matching[0]["date"]:
-                wrong_date += 1
-                wrongly_dated_commit_pairs.append((commit.commit.author.date, matching[0]["date"], pr, old_pr))
-
-                if random.randint(1, 11) < 2:
-                    print(pr.html_url)
-                    print(commit.commit.author.date - matching[0]["date"])
-                    print(matching[0]["sha"])
-            else:
-                right_date += 1
+            try:
+                tmp = res[0]
+            except:
+                extracted_el= False
             
-        print("unmatched: {}, right {}, wrong {}. {}% is unmatched, {}% is wrong".format(
-            unmatched, right_date, wrong_date, unmatched / (unmatched +right_date+wrong_date) * 100,
-            wrong_date / (right_date + wrong_date) * 100
-        ))
+            if not extracted_el:
+                print("Could not find pull request for {}".format(project["full_name"]))
+                break
 
+            for item in res:
+                if item.as_pull_request().number == pr["number"]:
+                    pr = item.as_pull_request()
+                    break
+            
+            
+            commits = pr.get_commits()
+
+            if(commits.totalCount - len(full_commits) > 100):
+                print(pr.html_url)
+                print(old_html_url)
+
+            print("{} gh found, we have {}".format(commits.totalCount, len(full_commits)))
+
+            for commit in commits:
+                matching = [cmt for cmt in full_commits if cmt["sha"] == commit.sha and 'date' in cmt]
+
+                if len(matching) == 0:
+                    unmatched += 1
+                elif commit.commit.author.date != matching[0]["date"]:
+                    wrong_date += 1
+                    wrongly_dated_commit_pairs.append((commit.commit.author.date, matching[0]["date"], pr, project["full_name"]))
+
+                    if random.randint(1, 11) < 2:
+                        print(pr.html_url)
+                        print(commit.commit.author.date - matching[0]["date"])
+                        print(matching[0]["sha"])
+                else:
+                    right_date += 1
+                
+            print("unmatched: {}, right {}, wrong {}. {}% is unmatched, {}% is wrong".format(
+                unmatched, right_date, wrong_date, unmatched / (unmatched +right_date+wrong_date) * 100,
+                wrong_date / (right_date + wrong_date) * 100
+            ))
+        except:
+            pass
