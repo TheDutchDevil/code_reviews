@@ -129,7 +129,7 @@ for project in projects:
             extracted_el= False
         
         if not extracted_el:
-            print("Could not find pull request for {}".format(project["full_name"])
+            print("Could not find pull request for {}".format(project["full_name"]))
             break
 
         pr = res[0].as_pull_request()
