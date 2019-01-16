@@ -138,7 +138,10 @@ for project in projects:
             print("Could not find pull request for {}".format(project["full_name"]))
             break
 
-        pr = res[0].as_pull_request()
+        for item in res:
+            if item.as_pull_request().number == pr["number"]:
+                pr = item.as_pull_request()
+        
         
         commits = pr.get_commits()
 
