@@ -123,6 +123,8 @@ for project in projects:
     
         res = g.search_issues(query_string)
 
+        extracted_el = True
+
         try:
             tmp = res[0]
         except:
