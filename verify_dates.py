@@ -109,10 +109,6 @@ res_collection = database["wrong_dates"]
 commits_collection = database["commits"]
 projects = list(projects_collection.find({'succeeded' : True, 'travis_is_oldest_ci': True}))
 
-wrong_projs = []
-
-wrongly_dated_commit_pairs = []
-
 shuffle(projects)
 
 for project in projects:
@@ -166,12 +162,10 @@ for project in projects:
                     unmatched += 1
                 elif commit.commit.author.date != matching[0]["date"]:
                     wrong_date += 1
-                    wrongly_dated_commit_pairs.append((commit.commit.author.date, matching[0]["date"], pr, project["full_name"]))
 
-                    if random.randint(1, 11) < 2:
-                        print(pr.html_url)
-                        print(commit.commit.author.date - matching[0]["date"])
-                        print(matching[0]["sha"])
+                    res_collection.insert_one({'found_date': commit.commit.author.date, 'scraped_date': matching[0]["date"], 'sha': matching[0]["sha"],
+                        'pr': pr, 'full_name': project["full_name"]})
+
                 else:
                     right_date += 1
                 
