@@ -165,7 +165,7 @@ for project in projects:
 
                 if random.randint(1, 11) < 2:
                     print(pr.html_url)
-                    print(commit.commit.author.date - matching[0]["sha"])
+                    print(commit.commit.author.date - matching[0]["date"])
                     print(matching[0]["sha"])
             else:
                 right_date += 1
