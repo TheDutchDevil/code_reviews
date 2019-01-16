@@ -109,6 +109,8 @@ projects = list(projects_collection.find({'succeeded' : True, 'travis_is_oldest_
 
 wrong_projs = []
 
+wrongly_dated_commit_pairs = []
+
 for project in projects:
     prs = list(pull_requests_collection.find({'project_owner':project["full_name"].split("/")[0], 'project_name':project["full_name"].split("/")[1]}))
 
@@ -118,8 +120,8 @@ for project in projects:
 
         full_commits = list([commits_collection.find_one({'sha': commit_hash}) for commit_hash in pr["commits"]])
 
-        query_string = "type:pr repo:{}/{} SHA:{}".format(
-            project["full_name"].split("/")[0] , project["full_name"].split("/")[1], pr["commits"][0])
+        query_string = "type:pr repo:{}/{} SHA:{} '{}' in:title".format(
+            project["full_name"].split("/")[0] , project["full_name"].split("/")[1], pr["commits"][0], pr["title"])
     
         res = g.search_issues(query_string)
 
@@ -147,6 +149,7 @@ for project in projects:
                 unmatched += 1
             elif commit.commit.author.date != matching[0]["date"]:
                 wrong_date += 1
+                wrongly_dated_commit_pairs.append((commit.commit.author.date, matching[0]["date"]))
             else:
                 right_date += 1
             
