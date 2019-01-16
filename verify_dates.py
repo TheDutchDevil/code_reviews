@@ -164,7 +164,7 @@ for project in projects:
                     wrong_date += 1
 
                     res_collection.insert_one({'found_date': commit.commit.author.date, 'scraped_date': matching[0]["date"], 'sha': matching[0]["sha"],
-                        'pr': pr, 'full_name': project["full_name"]})
+                        'pr': old_pr, 'full_name': project["full_name"]})
 
                 else:
                     right_date += 1
