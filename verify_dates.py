@@ -129,6 +129,8 @@ for project in projects:
 
         extracted_el = True
 
+        old_pr = pr
+
         try:
             tmp = res[0]
         except:
@@ -159,7 +161,12 @@ for project in projects:
                 unmatched += 1
             elif commit.commit.author.date != matching[0]["date"]:
                 wrong_date += 1
-                wrongly_dated_commit_pairs.append((commit.commit.author.date, matching[0]["date"]))
+                wrongly_dated_commit_pairs.append((commit.commit.author.date, matching[0]["date"], pr, old_pr))
+
+                if random.randint(1, 11) < 2:
+                    print(pr.html_url)
+                    print(old_pr["html_url"])
+                    print(mathcing[0]["sha"])
             else:
                 right_date += 1
             
