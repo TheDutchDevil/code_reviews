@@ -123,6 +123,15 @@ for project in projects:
     
         res = g.search_issues(query_string)
 
+        try:
+            tmp = res[0]
+        except:
+            extracted_el= False
+        
+        if not extracted_el:
+            print("Could not find pull request for {}".format(project["full_name"])
+            break
+
         pr = res[0].as_pull_request()
         
         commits = pr.get_commits()
