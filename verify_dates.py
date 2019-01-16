@@ -125,6 +125,8 @@ for project in projects:
     
         res = g.search_issues(query_string)
 
+        old_html_url = pr["html_url"]
+
         extracted_el = True
 
         try:
@@ -139,6 +141,10 @@ for project in projects:
         pr = res[0].as_pull_request()
         
         commits = pr.get_commits()
+
+        if(commits.totalCount - len(full_commits) > 100):
+            print(pr.html_url)
+            print(old_html_url)
 
         print("{} gh found, we have {}".format(commits.totalCount, len(full_commits)))
 
