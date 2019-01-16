@@ -141,6 +141,7 @@ for project in projects:
         for item in res:
             if item.as_pull_request().number == pr["number"]:
                 pr = item.as_pull_request()
+                break
         
         
         commits = pr.get_commits()
