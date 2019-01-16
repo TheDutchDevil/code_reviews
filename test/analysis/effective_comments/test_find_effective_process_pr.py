@@ -344,6 +344,67 @@ class TestFindEffectiveProcessPr():
 
         assert find_effective.process_pr(pr) == 1
 
+    '''
+    Test case based on a false negative of PHP cake docs
+    '''
+    def test_php_cake_docs(self):
+        pr = pull_request_object(
+            comments=[
+                review_comment_object(relativedelta(days=2, minutes=2), 6, hunks=[
+                    "@@ -61,11 +61,11 @@ soit cachée. La valeur du temps peut être exprimé dans le format\n ``strtotime()``. (ex. \"1 hour\", ou \"3 minutes\").\n \n En utilisant l\'exemple d\'un controller d\'articles ArticlesController,\n-qui reçoit beaucoup de trafics qui ont besoins d\'être mise en cache:: \n+qui reçoit beaucoup de trafics qui ont besoins d\'être mise en cache::\n "
+                ],path='fr/core-libraries/helpers/cache.rst')
+            ],
+            commits= [
+                commit_object(relativedelta(days=1)),
+                commit_object(relativedelta(days=2, minutes=4), files=[
+                    file_object(hunks=[
+                        "@@ -61,7 +61,7 @@ soit cachée. La valeur du temps peut être exprimé dans le format\n ``strtotime()``. (ex. \"1 hour\", ou \"3 minutes\").\n \n En utilisant l\'exemple d\'un controller d\'articles ArticlesController,\n-qui reçoit beaucoup de trafics qui ont besoins d\'être mise en cache::\n+qui reçoit beaucoup de trafic qui ont besoins d\'être mise en cache::\n \n     public $cacheAction = array(\n         \'view\' => 36000,"
+                    ],
+                    filename='fr/core-libraries/helpers/cache.rst')
+                ])
+                
+            ]
+        )
+
+        
+
+        assert find_effective.process_pr(pr) == 1
+
+    def test_php_cake_docs_2(self):
+        from pymongo import MongoClient
+        from bson.objectid import ObjectId
+
+        mongo_client = MongoClient()
+
+        database = mongo_client["graduation"]
+
+        pull_requests_collection = database["pull_requests"]
+
+        projects_collection = database["projects"]
+
+        commits_collection = database["commits"]
+
+        pr = pull_requests_collection.find_one({'number': 3077,'project_owner':'cakephp', 'project_name':'docs'})
+
+        full_commits = list([commits_collection.find_one({'sha': commit_hash}) for commit_hash in pr["commits"]])
+
+        print(len(full_commits))
+
+        print(pr)
+
+        print(full_commits[1])
+
+        hashes = pr["commits"]
+
+        print(full_commits[0]["date"])
+
+        pr["commits"] = full_commits
+
+        num_of_effective_comments = find_effective.process_pr(pr)
+
+        print(num_of_effective_comments)
+
+
 
 '''
 Given 5 pieces of information creates a hunk of x modified lines, with the right
