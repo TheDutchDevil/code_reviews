@@ -161,7 +161,7 @@ def process_pr_chunk(token_queue, chunk):
             check_header_and_refresh(g, token_queue)
 
 def date_pr(pr, github, commits_collection):
-    sha = pr["commits"][0]["sha"]
+    sha = pr["commits"][0]
     
     query_string = "type:pr repo:{}/{} SHA:{}".format(
             pr["project_owner"], pr["project_name"], sha)
