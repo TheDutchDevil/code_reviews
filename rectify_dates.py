@@ -13,6 +13,7 @@ from time import sleep
 import github
 import gh_tokens
 import datetime
+import traceback
 
 from github import Github
 from math import ceil
@@ -162,40 +163,45 @@ def process_pr_chunk(token_queue, chunk):
 
 def date_pr(pr, github, commits_collection):
     sha = pr["commits"][0]
-    
-    query_string = "type:pr repo:{}/{} SHA:{}".format(
-            pr["project_owner"], pr["project_name"], sha)
-    
-    res = github.search_issues(query_string)
-    
-    extracted_el = True
-    
     try:
-        tmp = res[0]
-    except:
-        extracted_el= False
-    
-    if not extracted_el:
-        print("Could not find pull request for {}/{} number {}".format(
-                pr["project_owner"], pr["project_name"], pr["number"]))
-    else:
-        updated_pr = False
+        query_string = "type:pr repo:{}/{} SHA:{}".format(
+                pr["project_owner"], pr["project_name"], sha)
+        
+        res = github.search_issues(query_string)
+        
+        extracted_el = True
+        
+        try:
+            tmp = res[0]
+        except:
+            extracted_el= False
+        
+        if not extracted_el:
+            print("Could not find pull request for {}/{} number {}".format(
+                    pr["project_owner"], pr["project_name"], pr["number"]))
+        else:
+            updated_pr = False
 
-        for found_pr in res:
-            if found_pr.number == pr["number"]:
-                gh_pr = found_pr.as_pull_request()
-                
-                commits = gh_pr.get_commits()
+            for found_pr in res:
+                if found_pr.number == pr["number"]:
+                    gh_pr = found_pr.as_pull_request()
+                    
+                    commits = gh_pr.get_commits()
 
-                for commit in commits:
-                    match = commits_collection.find_one({'sha': commit.sha})
+                    for commit in commits:
+                        match = commits_collection.find_one({'sha': commit.sha})
 
-                    if match is not None:
-                        match["date"] = commit.commit.author.date
+                        if match is not None:
+                            match["date"] = commit.commit.author.date
 
-                        commits_collection.replace_one({'sha': match["sha"]}, match)
+                            commits_collection.replace_one({'sha': match["sha"]}, match)
 
-                updated_pr = True
+                    updated_pr = True
+    except Exception as e:
+        print("Failed PR {}/{}:{} with {}\n{}".format(
+            pr["project_owner"], pr["project_name"], pr["number"],
+            e, traceback.print_tb(e.__traceback__)
+        ))
 
 
 
