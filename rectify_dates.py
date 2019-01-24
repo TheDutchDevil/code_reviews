@@ -256,6 +256,6 @@ shared_token_queue = m.Queue()
 for token in IterableQueue(token_queue):
     shared_token_queue.put(token)
 
-with multiprocessing.Pool(4) as p:
+with multiprocessing.Pool(8) as p:
     func = partial(process_pr_chunk, shared_token_queue)
     p.map(func, todo_prs)
