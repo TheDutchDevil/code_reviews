@@ -156,7 +156,7 @@ def process_pr_chunk(token_queue, chunk):
         if len(pr["commits"]) == 0:
             continue
 
-        date_pr(pr, g, commits_collection)
+        date_pr(pr, g, commits_collection, pull_requests_collection)
         
         did += 1
         
