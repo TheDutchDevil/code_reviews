@@ -197,6 +197,16 @@ def date_pr(pr, github, commits_collection):
                             commits_collection.replace_one({'sha': match["sha"]}, match)
 
                     updated_pr = True
+
+                    pr["updated_dates"] = True
+
+                    for review_comment in gh_pr.get_review_comments():
+                        matching_comment = [cmmnt for cmmnt in pr["review_comments"] if cmmnt["html_url"] == review_comment.html_url]
+
+                        if len(matching_comment) == 1:
+                            matching_comment["created_at"] = review_comment.created_at 
+
+                    pull_requests_collection.replace_one({'_id':pr["_id"]}, pr)
     except Exception as e:
         print("Failed PR {}/{}:{} with {}\n{}".format(
             pr["project_owner"], pr["project_name"], pr["number"],
@@ -221,7 +231,7 @@ pr_list = []
 
 for proj in projects_list:
     pr_list.extend(list(pull_requests_collection.find({'project_name': proj["full_name"].split("/")[1],
-                                        'project_owner': proj["full_name"].split("/")[0]},
+                                        'project_owner': proj["full_name"].split("/")[0], 'updated_dates': {'$exists': False}},
                                         {'project_owner':1, 'project_name':1, 'commits':1, 'number':1})))
 
 todo_prs = chunkIt(pr_list, 4)
