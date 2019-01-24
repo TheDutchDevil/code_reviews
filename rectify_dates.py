@@ -208,7 +208,7 @@ def date_pr(pr, github, commits_collection, pull_requests_collection):
                         if len(matching_comment) == 1:
                             matching_comment[0]["created_at"] = review_comment.created_at 
 
-                    pull_requests_collection.update({'_id':pr["_id"]}, {'$set': {'updated_dates': True, 'review_comments': pr["review_commentsgit s"]}})
+                    pull_requests_collection.update({'_id':pr["_id"]}, {'$set': {'updated_dates': True, 'review_comments': pr["review_comments"]}})
     except Exception as e:
         print("Failed PR {}/{}:{} with {}\n{}".format(
             pr["project_owner"], pr["project_name"], pr["number"],
