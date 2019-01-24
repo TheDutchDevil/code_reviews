@@ -205,7 +205,7 @@ def date_pr(pr, github, commits_collection, pull_requests_collection):
                     pr["updated_dates"] = True
 
                     for review_comment in gh_pr.get_review_comments():
-                        matching_comment = [cmmnt for cmmnt in pr["review_comments"] if cmmnt["html_url"] == review_comment.html_url]
+                        matching_comment = [cmmnt for cmmnt in pr["review_comments"] if cmmnt["url"] == review_comment.url]
 
                         if len(matching_comment) == 1:
                             matching_comment[0]["created_at"] = review_comment.created_at 
