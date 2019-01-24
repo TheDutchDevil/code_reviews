@@ -238,7 +238,7 @@ for proj in projects_list:
                                         'project_owner': proj["full_name"].split("/")[0], 'updated_dates': {'$exists': False}},
                                         {'project_owner':1, 'project_name':1, 'commits':1, 'number':1})))
 
-todo_prs = chunkIt(pr_list, 4)
+todo_prs = chunkIt(pr_list, 8)
 
 print("Loaded and chunked the commit list")
 
