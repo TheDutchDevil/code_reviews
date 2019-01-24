@@ -147,6 +147,8 @@ def process_pr_chunk(token_queue, chunk):
     database = mongo_client["graduation"]
     
     commits_collection = database["commits"]
+
+    pull_requests_collection = database["pull_requests"]
     
     did = 0
     
@@ -161,7 +163,7 @@ def process_pr_chunk(token_queue, chunk):
         if did % 3:
             check_header_and_refresh(g, token_queue)
 
-def date_pr(pr, github, commits_collection):
+def date_pr(pr, github, commits_collection, pull_requests_collection):
     sha = pr["commits"][0]
     try:
         query_string = "type:pr repo:{}/{} SHA:{}".format(
