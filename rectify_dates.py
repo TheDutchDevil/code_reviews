@@ -187,6 +187,8 @@ def date_pr(pr, github, commits_collection, pull_requests_collection):
             for found_pr in res:
                 if found_pr.number == pr["number"]:
                     gh_pr = found_pr.as_pull_request()
+
+                    pr = pull_requests_collection.find_one({'_id': pr["_id"]})
                     
                     commits = gh_pr.get_commits()
 
@@ -234,7 +236,7 @@ pr_list = []
 for proj in projects_list:
     pr_list.extend(list(pull_requests_collection.find({'project_name': proj["full_name"].split("/")[1],
                                         'project_owner': proj["full_name"].split("/")[0], 'updated_dates': {'$exists': False}},
-                                        {'project_owner':1, 'project_name':1, 'commits':1, 'number':1, 'review_comments':1})))
+                                        {'project_owner':1, 'project_name':1, 'commits':1, 'number':1})))
 
 todo_prs = chunkIt(pr_list, 4)
 
