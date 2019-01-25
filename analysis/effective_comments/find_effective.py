@@ -227,7 +227,7 @@ def process_pr(pr):
                 # file have induced some form of change
                 elif file["status"] == "removed":
                     for file_comment in [rc for rc in placed_line_comments if rc["path"] == file["filename"]]:
-                        found_effective_comments.append(())
+                        found_effective_comments.append((file_comment, item["sha"]))
                         placed_line_comments.remove(file_comment)
                     
         else:
