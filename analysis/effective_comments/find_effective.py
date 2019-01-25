@@ -36,10 +36,12 @@ Additionally, this method counts the effective comments that have
 been found so far. And in turn, returns all of the effective comments
 that have been found. While removing them from the placed_comments 
 set.
-'''
-def update_placed_comments_for_file(file, placed_comments):
 
-    found_comments = 0
+Returns a list of effective comments in the form (comment, hash)
+'''
+def update_placed_comments_for_file(file, hash, placed_comments):
+
+    found_effective_comments = []
 
     for file_comment in list([rc for 
                         rc in placed_comments 
@@ -94,7 +96,7 @@ def update_placed_comments_for_file(file, placed_comments):
 
             if file_comment["eff_track_line"] == curr_pos_in_old:
                 placed_comments.remove(file_comment)
-                found_comments += 1
+                found_effective_comments.append((file_comment, hash))
                 updated_position = True
                 break
 
@@ -104,7 +106,7 @@ def update_placed_comments_for_file(file, placed_comments):
             lines_delta = curr_pos_in_new - curr_pos_in_old
             file_comment["eff_track_line"] += lines_delta
 
-    return found_comments
+    return found_effective_comments
 
 '''
 We do a sort of sweep line algorithm, where we sort commits and line 
@@ -116,6 +118,9 @@ mark the comment as having been change inducing.
 
 Furthermore, we update the position of existing comments to account
 for the lines that have been added or removed in diffs. 
+
+We return a list of effective comments, where effective comments is a tuple
+of (comment, commit_hash).
 '''
 def process_pr(pr):
     
@@ -142,6 +147,8 @@ def process_pr(pr):
     placed_line_comments = []
     
     made_commits = {}
+
+    found_effective_comments = []
     
     for item in merged_list:
         # Only process newly placed comments, don't bother with comments
@@ -206,7 +213,7 @@ def process_pr(pr):
                 # the location of currently placed comments to reflect the
                 # fact that they have changed by position by this commit
                 if file["status"] == 'modified':
-                    num_effective_comments += update_placed_comments_for_file(file, placed_line_comments)
+                    found_effective_comments.extend(update_placed_comments_for_file(file, item["sha"], placed_line_comments))
                     
                                 
                 # If the file has been renamed we should update all comments in the old file to
@@ -217,17 +224,17 @@ def process_pr(pr):
                     for comment in [pc for pc in placed_line_comments if pc["path"] == file["previous_filename"]]:
                         comment["path"] = file["filename"]
                     
-                    num_effective_comments += update_placed_comments_for_file(file, placed_line_comments)
+                    found_effective_comments.extend(update_placed_comments_for_file(file, item["sha"], placed_line_comments))
 
                 # If the file is deleted any comments in the 
                 # file have induced some form of change
                 elif file["status"] == "removed":
                     for file_comment in [rc for rc in placed_line_comments if rc["path"] == file["filename"]]:
-                        num_effective_comments += 1
+                        found_effective_comments.append(())
                         placed_line_comments.remove(file_comment)
                     
         else:
             raise ValueError("Ehm this is not a code comment or commit")
-    return num_effective_comments
+    return found_effective_comments
     
 
