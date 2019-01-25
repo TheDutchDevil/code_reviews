@@ -134,11 +134,11 @@ def process_pr(pr):
     commits.sort(key = lambda commit : commit["date"])
     
     if len(comments) == 0:
-        return 0
+        return []
         
     if len(commits)  == 0:
         print("\tOh misery! PR with number {} has no dated commits".format(pr["number"]))
-        return 0
+        return []
         
     merged_list = commits + comments
     
