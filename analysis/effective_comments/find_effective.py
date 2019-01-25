@@ -122,10 +122,7 @@ for the lines that have been added or removed in diffs.
 We return a list of effective comments, where effective comments is a tuple
 of (comment, commit_hash).
 '''
-def process_pr(pr):
-    
-    num_effective_comments = 0
-    
+def process_pr(pr):    
     comments = sorted([rc for rc in pr["review_comments"] if rc["in_reply_to_id"] is None], key=lambda comment : comment["created_at"])
     commits = list([commit for commit in pr["commits"] if "date" in commit])
     
