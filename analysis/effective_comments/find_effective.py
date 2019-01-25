@@ -179,10 +179,10 @@ def process_pr(pr):
                 elif line.startswith(" "):
                     curr_pos_in_old += 1
                     curr_pos_in_new += 1
-                elif line.startswith("\\"):
+                elif line.startswith("\\") or line == "":
                     pass
                 else:
-                    print(line)
+                    print("{}".format(line))
                     raise ValueError("Horror, there is diff panic")
                     
                 lines_done += 1
