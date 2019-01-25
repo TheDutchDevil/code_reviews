@@ -88,10 +88,10 @@ def update_placed_comments_for_file(file, hash, placed_comments):
             elif line.startswith(" "):
                 curr_pos_in_old += 1
                 curr_pos_in_new += 1
-            elif line.startswith("\\"):
+            elif line.startswith("\\") or line == "":
                 pass                                                 
             else:
-                print(line)
+                print('{}'.format(line))
                 raise ValueError("Horror, there is diff panic")
 
             if file_comment["eff_track_line"] == curr_pos_in_old:
