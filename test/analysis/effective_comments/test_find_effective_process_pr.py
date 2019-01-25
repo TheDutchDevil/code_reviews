@@ -18,7 +18,7 @@ class TestFindEffectiveProcessPr():
     def test_zero_returned_for_no_comments(self):
         pr = pull_request_object()
 
-        assert find_effective.process_pr(pr) == 0
+        assert len(find_effective.process_pr(pr)) == 0
 
 
     def test_zero_returned_for_no_commits(self):
@@ -26,7 +26,7 @@ class TestFindEffectiveProcessPr():
             review_comment_object(relativedelta(days=1), 10)
         ])
 
-        assert find_effective.process_pr(pr) == 0
+        assert len(find_effective.process_pr(pr)) == 0
 
     def test_zero_returned_for_pr_with_one_commit_and_one_comment(self):
         pr = pull_request_object(comments=[
@@ -36,7 +36,7 @@ class TestFindEffectiveProcessPr():
             commit_object(relativedelta(days=4))
         ])
 
-        assert find_effective.process_pr(pr) == 0
+        assert len(find_effective.process_pr(pr)) == 0
 
     def test_one_returned_for_pr_with_two_commits_in_same_area(self):
         
@@ -48,7 +48,7 @@ class TestFindEffectiveProcessPr():
             commit_object(relativedelta(days=7))
         ])        
 
-        assert find_effective.process_pr(pr) == 1
+        assert len(find_effective.process_pr(pr)) == 1
 
     def test_no_effective_comments_for_two_different_files(self):
         pr = pull_request_object(comments=[
@@ -61,7 +61,7 @@ class TestFindEffectiveProcessPr():
             ])
         ])        
 
-        assert find_effective.process_pr(pr) == 0
+        assert len(find_effective.process_pr(pr)) == 0
 
     def test_effective_comment_found_after_removing_lines(self):
         pr = pull_request_object(
@@ -81,7 +81,7 @@ class TestFindEffectiveProcessPr():
             ]
         )
 
-        assert find_effective.process_pr(pr) == 1
+        assert len(find_effective.process_pr(pr)) == 1
 
     def test_effective_comment_found_after_adding_lines(self):
         pr = pull_request_object(
@@ -101,7 +101,7 @@ class TestFindEffectiveProcessPr():
             ]
         )
 
-        assert find_effective.process_pr(pr) == 1
+        assert len(find_effective.process_pr(pr)) == 1
 
     def test_no_comment_found_after_adding_lines(self):
         pr = pull_request_object(
@@ -120,7 +120,7 @@ class TestFindEffectiveProcessPr():
                 ])
             ]
         )
-        assert find_effective.process_pr(pr) == 0
+        assert len(find_effective.process_pr(pr)) == 0
 
     def test_comment_found_after_adding_lines_behind_comment_1(self):
         pr = pull_request_object(
@@ -139,7 +139,7 @@ class TestFindEffectiveProcessPr():
                 ])
             ]
         )
-        assert find_effective.process_pr(pr) == 1
+        assert len(find_effective.process_pr(pr)) == 1
 
     def test_comment_found_after_adding_lines_behind_comment_2(self):
         pr = pull_request_object(
@@ -159,7 +159,7 @@ class TestFindEffectiveProcessPr():
                 ])
             ]
         )
-        assert find_effective.process_pr(pr) == 1
+        assert len(find_effective.process_pr(pr)) == 1
 
     def test_comment_found_after_file_rename(self):
         pr = pull_request_object(
@@ -179,7 +179,7 @@ class TestFindEffectiveProcessPr():
                 ])
             ]
         )
-        assert find_effective.process_pr(pr) == 1
+        assert len(find_effective.process_pr(pr)) == 1
 
     def test_comment_found_after_many_inserts(self):
         pr = pull_request_object(
@@ -197,7 +197,7 @@ class TestFindEffectiveProcessPr():
                 ])
             ]
         )
-        assert find_effective.process_pr(pr) == 1
+        assert len(find_effective.process_pr(pr)) == 1
 
     def test_no_comment_found_after_many_inserts(self):
         pr = pull_request_object(
@@ -215,7 +215,7 @@ class TestFindEffectiveProcessPr():
                 ])
             ]
         )
-        assert find_effective.process_pr(pr) == 0
+        assert len(find_effective.process_pr(pr)) == 0
 
     def test_file_rename_comment_found_1(self):
         pr = pull_request_object(
@@ -237,7 +237,7 @@ class TestFindEffectiveProcessPr():
             ]
         )
 
-        assert find_effective.process_pr(pr) == 1
+        assert len(find_effective.process_pr(pr)) == 1
 
     def test_file_rename_comment_found_2(self):
         pr = pull_request_object(
@@ -256,7 +256,7 @@ class TestFindEffectiveProcessPr():
             ]
         )
 
-        assert find_effective.process_pr(pr) == 1
+        assert len(find_effective.process_pr(pr)) == 1
 
     def test_file_renamed_no_comment_found(self):
         pr = pull_request_object(
@@ -278,7 +278,7 @@ class TestFindEffectiveProcessPr():
             ]
         )
 
-        assert find_effective.process_pr(pr) == 0
+        assert len(find_effective.process_pr(pr)) == 0
 
     def test_more_comments_after_unrelated_commits(self):
         pr = pull_request_object(
@@ -304,7 +304,7 @@ class TestFindEffectiveProcessPr():
             ]
         )
 
-        assert find_effective.process_pr(pr) == 2
+        assert len(find_effective.process_pr(pr)) == 2
 
     def test_two_hunks_in_comment_diff_no_effective_comment(self):
         pr = pull_request_object(
@@ -323,7 +323,7 @@ class TestFindEffectiveProcessPr():
             ]
         )
 
-        assert find_effective.process_pr(pr) == 0
+        assert len(find_effective.process_pr(pr)) == 0
 
     def test_two_hunks_in_comment_diff_effective_comment(self):
         pr = pull_request_object(
@@ -342,7 +342,7 @@ class TestFindEffectiveProcessPr():
             ]
         )
 
-        assert find_effective.process_pr(pr) == 1
+        assert len(find_effective.process_pr(pr)) == 1
 
     '''
     Test case based on a false negative of PHP cake docs
@@ -368,7 +368,7 @@ class TestFindEffectiveProcessPr():
 
         
 
-        assert find_effective.process_pr(pr) == 1
+        assert len(find_effective.process_pr(pr)) == 1
 
     def test_php_cake_docs_2(self):
         from pymongo import MongoClient
@@ -400,7 +400,7 @@ class TestFindEffectiveProcessPr():
 
         pr["commits"] = full_commits
 
-        num_of_effective_comments = find_effective.process_pr(pr)
+        num_of_effective_comments = len(find_effective.process_pr(pr))
 
         print(num_of_effective_comments)
 
