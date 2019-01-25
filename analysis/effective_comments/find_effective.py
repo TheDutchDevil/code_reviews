@@ -50,7 +50,7 @@ def update_placed_comments_for_file(file, hash, placed_comments):
         
         if patch is None:
             # This is a serious error condition! Meaning this file can not be processed
-            return found_comments
+            return found_effective_comments
         
         curr_pos_in_old = 0
         curr_pos_in_new = 0
