@@ -142,7 +142,7 @@ database = mongo_client["graduation"]
 
 projects_collection = database["projects"]
 
-projects = list(projects_collection.find({'succeeded' : True}))
+projects = list(projects_collection.find({'succeeded' : True, 'travis_is_oldest_ci': True}))
 
 import multiprocessing
 
