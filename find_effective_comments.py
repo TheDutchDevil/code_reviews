@@ -44,7 +44,8 @@ def process_pr(pr, commits_collection, pull_requests_collection):
     
     try:
 
-        full_pr = pull_requests_collection.find_one({'_id': pr["_id"]})
+        full_pr = pull_requests_collection.find_one({'_id': pr["_id"]},
+                {'bigrams': 0, 'raw_comments': 0, 'review_comments.bigrams': 0})
 
         full_commits = [commits_collection.find_one({'sha': hash}) for hash in full_pr["commits"]]
 
