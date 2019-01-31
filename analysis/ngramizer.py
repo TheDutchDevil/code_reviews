@@ -3,6 +3,7 @@ from markdown import markdown
 from nltk.tokenize import sent_tokenize
 from nltk import ngrams
 from nltk.corpus import stopwords
+from collections import Counter
 
 import re
 import string
@@ -184,3 +185,31 @@ def add_text_ngrams_to_counter(text, html_url, ngram_length, counter, linkback, 
             
             linkback[ngram].append({"sentence": raw_sentence, "text": original_text, "url": html_url})
             counter[ngram] += 1
+
+'''
+Given two counters this code returns two new counters, 1 --> 2 and 2 --> 1. 
+
+1 --> 2 Contains all terms that occur in 2 but that don't occur in 1, and 
+2 --> 1 Contains all terms that occur in 1 but that don't occur in two. In
+addition to containing the terms, the frequence of these terms is also returned.
+
+To prevent the problem that if a very frequent term in 2 occurs only once in 1, 
+and therefore won't be part of 1 --> 2 an exclusion threshold can be specified.
+This exclusion threshold only considers items with a frequency higher than the 
+threshold in the from counter. By default this value is 0.
+'''
+def compute_deltas(counter_1, counter_2, threshold = 0):
+    def compute_delta(counter_from, counter_to, threshold):
+        keys_from = [key for key in counter_from.keys() if counter_from[key] > threshold]
+
+        delta = counter_to.keys() - keys_from
+
+        counter_res = Counter()
+
+        for key in delta:
+            counter_res[key] = counter_to[key]
+
+        return counter_res
+
+    return (compute_delta(counter_1, counter_2, threshold), 
+            compute_delta(counter_2, counter_1, threshold))
