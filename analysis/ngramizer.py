@@ -69,6 +69,24 @@ def clean_text(text):
 
     return cleaned_text
 
+'''
+Given a text places metatokens for things like, emails, @mentions, usernames,
+pieces of code, issue mentions, urls, and version numbers
+'''
+def tokenize_text(text):
+    tokenized_text = re.sub("\S+@\S*\s?", ' M_EMAIL ', text, flags=re.MULTILINE)
+
+    tokenized_text = re.sub(USERNAME_REGEX, ' M_MENTION ', tokenized_text, flags=re.MULTILINE)
+
+    tokenized_text =  re.sub("`([\s\S])*?`", " M_ICODE ", tokenized_text)
+
+    tokenized_text = re.sub("(\d)+\.(\d)+(\.(\d)+)*", " M_VERSION_NUMBER ", tokenized_text)
+
+    tokenized_text = re.sub("(\ |^)#\d+", " M_ISSUE_MENTION ", tokenized_text)
+
+    tokenized_text = re.sub("(http|ftp|https|localhost):\/\/([\w_-]+(?:(?:\.[\w_-]+)*))([\w.,@?^=%&:\/~+#-]*[\w@?^=%&\/~+#-])?", " M_URL ", tokenized_text)
+
+    return tokenized_text
 
 def add_text_ngrams_to_counter(text, html_url, ngram_length, counter, linkback, usernames):
     original_text = text
@@ -78,28 +96,13 @@ def add_text_ngrams_to_counter(text, html_url, ngram_length, counter, linkback, 
 
     cleaned_text = clean_text(text)
 
-    # Replace email with meta token
-    mt_text = re.sub("\S+@\S*\s?", ' M_EMAIL ', cleaned_text, flags=re.MULTILINE)
+    tokenized_text = tokenize_text(clean_text)
 
-    # Replace mention with meta token
-    mt_text = re.sub(USERNAME_REGEX, ' M_MENTION ', mt_text, flags=re.MULTILINE)
+    tokenized_text = re.sub("(\s|^)({})(\s|$|[\.\,\!\?\:\;])".format("|".join(re.escape(name) for name in usernames)), ' M_USERNAME ', tokenized_text, flags=re.MULTILINE)
 
-    #print(mt_text)
-
-    mt_text = re.sub("(\s|^)({})(\s|$|[\.\,\!\?\:\;])".format("|".join(re.escape(name) for name in usernames)), ' M_USERNAME ', mt_text, flags=re.MULTILINE)
-
-    # This removes inline code snippets and replaces them with a meta token
-    mt_text = re.sub("`([\s\S])*?`", " M_ICODE ", mt_text)
-
-    #tokenizes version numbers
-    mt_text = re.sub("(\d)+\.(\d)+(\.(\d)+)*", " M_VERSION_NUMBER ", mt_text)
-
-    mt_text = re.sub("(\ |^)#\d+", " M_ISSUE_MENTION ", mt_text)
-
-    mt_text = re.sub("(http|ftp|https|localhost):\/\/([\w_-]+(?:(?:\.[\w_-]+)*))([\w.,@?^=%&:\/~+#-]*[\w@?^=%&\/~+#-])?", " M_URL ", mt_text)
 
     # Removes all markdown content.
-    html = markdown(mt_text)
+    html = markdown(tokenized_text)
     stripped_text = ''.join(BeautifulSoup(html, "lxml").findAll(text=True))
 
     sentences = sent_tokenize(stripped_text)
