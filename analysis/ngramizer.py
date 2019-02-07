@@ -96,7 +96,7 @@ def add_text_ngrams_to_counter(text, html_url, ngram_length, counter, linkback, 
 
     cleaned_text = clean_text(text)
 
-    tokenized_text = tokenize_text(clean_text)
+    tokenized_text = tokenize_text(cleaned_text)
 
     tokenized_text = re.sub("(\s|^)({})(\s|$|[\.\,\!\?\:\;])".format("|".join(re.escape(name) for name in usernames)), ' M_USERNAME ', tokenized_text, flags=re.MULTILINE)
 
