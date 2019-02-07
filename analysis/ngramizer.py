@@ -72,8 +72,11 @@ def clean_text(text):
 '''
 Given a text places metatokens for things like, emails, @mentions, usernames,
 pieces of code, issue mentions, urls, and version numbers
+
+An optional parameter for this function is a list of names, literal occurences
+of these names can then be replaced by the M_USERNAME meta-token.
 '''
-def tokenize_text(text):
+def tokenize_text(text, names=[]):
     tokenized_text = re.sub("\S+@\S*\s?", ' M_EMAIL ', text, flags=re.MULTILINE)
 
     tokenized_text = re.sub(USERNAME_REGEX, ' M_MENTION ', tokenized_text, flags=re.MULTILINE)
@@ -86,6 +89,9 @@ def tokenize_text(text):
 
     tokenized_text = re.sub("(http|ftp|https|localhost):\/\/([\w_-]+(?:(?:\.[\w_-]+)*))([\w.,@?^=%&:\/~+#-]*[\w@?^=%&\/~+#-])?", " M_URL ", tokenized_text)
 
+    if len(names) > 0:
+        tokenized_text = re.sub("(\s|^)({})(\s|$|[\.\,\!\?\:\;])".format("|".join(re.escape(name) for name in usernames)), ' M_USERNAME ', tokenized_text, flags=re.MULTILINE)
+
     return tokenized_text
 
 def add_text_ngrams_to_counter(text, html_url, ngram_length, counter, linkback, usernames):
@@ -96,11 +102,8 @@ def add_text_ngrams_to_counter(text, html_url, ngram_length, counter, linkback, 
 
     cleaned_text = clean_text(text)
 
-    tokenized_text = tokenize_text(cleaned_text)
-
-    tokenized_text = re.sub("(\s|^)({})(\s|$|[\.\,\!\?\:\;])".format("|".join(re.escape(name) for name in usernames)), ' M_USERNAME ', tokenized_text, flags=re.MULTILINE)
-
-
+    tokenized_text = tokenize_text(cleaned_text, names = usernames)
+    
     # Removes all markdown content.
     html = markdown(tokenized_text)
     stripped_text = ''.join(BeautifulSoup(html, "lxml").findAll(text=True))
