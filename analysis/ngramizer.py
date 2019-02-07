@@ -56,6 +56,19 @@ def given_text_extract_usernames(text):
 def is_bot_comment(user_name):
     return user_name in BOT_NAMES
 
+'''
+This function removed all quoted text and large code blocks from the input 
+parameters, and returns a cleaned string
+'''
+def clean_text(text):
+    # This regex removes the quote characters from the GH issue or comment text.
+    cleaned_text = re.sub("^(On[\s\S]*?notifications@github\.com\s*?wrote:\s*?)?(^(\>).*\s)*", '', text, flags=re.MULTILINE)
+
+    # This regex removed all large code blocks
+    cleaned_text = re.sub("```[a-z]*\n[\s\S]*?\n```", "", cleaned_text)
+
+    return cleaned_text
+
 
 def add_text_ngrams_to_counter(text, html_url, ngram_length, counter, linkback, usernames):
     original_text = text
@@ -63,14 +76,10 @@ def add_text_ngrams_to_counter(text, html_url, ngram_length, counter, linkback, 
     if text is None or text == "":
         return
 
-    # This regex removes the quote characters from the GH issue or comment text.
-    mt_text = re.sub("^(On[\s\S]*?notifications@github\.com\s*?wrote:\s*?)?(^(\>).*\s)*", '', text, flags=re.MULTILINE)
-
-    # Removes all large code blocks
-    mt_text = re.sub("```[a-z]*\n[\s\S]*?\n```", "", mt_text)
+    cleaned_text = clean_text(text)
 
     # Replace email with meta token
-    mt_text = re.sub("\S+@\S*\s?", ' M_EMAIL ', mt_text, flags=re.MULTILINE)
+    mt_text = re.sub("\S+@\S*\s?", ' M_EMAIL ', cleaned_text, flags=re.MULTILINE)
 
     # Replace mention with meta token
     mt_text = re.sub(USERNAME_REGEX, ' M_MENTION ', mt_text, flags=re.MULTILINE)
@@ -122,10 +131,6 @@ def add_text_ngrams_to_counter(text, html_url, ngram_length, counter, linkback, 
                     sentencetokens_sw[looper] = 'are'
 
                 sentencetokens_sw[looper] = punct_regex.sub("", sentencetokens_sw[looper])
-
-            # GitHub commits hashes have a lenth of 40 chars, coveralls seems to use this.
-            if len(token) == 40:
-                sentencetokens_sw[looper] = " M_HASH "
 
             looper += 1
 
