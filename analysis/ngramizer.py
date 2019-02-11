@@ -45,6 +45,9 @@ BOT_NAMES = ["coveralls",
              "msftclas"]
 
 
+punct_regex = re.compile("^[%s\s]*$" % re.escape(string.punctuation), flags=re.MULTILINE)
+
+
 def given_text_extract_usernames(text):
     if text is None:
         return []
@@ -94,55 +97,79 @@ def tokenize_text(text, names=[]):
 
     return tokenized_text
 
+'''
+Given a string containing markdown this function turns the string into plain
+html and extracts the text from it. This way ensuring that any markdown specific
+content is stripped
+'''
+def remove_markdown_content(text):    
+    # Removes all markdown content.
+    html = markdown(text)
+    stripped_text = ''.join(BeautifulSoup(html, "lxml").findAll(text=True))
+
+    return stripped_text
+
+'''
+Given a string returns an array of strings, which is the given string split into
+sentences using nltk
+'''
+def split_into_sentences(text):
+    return sent_tokenize(text)
+
+'''
+Split a given piece of text into words using nltk
+
+Returns an array of words
+'''
+def split_into_words(text):
+    return nltk.word_tokenize(text)
+
+'''
+Given a token, remove puncutation, and expand common contracted english terms
+from the token
+'''
+def sanitize_token(token):
+    if token not in meta_tokens:
+        if token == 'n\'t':
+            token = 'not'
+        if token == '\'s':
+            token = 'us'
+        if token == '\'m':
+            token = "am"
+        if token == '\'d':
+            token = "would"
+        if token == '\'re':
+            token = 'are'
+
+        token = punct_regex.sub("", token)
+
+    return token
+
+
 def add_text_ngrams_to_counter(text, html_url, ngram_length, counter, linkback, usernames):
     original_text = text
 
     if text is None or text == "":
         return
 
+    '''
+    First we clean, strip and tokenize the text
+    '''
     cleaned_text = clean_text(text)
 
     tokenized_text = tokenize_text(cleaned_text, names = usernames)
 
-    # Removes all markdown content.
-    html = markdown(tokenized_text)
-    stripped_text = ''.join(BeautifulSoup(html, "lxml").findAll(text=True))
+    stripped_text = remove_markdown_content(tokenized_text)
 
-    sentences = sent_tokenize(stripped_text)
-
-    punct_regex = re.compile("^[%s\s]*$" % re.escape(string.punctuation), flags=re.MULTILINE)
+    sentences = split_into_sentences(stripped_text)
 
     for raw_sentence in sentences:
 
-        sentencetokens_sw = nltk.word_tokenize(raw_sentence)
+        sentencetokens_sw = [sanitize_token(token) 
+                                for token in split_into_words(raw_sentence)
+                                if ((not sanitize_token(token) in stopwords.words('english')) and (not sanitize_token(token) in string.punctuation))]
 
-        looper = 0
-        for token in sentencetokens_sw:
-            if token not in meta_tokens:
-                sentencetokens_sw[looper] = token.lower()
-
-                if sentencetokens_sw[looper] == 'n\'t':
-                    sentencetokens_sw[looper] = 'not'
-
-                if sentencetokens_sw[looper] == '\'s':
-                    sentencetokens_sw[looper] = 'us'
-
-                if sentencetokens_sw[looper] == '\'m':
-                    sentencetokens_sw[looper] = "am"
-
-                if sentencetokens_sw[looper] == '\'d':
-                    sentencetokens_sw[looper] = "would"
-
-                if sentencetokens_sw[looper] == '\'re':
-                    sentencetokens_sw[looper] = 'are'
-
-                sentencetokens_sw[looper] = punct_regex.sub("", sentencetokens_sw[looper])
-
-            looper += 1
-
-        # Adding the following snippets removes stop words: (not token in stopwords.words('english'))
-        sentencetokens_sw = [token for token in sentencetokens_sw if
-                             ((not token in stopwords.words('english')) and (not token in string.punctuation))]
+    
 
         merged_sentence_tokens = []
 
