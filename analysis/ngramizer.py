@@ -114,7 +114,14 @@ Given a string returns an array of strings, which is the given string split into
 sentences using nltk
 '''
 def split_into_sentences(text):
-    return sent_tokenize(text)
+    lines = text.split("\n")
+
+    sentences = []
+
+    for line in lines:
+        sentences.extend(sent_tokenize(line))
+
+    return sentences
 
 '''
 Split a given piece of text into words using nltk

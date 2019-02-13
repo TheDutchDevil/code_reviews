@@ -28,8 +28,7 @@ def ngramize_project_prs(project):
     prs = list(pull_requests_collection.find(
             { 
                     'project_name': project["full_name"].split("/")[1],
-                    'project_owner': project["full_name"].split("/")[0],
-                    'bigrams': {'$exists': False}
+                    'project_owner': project["full_name"].split("/")[0]
             }))   
             
     usernames = []
