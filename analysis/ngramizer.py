@@ -90,7 +90,9 @@ def tokenize_text(text, names=[]):
 
     tokenized_text = re.sub("(\ |^)#\d+", " M_ISSUE_MENTION ", tokenized_text)
 
-    tokenized_text = re.sub("(http|ftp|https|localhost):\/\/([\w_-]+(?:(?:\.[\w_-]+)*))([\w.,@?^=%&:\/~+#-]*[\w@?^=%&\/~+#-])?", " M_URL ", tokenized_text)
+    tokenized_text = re.sub("([a-zA-Z0-9]+):\/\/([\w_-]+(?:(?:\.[\w_-]+)*))([\w.,@?^=%&:\/~+#-]*[\w@?^=%&\/~+#-])?", " M_URL ", tokenized_text)
+
+    
 
     if len(names) > 0:
         tokenized_text = re.sub("(\s|^)({})(\s|$|[\.\,\!\?\:\;])".format("|".join(re.escape(name) for name in names)), ' M_USERNAME ', tokenized_text, flags=re.MULTILINE)
