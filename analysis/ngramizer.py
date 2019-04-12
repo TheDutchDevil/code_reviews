@@ -154,10 +154,12 @@ def sanitize_token(token):
 
 
 def add_text_ngrams_to_counter(text, html_url, ngram_length, counter, linkback, usernames):
-    original_text = text.lower()
+    original_text = text
 
     if text is None or text == "":
         return
+
+    text = text.lower()
 
     '''
     First we clean, strip and tokenize the text
