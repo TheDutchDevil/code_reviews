@@ -57,57 +57,57 @@ def ngramize_project_prs(project):
     project["usernames"] = usernames    
     
     for pr in prs:
-        #if not ngramizer.is_bot_comment(pr["user"]["login"]):
+        if not ngramizer.is_bot_comment(pr["user"]["login"]):
             
-		body_counter = Counter()
-		
-		ngramizer.add_text_ngrams_to_counter(pr["body"], 
-											 pr.get("html_url", ""), 
-											 ngram_length, 
-											 body_counter, 
-											 {}, 
-											 project["usernames"]
-											 )
-		
-		pr["bigrams"] = []
-		
-		for item in body_counter:
-			bigram_result = {
-				'bigram':[item[0], item[1]],
-				'occurrence': body_counter[item]
-			}
-			
-			pr['bigrams'].append(bigram_result)
+            body_counter = Counter()
+            
+            ngramizer.add_text_ngrams_to_counter(pr["body"], 
+                                                 pr.get("html_url", ""), 
+                                                 ngram_length, 
+                                                 body_counter, 
+                                                 {}, 
+                                                 project["usernames"]
+                                                 )
+            
+            pr["bigrams"] = []
+            
+            for item in body_counter:
+                bigram_result = {
+                    'bigram':[item[0], item[1]],
+                    'occurrence': body_counter[item]
+                }
+                
+                pr['bigrams'].append(bigram_result)
                 
                 
         
         for comment in pr["raw_comments"]:
-            #if not ngramizer.is_bot_comment(comment["user"]["login"]):
+            if not ngramizer.is_bot_comment(comment["user"]["login"]):
                 
-			comment_counter = Counter()
-			
-			ngramizer.add_text_ngrams_to_counter(comment["body"], 
-												 comment.get(
-														 "html_url", ""
-														 ), 
-												 ngram_length, 
-												 comment_counter, 
-												 {}, 
-												 project["usernames"]
-												 )
-			comment["bigrams"] = []
-							 
-			for item in comment_counter:
-				bigram_result = {
-				'bigram':[item[0], item[1]],
-				'occurrence': comment_counter[item]
-				}
-			
-				comment['bigrams'].append(bigram_result)
+                comment_counter = Counter()
+                
+                ngramizer.add_text_ngrams_to_counter(comment["body"], 
+                                                     comment.get(
+                                                             "html_url", ""
+                                                             ), 
+                                                     ngram_length, 
+                                                     comment_counter, 
+                                                     {}, 
+                                                     project["usernames"]
+                                                     )
+                comment["bigrams"] = []
+                                 
+                for item in comment_counter:
+                    bigram_result = {
+                    'bigram':[item[0], item[1]],
+                    'occurrence': comment_counter[item]
+                    }
+                
+                    comment['bigrams'].append(bigram_result)
                     
         for comment in pr["review_comments"]:
-            if comment["user"] is not None #and \
-                #not ngramizer.is_bot_comment(comment["user"]["login"]):
+            if comment["user"] is not None and \
+                not ngramizer.is_bot_comment(comment["user"]["login"]):
                 
                 comment_counter = Counter()
                 
