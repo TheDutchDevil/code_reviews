@@ -106,7 +106,7 @@ def ngramize_project_prs(project):
                 comment['bigrams'].append(bigram_result)
                     
         for comment in pr["review_comments"]:
-            if comment["user"] is not None# and \
+            if comment["user"] is not None: #and \
                 #not ngramizer.is_bot_comment(comment["user"]["login"]):
                 
                 comment_counter = Counter()
