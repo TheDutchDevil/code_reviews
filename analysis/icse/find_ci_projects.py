@@ -79,6 +79,8 @@ def check_header_and_refresh(g):
 def process_projects_chunk(args):
     projects, key = args[0], args[1]
 
+    found_projects= []
+
     g = Github(key)
 
     base_query = "repo:{} filename:{} path:{}"
@@ -105,6 +107,8 @@ def process_projects_chunk(args):
 
             project["HasTravis"] = has_travis
             project["HasCircle"] = has_circle
+
+            found_projects.append(project)
             
         except GithubException as e:
             if e.status != 422:
@@ -112,7 +116,7 @@ def process_projects_chunk(args):
             else:
                 print("Could not find project {}".format(project["Slug"]))
 
-    return projects
+    return found_projects
 
 if __name__ == "__main__":
     projects = get_projects()
@@ -124,6 +128,15 @@ if __name__ == "__main__":
     calc_pool = multiprocessing.Pool(processes=token.gh_tokens.qsize())  
 
     # run our processes and await responses
-    keys = calc_pool.map(process_projects_chunk, data)
+    modified_projects = calc_pool.map(process_projects_chunk, data)
 
-    print(keys)
+    modified_projects = [item for sublist in modified_projects for item in sublist]
+
+    with open('longer2y_and_more24pr_withci.csv', mode='w', newline='') as csv_file:
+        fieldnames = ['Id', 'Slug', 'Url', 'HasTravis', 'HasCircle']
+        writer = csv.DictWriter(csv_file, fieldnames=fieldnames)
+
+        writer.writeheader()
+        
+        for project in modified_projects:
+            writer.writerow(project)
