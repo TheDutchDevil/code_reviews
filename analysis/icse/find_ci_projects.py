@@ -119,10 +119,7 @@ def process_projects_chunk(args):
     return found_projects
 
 if __name__ == "__main__":
-    projects = get_projects()[0:20]
-
-    token.gh_tokens.put('cbf2041a21e31202786d7b1768619b00961c754e')
-    token.gh_tokens.put('e4d1f0924d9db03257a860e2913b5902e33ebe06')
+    projects = get_projects()
 
     chunks = make_chunks(projects, token.gh_tokens.qsize())
 
