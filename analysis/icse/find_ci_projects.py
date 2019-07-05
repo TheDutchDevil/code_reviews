@@ -68,28 +68,15 @@ def check_header_and_refresh(g):
     remaining_search = rate_limits.search.remaining
     remaining_core = rate_limits.core.remaining
 
-    if remaining_search < 6:
+    if remaining_search < 4:
         #sleep_time = computeSleepDurationForRate(rate_limits.search)
-        print("Waiting {}s to reset the search timer".format(75))
-        sleep(75)
+        #print("Waiting {}s to reset the search timer".format(60))
+        sleep(60)
     if remaining_core < 20:
         print("Depleted the core request numbers")
         print("------------------------------")
 
-
-def process_projects_chunk(args):
-    projects, key = args[0], args[1]
-
-    found_projects= []
-
-    g = Github(key)
-
-    base_query = "repo:{} filename:{} path:{}"
-
-    for project in projects:
-        try:
-            check_header_and_refresh(g)
-
+def get_ci_for_project(project, found_projects):
             travis_files = g.search_code(base_query.format(project["Slug"], "travis.yml", "/"))
 
             has_travis = False
@@ -110,11 +97,30 @@ def process_projects_chunk(args):
             project["HasCircle"] = has_circle
 
             found_projects.append(project)
+
+
+def process_projects_chunk(args):
+    projects, key = args[0], args[1]
+
+    found_projects= []
+
+    g = Github(key)
+
+    base_query = "repo:{} filename:{} path:{}"
+
+    for project in projects:
+        try:
+            check_header_and_refresh(g)
+
+            get_ci_for_project(project, found_projects)
             
         except GithubException as e:
             if e.status == 403:
+                print("Ran into rate limit, backing off")
+                sleep(120)
                 check_header_and_refresh(g)
-            if e.status != 422:
+                get_ci_for_project(project, found_projects)
+            elif e.status != 422:
                 raise e
             else:
                 print("Could not find project {}".format(project["Slug"]))
