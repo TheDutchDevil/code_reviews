@@ -50,7 +50,7 @@ def computeSleepDuration(g):
 def computeSleepDurationForRate(rate):
     reset_time = rate.reset
     curr_time = datetime.datetime.now()
-    return int(ceil((reset_time - curr_time).total_seconds())) +7210
+    return int(ceil((reset_time - curr_time).total_seconds())) -21590 + 7200
 
 
 def waitIfDepleted(g):    
@@ -68,12 +68,13 @@ def check_header_and_refresh(g):
     remaining_search = rate_limits.search.remaining
     remaining_core = rate_limits.core.remaining
 
-    if remaining_search < 4:
-        sleep_time = computeSleepDurationForRate(rate_limits.search)
-        print("Waiting {}s to reset the search timer".format(sleep_time))
-        sleep(sleep_time)
+    if remaining_search < 6:
+        #sleep_time = computeSleepDurationForRate(rate_limits.search)
+        print("Waiting {}s to reset the search timer".format(75))
+        sleep(75)
     if remaining_core < 20:
         print("Depleted the core request numbers")
+        print("------------------------------")
 
 
 def process_projects_chunk(args):
@@ -111,6 +112,8 @@ def process_projects_chunk(args):
             found_projects.append(project)
             
         except GithubException as e:
+            if e.status == 403:
+                check_header_and_refresh(g)
             if e.status != 422:
                 raise e
             else:
@@ -126,6 +129,8 @@ if __name__ == "__main__":
     data = ([(projects, token) for projects, token in zip(chunks, list(token.gh_tokens.queue))])
 
     calc_pool = multiprocessing.Pool(processes=token.gh_tokens.qsize())  
+
+    print("Starting {} threads".format(token.gh_tokens.qsize()))
 
     # run our processes and await responses
     modified_projects = calc_pool.map(process_projects_chunk, data)
