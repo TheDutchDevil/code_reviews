@@ -76,7 +76,10 @@ def check_header_and_refresh(g):
         print("Depleted the core request numbers")
         print("------------------------------")
 
-def get_ci_for_project(project, found_projects):
+base_query = "repo:{} filename:{} path:{}"
+
+
+def get_ci_for_project(g, project, found_projects):
             travis_files = g.search_code(base_query.format(project["Slug"], "travis.yml", "/"))
 
             has_travis = False
@@ -106,26 +109,42 @@ def process_projects_chunk(args):
 
     g = Github(key)
 
-    base_query = "repo:{} filename:{} path:{}"
+    fail_count = 0
 
     for project in projects:
         try:
             check_header_and_refresh(g)
 
-            get_ci_for_project(project, found_projects)
+            get_ci_for_project(g, project, found_projects)
             
         except GithubException as e:
-            if e.status == 403:
+            if e.status >= 500:
+                try:
+                    print("Server error, trying again")
+                    get_ci_for_project(g, project, found_projects)
+                except:
+                     fail_count += 1
+            elif e.status == 403:
                 print("Ran into rate limit, backing off")
-                sleep(120)
+                sleep(75)
                 check_header_and_refresh(g)
-                get_ci_for_project(project, found_projects)
+                try:
+                    get_ci_for_project(g, project, found_projects)
+                except GithubException as e:
+                    if e.status != 422:
+                        fail_count += 1
+                except:
+                    fail_count += 1
             elif e.status != 422:
-                raise e
+                fail_count += 1
             else:
                 print("Could not find project {}".format(project["Slug"]))
+        except Exception as e:
+            print("Unkown error {}".format(e))
+            fail_count += 1
+            sleep(10)
 
-    return found_projects
+    return (found_projects, fail_count)
 
 if __name__ == "__main__":
     projects = get_projects()
@@ -141,7 +160,11 @@ if __name__ == "__main__":
     # run our processes and await responses
     modified_projects = calc_pool.map(process_projects_chunk, data)
 
-    modified_projects = [item for sublist in modified_projects for item in sublist]
+    fail_count = sum([ret_val[1] for ret_val in modified_projects])
+
+    modified_projects = [item for sublist in modified_projects for item in sublist[0]]
+
+    print("Total of {} failed projects".format(fail_count))
 
     with open('longer2y_and_more24pr_withci.csv', mode='w', newline='') as csv_file:
         fieldnames = ['Id', 'Slug', 'Url', 'HasTravis', 'HasCircle']

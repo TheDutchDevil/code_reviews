@@ -1,5 +1,5 @@
 import MySQLdb
-db = MySQLdb.connect(passwd="ghtorrent_restore",db="ghtorrent_restore",user="ghtorrent")
+db = MySQLdb.connect(passwd="ghtorrent_restore",db="ghtorrent_06_19",user="ghtorrent")
 
 c = db.cursor()
 
