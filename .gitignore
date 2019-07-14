@@ -6,6 +6,8 @@ __pycache__/
 # C extensions
 *.so
 
+gh_tokens_list
+
 # Distribution / packaging
 .Python
 build/
