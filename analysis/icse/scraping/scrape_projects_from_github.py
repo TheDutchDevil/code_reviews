@@ -18,7 +18,7 @@ def read_data_and_execute():
             if line_count == 0:
                 pass
             else:
-                found_projects.append({"Slug": row[1]})
+                found_projects.append({"slug": row[2]})
             line_count += 1
 
     random.shuffle(found_projects)
