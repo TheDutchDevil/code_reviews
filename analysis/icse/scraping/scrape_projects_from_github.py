@@ -76,8 +76,6 @@ def check_header_and_refresh(g, token_queue):
     remaining = rate_limit.core.remaining
     remaining_search = rate_limit.search.remaining
 
-    print("Checking header token status core left: {}, search left: {}, tokens in game: {}".format(remaining, remaining_search, token_queue.qsize()))
-
 
     if remaining < 50:
         if token_queue.qsize() == 1:
@@ -378,9 +376,6 @@ def process_project(projects):
                     did_pulls += 1
                     completed_pulls += 1
                     
-                    if completed_pulls % 500 == 0:
-                        print("Did {} pull requests".format(completed_pulls))
-                    
                     if did_pulls == 30:
                         check_header_and_refresh(g, token_queue)
                         did_pulls = 0
@@ -409,7 +404,7 @@ def process_project(projects):
             except GithubException as gh_e:
                 if gh_e.status == 403:
                     print("403 encountered")
-                    raise gh_e
+                    check_header_and_refresh(g, token_queue)
                 print("Failed {} with {}".format(project["slug"], e))
                 print(traceback.format_exc())
                 fail_count += 1
