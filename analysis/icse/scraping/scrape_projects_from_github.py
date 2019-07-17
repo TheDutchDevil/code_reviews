@@ -449,7 +449,7 @@ def chunkify(lst,n):
 
 def execute_scrape_list(found_projects):
 
-    threads = 2
+    threads = 7
 
     chunked_projects = chunkify(found_projects, threads)
     
