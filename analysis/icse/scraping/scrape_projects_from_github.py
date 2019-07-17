@@ -393,7 +393,7 @@ def process_project(projects):
 
                 project_dal.insert_project(repo_dict)   
 
-                print("Did project {}".format(repo_dict["slug"]))
+                print("Did project {}".format(project["slug"]))
                 
                 #If this project has been scraped break from the While True
                 #to start processing the next project.
