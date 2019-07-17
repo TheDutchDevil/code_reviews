@@ -16,8 +16,6 @@ filename = os.path.join(dirname, 'gh_tokens_list')
 
 gh_tokens = queue.Queue()
 
-__running_timer__ = False
-
 tokens_added = []
 
 def read_tokens():
@@ -35,10 +33,9 @@ def read_tokens():
                 gh_tokens.put(token)
                 print("Added {}'s token".format(comment))
 
+    
+    threading.Timer(10.0, read_tokens).start()
+
 read_tokens()
 
-if not __running_timer__:    
-    threading.Timer(10.0, read_tokens).start()
-    print("Started Timer")
-    __running_timer__ = True
 
