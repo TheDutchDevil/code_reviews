@@ -67,7 +67,15 @@ def waitAndGetRepo(g, slug):
     return g.get_repo(slug)
 
 def check_header_and_refresh(g, token_queue):
-    remaining = g.get_rate_limit().core.remaining
+    rate_limit = g.get_rate_limit()
+
+
+
+    remaining = rate_limit.core.remaining
+    remaining_search = rate_limit.search.remaining
+
+    print("Checking header token status core left: {}, search left: {}".format(remaining, remaining_search))
+
 
     if remaining < 50:
         if token_queue.qsize() == 1:
@@ -388,6 +396,17 @@ def process_project(project):
             #to start processing the next project.
             break
 
+        except GitHubException as gh_e:
+            if gh_e.status == 403:
+                raise gh_e
+            print("Failed {} with {}".format(project["slug"], e))
+            print(traceback.format_exc())
+            fail_count += 1
+            
+            if fail_count >= allowed_failures:
+                project_dal.insert_project({"full_name": project["slug"], "succeeded": False})
+                print("Skipped {} because of the too high failure count".format(project["slug"]))
+                break
         except Exception as e:
             print("Failed {} with {}".format(project["slug"], e))
             print(traceback.format_exc())
@@ -423,7 +442,7 @@ import multiprocessing
 
 def execute_scrape_list(found_projects):
     
-    with multiprocessing.Pool(7) as p:
+    with multiprocessing.Pool(1) as p:
         p.map(process_project, found_projects)
             
 #%%
