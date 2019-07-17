@@ -398,6 +398,7 @@ def process_project(project):
 
         except GitHubException as gh_e:
             if gh_e.status == 403:
+                print("403 encountered")
                 raise gh_e
             print("Failed {} with {}".format(project["slug"], e))
             print(traceback.format_exc())
