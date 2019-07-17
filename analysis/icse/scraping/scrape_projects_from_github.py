@@ -458,7 +458,7 @@ def execute_scrape_list(found_projects):
 
     chunked_projects = chunkify(found_projects, threads)
     
-    with multiprocessing.Pool(1) as p:
+    with multiprocessing.Pool(threads) as p:
         p.map(process_project, chunked_projects)
             
 #%%
