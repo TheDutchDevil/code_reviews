@@ -391,6 +391,8 @@ def process_project(project):
             repo_dict["scrape_type"] = "icse_1"          
 
             project_dal.insert_project(repo_dict)   
+
+            print("Did project {}".format(repo_dict["slug"]))
             
             #If this project has been scraped break from the While True
             #to start processing the next project.
