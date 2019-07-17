@@ -22,7 +22,6 @@ gh_tokens = m.Queue()
 tokens_added = []
 
 def read_tokens():
-    print("Reading tokens")
     with open(filename) as fp:  
         for cnt, line in enumerate(fp):
             if line == "" or "," not in line:
