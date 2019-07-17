@@ -31,6 +31,8 @@ from time import sleep
 
 import github
 
+from github import GithubException
+
 class GitHubEncoder(JSONEncoder):
     
     def default(self, o):
@@ -74,7 +76,7 @@ def check_header_and_refresh(g, token_queue):
     remaining = rate_limit.core.remaining
     remaining_search = rate_limit.search.remaining
 
-    print("Checking header token status core left: {}, search left: {}, tokens in game: {}".format(remaining, remaining_search, len(token_queue)))
+    print("Checking header token status core left: {}, search left: {}, tokens in game: {}".format(remaining, remaining_search, token_queue.qsize()))
 
 
     if remaining < 50:
@@ -404,7 +406,7 @@ def process_project(projects):
                 #to start processing the next project.
                 break
 
-            except GitHubException as gh_e:
+            except GithubException as gh_e:
                 if gh_e.status == 403:
                     print("403 encountered")
                     raise gh_e
