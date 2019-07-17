@@ -74,7 +74,7 @@ def check_header_and_refresh(g, token_queue):
     remaining = rate_limit.core.remaining
     remaining_search = rate_limit.search.remaining
 
-    print("Checking header token status core left: {}, search left: {}".format(remaining, remaining_search))
+    print("Checking header token status core left: {}, search left: {}, tokens in game: {}".format(remaining, remaining_search, len(token_queue))
 
 
     if remaining < 50:
