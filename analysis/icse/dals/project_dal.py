@@ -1,5 +1,5 @@
 from pymongo import MongoClient
-from pull_request_dal import PullRequestDal
+from dals.pull_request_dal import PullRequestDal
 
 class ProjectDal:
     def __init__(self):

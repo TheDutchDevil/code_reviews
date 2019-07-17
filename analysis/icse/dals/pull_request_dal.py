@@ -7,7 +7,7 @@ Created on Tue Sep 18 14:16:20 2018
 
 from pymongo import MongoClient
 
-from commit_dal import CommitDal
+from dals.commit_dal import CommitDal
 
 class PullRequestDal:
     def __init__(self):
