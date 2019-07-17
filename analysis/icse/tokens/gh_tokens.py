@@ -34,7 +34,7 @@ def read_tokens():
             if token not in tokens_added:
                 tokens_added.append(token)
                 gh_tokens.put(token)
-                print("Added {}'s token".format(comment))
+                print("Added {}'s token".format(comment.replace("\n", "")))
 
     
     threading.Timer(10.0, read_tokens).start()
