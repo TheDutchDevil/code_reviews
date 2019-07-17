@@ -21,6 +21,7 @@ __running_timer__ = False
 tokens_added = []
 
 def read_tokens():
+    print("Reading tokens")
     with open(filename) as fp:  
         for cnt, line in enumerate(fp):
             if line == "" or "," not in line:
@@ -38,4 +39,6 @@ read_tokens()
 
 if not __running_timer__:    
     threading.Timer(10.0, read_tokens).start()
+    print("Started Timer")
+    __running_timer__ = True
 
