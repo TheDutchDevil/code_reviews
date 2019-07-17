@@ -87,6 +87,8 @@ def check_header_and_refresh(g, token_queue):
             g._Github__requester._Requester__authorizationHeader = "token " + new_token
             
             remaining = g.get_rate_limit().core.remaining
+
+            print("using token".format(new_token))
             
             if remaining < 50:
                 print("New token is depleted, so waiting")
@@ -308,117 +310,121 @@ def process_pull_request(pull, split_slug, g, token_queue):
     return pull_dict;
 
 #%%
-def process_project(project):   
+def process_project(projects):   
 
     token_queue = gh_tokens.gh_tokens
     
     new_token = token_queue.get()
+
+    print("Using token {} to start with {} projects".format(new_token, len(projects)))
     
     token_queue.put(new_token)
     
     g = Github(new_token, per_page=100)
     
-    fail_count = 0   
-    
-    allowed_failures = 5
-    
     project_dal = ProjectDal()
     issue_dal = IssueDal()
     pull_request_dal = PullRequestDal()
     commit_dal = CommitDal()
+
+    for project in projects:
+    
+        fail_count = 0   
         
-    while True:
-        try:
-            if project_dal.project_inserted(project["slug"]):
-                print("Skipping {}".format(project["slug"]))
-                break
-                
-            split_slug = project['slug'].split("/")
-                            
-            check_header_and_refresh(g, token_queue)
+        allowed_failures = 5
             
-            repo = g.get_repo(project["slug"])
-            
-            repo_dict = parse_repo(repo)
-                        
-            check_header_and_refresh(g, token_queue)
-            
-            pulls = repo.get_pulls(state='closed')
-            
-            repo_dict["pull_requests"] = []
-                            
-            did_pulls = 0
-            completed_pulls = 0
-            
-            for pull in pulls:
-                
-                pull_fail_count = 0;
-                
-                pull_dict = {}
-                
-                while pull_fail_count < 3:
-                    try:
-                        pull_dict = process_pull_request(pull, split_slug, g, token_queue)
-                        
-                        repo_dict["pull_requests"].append(pull_dict)
-                        break;
-                    except:
-                        traceback.print_exc()
-                        pull_fail_count += 1
-                        print("Failed scraping pull request #{}".format(completed_pulls))
+        while True:
+            try:
+                if project_dal.project_inserted(project["slug"]):
+                    print("Skipping {}".format(project["slug"]))
+                    break
                     
-                did_pulls += 1
-                completed_pulls += 1
+                split_slug = project['slug'].split("/")
+                                
+                check_header_and_refresh(g, token_queue)
                 
-                if completed_pulls % 500 == 0:
-                    print("Did {} pull requests".format(completed_pulls))
+                repo = g.get_repo(project["slug"])
                 
-                if did_pulls == 30:
-                    check_header_and_refresh(g, token_queue)
-                    did_pulls = 0
-                                      
-            
-            # Ensure that we save commits to their own collection
-            # then replace the commit objects with an array of sha hashes
-            for pr in repo_dict["pull_requests"]:
-                commit_dal.insert_commits(pr["commits"])
-                pr["commits"] = [commit["sha"] for commit in pr["commits"]]
-            
-            pull_request_dal.insert_pull_requests(repo_dict["pull_requests"])
-            repo_dict.pop("pull_requests", None)
-            
-            repo_dict["succeeded"] = True
-            repo_dict["scrape_type"] = "icse_1"          
+                repo_dict = parse_repo(repo)
+                            
+                check_header_and_refresh(g, token_queue)
+                
+                pulls = repo.get_pulls(state='closed')
+                
+                repo_dict["pull_requests"] = []
+                                
+                did_pulls = 0
+                completed_pulls = 0
+                
+                for pull in pulls:
+                    
+                    pull_fail_count = 0;
+                    
+                    pull_dict = {}
+                    
+                    while pull_fail_count < 3:
+                        try:
+                            pull_dict = process_pull_request(pull, split_slug, g, token_queue)
+                            
+                            repo_dict["pull_requests"].append(pull_dict)
+                            break;
+                        except:
+                            traceback.print_exc()
+                            pull_fail_count += 1
+                            print("Failed scraping pull request #{}".format(completed_pulls))
+                        
+                    did_pulls += 1
+                    completed_pulls += 1
+                    
+                    if completed_pulls % 500 == 0:
+                        print("Did {} pull requests".format(completed_pulls))
+                    
+                    if did_pulls == 30:
+                        check_header_and_refresh(g, token_queue)
+                        did_pulls = 0
+                                        
+                
+                # Ensure that we save commits to their own collection
+                # then replace the commit objects with an array of sha hashes
+                for pr in repo_dict["pull_requests"]:
+                    commit_dal.insert_commits(pr["commits"])
+                    pr["commits"] = [commit["sha"] for commit in pr["commits"]]
+                
+                pull_request_dal.insert_pull_requests(repo_dict["pull_requests"])
+                repo_dict.pop("pull_requests", None)
+                
+                repo_dict["succeeded"] = True
+                repo_dict["scrape_type"] = "icse_1"          
 
-            project_dal.insert_project(repo_dict)   
+                project_dal.insert_project(repo_dict)   
 
-            print("Did project {}".format(repo_dict["slug"]))
-            
-            #If this project has been scraped break from the While True
-            #to start processing the next project.
-            break
-
-        except GitHubException as gh_e:
-            if gh_e.status == 403:
-                print("403 encountered")
-                raise gh_e
-            print("Failed {} with {}".format(project["slug"], e))
-            print(traceback.format_exc())
-            fail_count += 1
-            
-            if fail_count >= allowed_failures:
-                project_dal.insert_project({"full_name": project["slug"], "succeeded": False})
-                print("Skipped {} because of the too high failure count".format(project["slug"]))
+                print("Did project {}".format(repo_dict["slug"]))
+                
+                #If this project has been scraped break from the While True
+                #to start processing the next project.
                 break
-        except Exception as e:
-            print("Failed {} with {}".format(project["slug"], e))
-            print(traceback.format_exc())
-            fail_count += 1
-            
-            if fail_count >= allowed_failures:
-                project_dal.insert_project({"full_name": project["slug"], "succeeded": False})
-                print("Skipped {} because of the too high failure count".format(project["slug"]))
-                break
+
+            except GitHubException as gh_e:
+                if gh_e.status == 403:
+                    print("403 encountered")
+                    raise gh_e
+                print("Failed {} with {}".format(project["slug"], e))
+                print(traceback.format_exc())
+                fail_count += 1
+                
+                if fail_count >= allowed_failures:
+                    project_dal.insert_project({"full_name": project["slug"], "succeeded": False})
+                    print("Skipped {} because of the too high failure count".format(project["slug"]))
+                    break
+            except Exception as e:
+                print("Failed {} with {}".format(project["slug"], e))
+                print(traceback.format_exc())
+                fail_count += 1
+                
+                if fail_count >= allowed_failures:
+                    project_dal.insert_project({"full_name": project["slug"], "succeeded": False})
+                    print("Skipped {} because of the too high failure count".format(project["slug"]))
+                    break
     
     
 #%%
@@ -443,10 +449,17 @@ import traceback
 
 import multiprocessing
 
+def chunkify(lst,n):
+    return [lst[i::n] for i in range(n)]
+
 def execute_scrape_list(found_projects):
+
+    threads = 2
+
+    chunked_projects = chunkify(found_projects, threads)
     
     with multiprocessing.Pool(1) as p:
-        p.map(process_project, found_projects)
+        p.map(process_project, chunked_projects)
             
 #%%
 
