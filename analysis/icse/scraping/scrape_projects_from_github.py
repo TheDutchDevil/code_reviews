@@ -88,14 +88,12 @@ def check_header_and_refresh(g, token_queue):
             
             remaining = g.get_rate_limit().core.remaining
 
-            print("using token".format(new_token))
+            print("Switched to token {}".format(new_token))
             
             if remaining < 50:
                 print("New token is depleted, so waiting")
                 waitIfDepleted(g)
                 print("Done waiting")
-            else:
-                print("Switched token")
         
     
 print(github.Requester.Requester)
