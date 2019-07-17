@@ -7,6 +7,8 @@ Created on Tue Sep 18 14:16:20 2018
 
 from pymongo import MongoClient
 
+from commit_dal import CommitDal
+
 class PullRequestDal:
     def __init__(self):
         self.client = MongoClient()
@@ -25,3 +27,12 @@ class PullRequestDal:
             print("Failed inserting PR {} with url {}, error: {}".format(pr["number"], pr["html_url"], e))
             raise e
         
+    def delete_pull_request(self, id):
+        pr = self.collection.find_one({"_id": id}, {"commits": 1})
+
+        commitDal = CommitDal()
+
+        for hash in pr["commits"]:
+            commitDal.delete_commit(hash)
+
+        self.collection.delete_one({"_id": pr["_id"]})

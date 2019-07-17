@@ -1,4 +1,5 @@
 from pymongo import MongoClient
+from pull_request_dal import PullRequestDal
 
 class ProjectDal:
     def __init__(self):
@@ -19,3 +20,25 @@ class ProjectDal:
     
     def insert_project(self, project):
         self.collection.insert_one(project)
+
+    def delete_project(self, slug):
+
+        project = self.collection.find_one({"full_name": slug}, {"_id": 1})
+
+        if project is None:
+            raise ValueError("Project not found")
+
+        project_name = slug.split("/")[1]
+        project_owner = slug.split("/")[0]
+
+        pull_requests = self.db["pull_requests"].find({"project_name": project_name, "project_owner": project_owner}, {"_id": 1})
+
+        prDal = PullRequestDal()
+
+        for pr in pull_requests:
+            prDal.delete_pull_request(pr["_id"])
+
+        self.collection.delete_one({"_id": project["_id"]})
+    
+    def find_projects(self, search, projection):
+        return self.collection.find(search, projection)

@@ -31,4 +31,8 @@ class CommitDal:
         except Exception as e:
             print("Failed inserting commit {} with url {}, error: {}".format(commit["commit_sha"], commit["html_url"], e))
             raise e
+
+
+    def delete_commit(self, hash):
+        self.collection.delete_one({"sha": hash})
         
