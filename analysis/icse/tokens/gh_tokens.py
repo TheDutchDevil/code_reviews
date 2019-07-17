@@ -5,7 +5,7 @@ Created on Wed Sep 12 17:04:10 2018
 @author: Nathan
 """
 
-import queue
+import multiprocessing
 import threading
 import time
 import inspect
@@ -14,7 +14,10 @@ import os
 dirname = os.path.dirname(os.path.abspath(inspect.stack()[0][1]))
 filename = os.path.join(dirname, 'gh_tokens_list')
 
-gh_tokens = queue.Queue()
+
+m = multiprocessing.Manager()
+
+gh_tokens = m.Queue()
 
 tokens_added = []
 
