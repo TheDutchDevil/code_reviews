@@ -12,7 +12,7 @@ commits_collection = database["commits"]
 project_slugs = list(projects_collection.find({'succeeded': True}))
 
 
-for project in project_slugs[:5]:
+for project in project_slugs:
 
     pull_requests = list(pull_requests_collection.find({'project_name': project["full_name"].split("/")[1],
                                                        'project_owner': project["full_name"].split("/")[0]},
@@ -42,10 +42,12 @@ for project in project_slugs[:5]:
                     popular_hosts.append(val)
 
         for host in popular_hosts:
-            oldest_status = min([status["created_at"] for status in statuses if urlparse(status["target_url"]).hostname == host])
+            host_statuses = [status for status in statuses if urlparse(status["target_url"]).hostname == host]
 
-            ci_services.append({"host": host, "introduced": oldest_status})
+            oldest_status = min([status["created_at"] for status in host_statuses])
+
+            ci_services.append({"host": host, "introduced": oldest_status, "count": len(host_statuses)})
 
     project["services"] = ci_services
 
-    print(project["services"])
+    projects_collection.replace_one({"_id": project["_id"]}, project)
