@@ -20,7 +20,7 @@ def read_data_and_execute():
             if line_count == 0:
                 pass
             else:
-                found_projects.append({"slug": row[2]})
+                found_projects.append({"slug": row[1]})
             line_count += 1
 
     random.shuffle(found_projects)
@@ -416,7 +416,7 @@ def process_project(projects):
                 if gh_e.status == 403:
                     print("403 encountered")
                     check_header_and_refresh(g, token_queue)
-                print("Failed {} with {}".format(project["slug"], e))
+                print("Failed {} with {}".format(project["slug"], gh_e))
                 print(traceback.format_exc())
                 fail_count += 1
                 
