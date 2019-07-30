@@ -17,7 +17,7 @@ def read_data_and_execute():
         csv_reader = csv.reader(csv_file, delimiter=',')
         line_count = 0
         for row in csv_reader:
-            if line_count == 0:
+            if line_count == 0 or not "/" in row[1]:
                 pass
             else:
                 found_projects.append({"slug": row[1]})
