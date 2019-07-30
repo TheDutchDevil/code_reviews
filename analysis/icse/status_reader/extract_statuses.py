@@ -9,7 +9,7 @@ pull_requests_collection = database["pull_requests"]
 projects_collection = database["projects"]
 commits_collection = database["commits"]
 
-project_slugs = list(projects_collection.find({'succeeded': True}))
+project_slugs = list(projects_collection.find({'succeeded': True, 'services': {'$exists':False}}))
 
 
 for project in project_slugs:
