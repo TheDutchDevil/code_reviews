@@ -343,9 +343,11 @@ def process_project(projects):
 
                     found_project = collection.find_one({"full_name": project["slug"]})
 
-                    found_project["scrape_type"].append("random_1")
+                    if not "random_1" in found_project["scrape_type"]:
 
-                    collection.replace_one({"_id": found_project["_id"]})
+                        found_project["scrape_type"].append("random_1")
+
+                        collection.replace_one({"_id": found_project["_id"]}, found_project)
 
                     print("Skipping {}".format(project["slug"]))
                     break
