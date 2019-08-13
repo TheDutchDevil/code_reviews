@@ -14,7 +14,7 @@ commits_collection = database["commits"]
 
 projects = list(projects_collection.find({'scrape_type':'travis_1', 'succeeded': True}))
 
-for project in projects_collection:
+for project in projects:
     name = project["full_name"].split("/")[1]
     owner = project["full_name"].split("/")[0]
 
