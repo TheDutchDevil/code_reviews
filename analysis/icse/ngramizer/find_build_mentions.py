@@ -6,6 +6,15 @@ from ngramizer import *
 
 from pymongo import MongoClient
 
+terms = [
+    "build",
+    "continuous",
+    "integration",
+    "travis",
+    "lint",
+
+]
+
 mongo_client = MongoClient()
 database = mongo_client["graduation"]
 pull_requests_collection = database["pull_requests"]
@@ -48,10 +57,9 @@ for project in projects:
             for sentence in sentences:
                 sentence_l = sentence.lower()
 
-                if "build" in sentence_l or \
-                    "continuous" in sentence_l or \
-                    "integration" in sentence_l or \
-                    "travis" in sentence_l:
+                vals = [term in sentence_l for term in terms]
+
+                if True in vals:
                     location = "{}.{}.{}.{}".format(project["full_name"],
                                             pr["number"],
                                             nr_comment,
