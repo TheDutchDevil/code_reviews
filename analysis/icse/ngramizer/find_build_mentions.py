@@ -74,11 +74,11 @@ for project in projects:
                         "type" : ["ci_mention"]
                     }
 
-                    found_mention = mentions_collection.find_one({ 
+                    mention_in_db = mentions_collection.find_one({ 
                         'identifier' : mention_found["identifier"]})
 
-                    if found_mention is None:
-                        mentions_collection.insert_one(found_mention)
+                    if mention_in_db is None:
+                        mentions_collection.insert_one(mention_found)
 
                 line += 1
             nr_comment += 1
