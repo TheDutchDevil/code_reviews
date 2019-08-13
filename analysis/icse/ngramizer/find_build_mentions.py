@@ -40,6 +40,11 @@ for project in projects:
         nr_comment = 0
 
         for comment in pr["raw_comments"]:
+            if "body" not in comment or \
+                comment["body"] is None:
+                nr_comment += 1
+                continue
+
             text = comment["body"]
 
             text = text.lower()
@@ -57,6 +62,7 @@ for project in projects:
 
             line = 0
             for sentence in sentences:
+                
                 sentence_l = sentence.lower()
 
                 vals = [term in sentence_l for term in terms]
