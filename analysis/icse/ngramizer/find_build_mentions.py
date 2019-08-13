@@ -21,6 +21,8 @@ pull_requests_collection = database["pull_requests"]
 projects_collection = database["projects"]
 commits_collection = database["commits"]
 
+mentions_collection = database["mentions"]
+
 projects = list(projects_collection.find({'scrape_type':'travis_1', 'succeeded': True}))
 
 for project in projects:
@@ -68,10 +70,15 @@ for project in projects:
                     mention_found = {
                         "identifier":location,
                         "sentence" : sentence,
-                        "url" : comment["html_url"]
+                        "url" : comment["html_url"],
+                        "type" : ["ci_mention"]
                     }
 
-                    print(mention_found)
+                    found_mention = mentions_collection.find_one({ 
+                        'identifier' : mention_found["identifier"]})
+
+                    if found_mention is None:
+                        mentions_collection.insert_one(found_mention)
 
                 line += 1
             nr_comment += 1
