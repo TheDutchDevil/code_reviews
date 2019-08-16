@@ -23,7 +23,7 @@ commits_collection = database["commits"]
 
 mentions_collection = database["mentions"]
 
-projects = list(projects_collection.find({'scrape_type':'travis_1', 'succeeded': True}))
+projects = list(projects_collection.find({'scrape_type':'travis_1', 'succeeded': True, 'travis_is_oldest_ci': True}))
 
 for project in projects:
     name = project["full_name"].split("/")[1]
@@ -31,7 +31,8 @@ for project in projects:
 
     for pr in list(pull_requests_collection.find({
         'project_name':name,
-        'project_owner':owner
+        'project_owner':owner,
+        'created_at': { '$gt' : project["status_travis_date"]}
     }, {
         'bigrams':0,
         'raw_comments.bigrams':0,
