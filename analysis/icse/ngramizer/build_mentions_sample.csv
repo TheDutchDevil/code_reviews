@@ -1,0 +1,1001 @@
+identifier,sentence,url
+ocaml/opam-repository.4232.0.0,:white_check_mark: all lint checks passed 47f9b23dd9b3d17735df2915cd07d659680e2ab8,https://github.com/ocaml/opam-repository/pull/4232#issuecomment-112252767
+astropy/astropy.5249.10.1,"out of interest though, would you rather the rtd build fail or have broken gallery examples in the final build?",https://github.com/astropy/astropy/pull/5249#issuecomment-241466206
+astropy/astropy.1462.10.7,"regardless, i don't like the idea of requiring a working/active internet connection for the docs to build correctly.",https://github.com/astropy/astropy/pull/1462#issuecomment-25764257
+xapi-project/xen-api.499.14.0,M_EMAIL ⇒  M_EMAIL build succeeded.,https://github.com/xapi-project/xen-api/pull/499#issuecomment-4764627
+gooddata/gooddata-ruby.1264.5.0,build failed (check pipeline).,https://github.com/gooddata/gooddata-ruby/pull/1264#issuecomment-413532047
+mozilla/shumway.1863.8.4,- lint: passed,https://github.com/mozilla/shumway/pull/1863#issuecomment-63408278
+jruby/jruby.1600.0.0,travis run that worked:  M_URL,https://github.com/jruby/jruby/pull/1600#issuecomment-39216471
+statsmodels/statsmodels.4126.6.1,"looking at the last build's seven jobs, one star per minute (rounded up):",https://github.com/statsmodels/statsmodels/pull/4126#issuecomment-390461834
+puppetlabs/puppet.1596.1.219,"  25) mount provider (integration) when initially mounted when there is no initial fstab entry when setting ensure => mounted when setting options => local should leave the system in the mounted state, with data in /etc/fstab",https://github.com/puppetlabs/puppet/pull/1596#issuecomment-16318939
+Azure/azure-xplat-cli.3482.0.10,      at request.end (/home/travis/build/azure/azure-xplat-cli/node_modules/request/request.js:1397:14),https://github.com/Azure/azure-xplat-cli/pull/3482#issuecomment-278119543
+HoTT/HoTT.841.0.1,"( M_ICODE )  other than that, and modulo travis, lgtm",https://github.com/HoTT/HoTT/pull/841#issuecomment-263633031
+angular/angular.js.6065.3.1,"btw, i see the build is not completed due to a missing package error, -but the code was successfully passed-, do i have anything to do with it?",https://github.com/angular/angular.js/pull/6065#issuecomment-34802742
+xapi-project/xen-api.562.21.8,    cloning into '/usr/local/builds/build-xen-git.hg/obj/repos/stunnel'...,https://github.com/xapi-project/xen-api/pull/562#issuecomment-5695448
+scala/scala-lang.359.8.11,"we don't want both in one repository in the first place, but even if you were to migrate, i would still wager that you are going to increase build times significantly by lumping them into one megasiterepo.",https://github.com/scala/scala-lang/pull/359#issuecomment-158767219
+scikit-learn/scikit-learn.8851.0.1,"since the circleci build is about 40 minutes, this is not a big deal.",https://github.com/scikit-learn/scikit-learn/pull/8851#issuecomment-300435841
+symfony/symfony.9706.10.9,- it's not a point of travis-ci to check symfony cs,https://github.com/symfony/symfony/pull/9706#issuecomment-29914199
+cocos2d/cocos2d-x.16091.1.0,[ci rebuild],https://github.com/cocos2d/cocos2d-x/pull/16091#issuecomment-231908640
+dimagi/commcare-hq.17332.0.17,"domain=pact_domain, build_id=build_id, module_id=module_id)",https://github.com/dimagi/commcare-hq/pull/17332#issuecomment-320035416
+ipython/ipython.5323.12.1,so casperjs + slimerjs is finally running in travis!,https://github.com/ipython/ipython/pull/5323#issuecomment-37696785
+weld/core.318.2.0,triggering build using a merge of 1a54d610286f6c17be478b7d75898a74568ab08e on branch  M_VERSION_NUMBER :,https://github.com/weld/core/pull/318#issuecomment-20198497
+Baystation12/Baystation12.19362.6.2,if you don't want to use jmerge for any reason you can always clean the tags manually if travis detects them.,https://github.com/Baystation12/Baystation12/pull/19362#issuecomment-344565485
+jruby/jruby.4945.0.1,"... otherwise (if its only ci) we shall adjust travis-ci accordingly, instead.",https://github.com/jruby/jruby/pull/4945#issuecomment-356243026
+coq/coq.8360.2.0,"note that it didn't just fail on nix, it also failed on appveyor (windows) and travis (macos).",https://github.com/coq/coq/pull/8360#issuecomment-417653298
+buildbot/buildbot.3296.4.0,"that horizontal scrollbar actually annoys me, at the moment i have only three workers so the scrollbar feels just weird (especially since the builder names are not actually falling off the page).",https://github.com/buildbot/buildbot/pull/3296#issuecomment-306540499
+JuliaLang/julia.14378.5.1,"the travis 64bit failure looks unrelated, i think.",https://github.com/JuliaLang/julia/pull/14378#issuecomment-164239027
+Growstuff/growstuff.1176.10.4,i'm re-running the build.,https://github.com/Growstuff/growstuff/pull/1176#issuecomment-277228108
+PCSX2/pcsx2.1530.58.3,do you know the shell and the git version on travis ?,https://github.com/PCSX2/pcsx2/pull/1530#issuecomment-242848742
+apache/cloudstack.2114.28.0,M_MENTION a jenkins job has been kicked to build packages.,https://github.com/apache/cloudstack/pull/2114#issuecomment-317168986
+DIRACGrid/DIRAC.3662.1.0,"imho ok, just check what travis is complaining about.",https://github.com/DIRACGrid/DIRAC/pull/3662#issuecomment-380828419
+yui/yui3.382.4.0,"M_MENTION make sure to rebuild the module, then merge it down to  M_ICODE  >>  M_ICODE  >>  M_ICODE .",https://github.com/yui/yui3/pull/382#issuecomment-11827031
+stan-dev/stan.2010.1.3,"if someone lets me know how i can check out this change and make sure the manual builds and the link works, i can merge it.",https://github.com/stan-dev/stan/pull/2010#issuecomment-239615121
+riptano/cassandra-dtest.1077.0.0,travis is happy.,https://github.com/riptano/cassandra-dtest/pull/1077#issuecomment-230563039
+apache/cloudstack.1517.6.2,travis deployed database and is green confirms upgrade path fix does not break with existing mysql  M_VERSION_NUMBER  or less version.,https://github.com/apache/cloudstack/pull/1517#issuecomment-215024033
+ocaml/opam-repository.8851.0.0,:white_check_mark: all lint checks passed c24724358f9e91147a134c5b2109523a30528d2a,https://github.com/ocaml/opam-repository/pull/8851#issuecomment-290343308
+scikit-learn/scikit-learn.5372.64.4,"also when ""continuous variable"" has a lot of repeated values is not good, but for that i add a small noise as advised in another paper.",https://github.com/scikit-learn/scikit-learn/pull/5372#issuecomment-160422338
+fontforge/fontforge.3168.4.4,"looking more into why there's an apparent speedup, it's because it's calling distcheck only on the separate build.",https://github.com/fontforge/fontforge/pull/3168#issuecomment-334385282
+ldc-developers/ldc.680.0.0,"that's not it, it only shifts the problem on travis to a different llvm version (!",https://github.com/ldc-developers/ldc/pull/680#issuecomment-48807234
+xapi-project/xen-api.22.1.2,"(and i'll try to do building on my own first, before sending the next pull-request.",https://github.com/xapi-project/xen-api/pull/22#issuecomment-781683
+openmicroscopy/openmicroscopy.1148.3.0,updated by build omero-submods-stable#74.,https://github.com/openmicroscopy/openmicroscopy/pull/1148#issuecomment-17856913
+scikit-image/scikit-image.1031.3.1,can we have the last travis build restarted ?,https://github.com/scikit-image/scikit-image/pull/1031#issuecomment-46225599
+PX4/Firmware.1823.8.1,travis was to slow to checkout the branch before it was deleted.,https://github.com/PX4/Firmware/pull/1823#issuecomment-75833713
+matplotlib/matplotlib.1532.7.1,the only test it bails out on now is the building of docs under python3.,https://github.com/matplotlib/matplotlib/pull/1532#issuecomment-10819818
+CartoDB/cartodb.4341.3.0,"M_MENTION apart from that, good to go once the build gives us a green?",https://github.com/CartoDB/cartodb/pull/4341#issuecomment-119953025
+mozilla/kitsune.2722.0.1,r+ once travis gets around to approving this.,https://github.com/mozilla/kitsune/pull/2722#issuecomment-156257204
+cbeust/testng.1199.1.2,"about the pull request, i think you can add an integration test with exception checking (maybe in test/inject package).",https://github.com/cbeust/testng/pull/1199#issuecomment-252828994
+PX4/Firmware.5618.1.0,with the build in stlink or add jtag as described in the manual,https://github.com/PX4/Firmware/pull/5618#issuecomment-260535609
+dimagi/commcare-hq.5553.2.0,kicked build,https://github.com/dimagi/commcare-hq/pull/5553#issuecomment-74476152
+xapi-project/xen-api.185.0.0,build succeeded.,https://github.com/xapi-project/xen-api/pull/185#issuecomment-1227473
+openmicroscopy/bioformats.836.0.0,all seems fine; just waiting on automated builds to pick this up (and pass) and then should be good to merge.,https://github.com/openmicroscopy/bioformats/pull/836#issuecomment-32400309
+vufind-org/vufind.366.0.3,looks like there's one long line that needs to get wrapped to make travis happy.,https://github.com/vufind-org/vufind/pull/366#issuecomment-100235155
+buildbot/buildbot.1879.3.4,M_ICODE  via ...ot/status/builder.py#453...481,https://github.com/buildbot/buildbot/pull/1879#issuecomment-148662259
+robotology/yarp.828.45.0,"hi, i've had a look at the appveyor history and checked which commit might cause the debug build to stall.",https://github.com/robotology/yarp/pull/828#issuecomment-236834311
+pioneerspacesim/pioneer.2336.9.2,tomorrow i'll add a cleaned-up build-osx.h to the repo and close this pr.,https://github.com/pioneerspacesim/pioneer/pull/2336#issuecomment-20341776
+caskdata/cdap.5442.0.1,the build also passed here:  M_URL,https://github.com/caskdata/cdap/pull/5442#issuecomment-203715387
+lammps/lammps.322.0.0,M_MENTION and M_MENTION here are the scripts i use for jenkins continuous regression testing of lammps.,https://github.com/lammps/lammps/pull/322#issuecomment-270453789
+ocaml/opam-repository.10281.0.1,these packages passed lint tests:  M_ICODE,https://github.com/ocaml/opam-repository/pull/10281#issuecomment-329911686
+libgit2/libgit2sharp.1157.5.0,the build was previously failing.,https://github.com/libgit2/libgit2sharp/pull/1157#issuecomment-133845725
+joomla/joomla-cms.5800.1.3,"i only found it through an odd bit of code for a clients custom integration, which unfortunately i can't share.this comment was created with the j!tracker application at issues.joomla.org/joomla-cms/5800.",https://github.com/joomla/joomla-cms/pull/5800#issuecomment-70395183
+ParadiseSS13/Paradise.6037.6.0,"oh, it looks like travis is back",https://github.com/ParadiseSS13/Paradise/pull/6037#issuecomment-269836612
+angular/angular.js.3044.1.0,M_MENTION - this is failing in travis due to the use of  M_ICODE  in your patch.,https://github.com/angular/angular.js/pull/3044#issuecomment-20008457
+YaleSTC/reservations.634.1.2,"we should try and get travis ci set up though, i'll create an issue for that if it doesn't already exist.",https://github.com/YaleSTC/reservations/pull/634#issuecomment-48260939
+JuliaLang/julia.13879.16.0,i guess we should allow  M_ICODE  protocol on systems where  M_ICODE  can be build with  M_ICODE  but use  M_ICODE  protocol as a default.,https://github.com/JuliaLang/julia/pull/13879#issuecomment-154570801
+open-mpi/ompi.5759.4.0,the ibm ci (pgi compiler) build failed!,https://github.com/open-mpi/ompi/pull/5759#issuecomment-431107259
+openmicroscopy/openmicroscopy.2350.2.0,"travis looks happy, but it might be worth adding a ""omeroweb/gateway .... ok"" output if it's not too difficult.",https://github.com/openmicroscopy/openmicroscopy/pull/2350#issuecomment-41383822
+libgit2/libgit2.956.3.56,[  8%] building c object cmakefiles/git2.dir/src/diff.c.o,https://github.com/libgit2/libgit2/pull/956#issuecomment-8930484
+mavlink/qgroundcontrol.3209.2.0,"M_MENTION do you notice the ""fix windows build bug, about missionitemtest"".",https://github.com/mavlink/qgroundcontrol/pull/3209#issuecomment-209853296
+nim-lang/Nim.2112.3.0,M_MENTION on a german keyboard sh<space>something is easier then .<slash(thats shift 7)>build.sh,https://github.com/nim-lang/Nim/pull/2112#issuecomment-74119248
+mozilla/fireplace.1347.0.0, the adventure of the naval build,https://github.com/mozilla/fireplace/pull/1347#issuecomment-118092956
+appcelerator/titanium_mobile.2197.3.126,so i need some time to switch these build also.,https://github.com/appcelerator/titanium_mobile/pull/2197#issuecomment-5876714
+cakephp/docs.4975.1.0,"fixed unrelated errors, build is fine now.",https://github.com/cakephp/docs/pull/4975#issuecomment-302256647
+angular/angular.js.14770.1.0,it build fine locally.... oops,https://github.com/angular/angular.js/pull/14770#issuecomment-225960042
+scala/scala.4639.2.0,bootstrap build seems happy,https://github.com/scala/scala/pull/4639#issuecomment-122064649
+mavlink/qgroundcontrol.1302.7.8,    ./configure -developer-build -opensource -nomake examples -nomake tests -sdk macosx M_VERSION_NUMBER  -debug -no-framework,https://github.com/mavlink/qgroundcontrol/pull/1302#issuecomment-76997701
+scikit-learn/scikit-learn.5276.0.1,i got this from travis:,https://github.com/scikit-learn/scikit-learn/pull/5276#issuecomment-140571745
+buildbot/buildbot.3532.0.4,| master/buildbot/config.py |  M_ICODE  | :arrow_down: |,https://github.com/buildbot/buildbot/pull/3532#issuecomment-322726051
+mapnik/mapnik.1727.1.0,"M_MENTION i build the python bindings with msvc 2010 sp1, boost  M_VERSION_NUMBER , and python  M_VERSION_NUMBER",https://github.com/mapnik/mapnik/pull/1727#issuecomment-13984550
+ipython/ipython.6280.0.0,:+1: prodded one travis test to restart.,https://github.com/ipython/ipython/pull/6280#issuecomment-51410684
+realm/realm-cocoa.113.6.1,refer to this link for build results:  M_URL,https://github.com/realm/realm-cocoa/pull/113#issuecomment-38687858
+OPM/opm-parser.969.0.0,jenkins build this with downstreams opm-output=133 opm-core=1101 please,https://github.com/OPM/opm-parser/pull/969#issuecomment-259673762
+duckduckgo/zeroclickinfo-goodies.2330.3.0,"i am not sure why the build failed, doesn't look like it was due to imagemagick cheatsheet.",https://github.com/duckduckgo/zeroclickinfo-goodies/pull/2330#issuecomment-186897118
+openmicroscopy/openmicroscopy.2510.3.0,this build has been running for a week without issues.,https://github.com/openmicroscopy/openmicroscopy/pull/2510#issuecomment-45529762
+Wikia/app.11816.0.7,"5.  wikibuilder.js#l596: remove this useless assignment to local variable ""createstatusmessage""",https://github.com/Wikia/app/pull/11816#issuecomment-259226533
+RIOT-OS/RIOT.1772.14.1,can you restart travis M_MENTION,https://github.com/RIOT-OS/RIOT/pull/1772#issuecomment-61456857
+pulp/pulp.1963.0.0,refer to this link for build results (access rights to ci server needed):,https://github.com/pulp/pulp/pull/1963#issuecomment-117290283
+openSUSE/open-build-service.1829.2.1,":lastcheck file is important to copy, because in some cases when build-compare has been used in the source project, it would cause unnecessary rebuilds in target project.",https://github.com/openSUSE/open-build-service/pull/1829#issuecomment-223208053
+astropy/astropy.634.3.0,"ok, so in this version we still have the problem that a user (not a package manager) who wants to install astropy from source but doesn't know that they should have distribute will have the astropy build fail.",https://github.com/astropy/astropy/pull/634#issuecomment-12214427
+Codeception/Codeception.3760.10.1,like this: using docker in builds,https://github.com/Codeception/Codeception/pull/3760#issuecomment-262332318
+pyinstaller/pyinstaller.2991.26.3,"but until then, for ci builds with pyinstaller and pyqt, it sounds like we are stuck with v M_VERSION_NUMBER  for compatibility with windows versions older than win10.",https://github.com/pyinstaller/pyinstaller/pull/2991#issuecomment-354388514
+pulp/pulp.1903.6.2,skipping changelog.triggering rhel5-nptriggering f20-nptriggering rhel7-nptriggering rhel6-nptriggering f21-nprhel5-np completed with result successf20-np completed with result successrhel7-np completed with result failurerhel6-np completed with result successf21-np completed with result successstarted calculate disk usage of buildfinished calculation of disk usage of build in 0 secondsstarted calculate disk usage of workspacefinished calculation of disk usage of workspace in  2 secondsetting status of 27c0785fb4278aa7a81a5520c6d5ced7b4a38808 to failure with url  M_URL  and message: merged build finished.,https://github.com/pulp/pulp/pull/1903#issuecomment-109467746
+openstreetmap/openstreetmap-website.16.1.3,"also, i'm trying to build this so that it can be a standalone patch and won't be blocked if the user streams work takes longer to build than this relatively shallow redesign.",https://github.com/openstreetmap/openstreetmap-website/pull/16#issuecomment-4113546
+ocaml/opam-repository.10578.0.1,these packages passed lint tests:  M_ICODE,https://github.com/ocaml/opam-repository/pull/10578#issuecomment-341103140
+bokeh/bokeh.5078.4.7,i slogged through getting them working locally on my linux setup (without virtual x11 for now) and i found some mistakes in my early work on M_ISSUE_MENTION  with the integration tests.,https://github.com/bokeh/bokeh/pull/5078#issuecomment-244753027
+mixxxdj/mixxx.1160.7.6,"the other new effects controlobjects don't work with the point and click wizard yet either, but that's not essential to start putting out beta builds.",https://github.com/mixxxdj/mixxx/pull/1160#issuecomment-275941561
+gooddata/gooddata-ruby.1047.29.0,build failed (gate pipeline).,https://github.com/gooddata/gooddata-ruby/pull/1047#issuecomment-347229136
+caskdata/cdap.2196.2.1,the build will be lot faster too!,https://github.com/caskdata/cdap/pull/2196#issuecomment-95010280
+qgis/QGIS.1417.0.3,"i do not know which of the two possbile constants is now the best to use, but i could build without problems using gaia_vectors_list_optimistic (on debian testing, libspatialite  M_VERSION_NUMBER )",https://github.com/qgis/QGIS/pull/1417#issuecomment-44834827
+doctrine/doctrine2.6733.17.0,"cool, i can confirm it works now with symfony 4. there is still an issue with the integration bundle and symfony 4, but it is just pending on a new release.",https://github.com/doctrine/doctrine2/pull/6733#issuecomment-338775765
+cakephp/cakephp.5943.0.1,how to retrigger travis?,https://github.com/cakephp/cakephp/pull/5943#issuecomment-75457234
+scikit-learn/scikit-learn.8821.7.1,but i have no idea why it can not pass the travis-ci test...,https://github.com/scikit-learn/scikit-learn/pull/8821#issuecomment-300224676
+apache/cloudstack.1260.1.38,integration.smoke.test_nic.testnic,https://github.com/apache/cloudstack/pull/1260#issuecomment-203678826
+geoserver/geoserver.3128.0.3,restarting the build.,https://github.com/geoserver/geoserver/pull/3128#issuecomment-425519705
+musescore/MuseScore.3330.0.0,testutils don't build and therefore the mtests fail,https://github.com/musescore/MuseScore/pull/3330#issuecomment-343960160
+scikit-image/scikit-image.1202.1.0,are you sure about adding travis?,https://github.com/scikit-image/scikit-image/pull/1202#issuecomment-59494536
+haskell/cabal.1110.0.1,"is it because we're supposed to build that module on the user's machine, not when creating the sdist?",https://github.com/haskell/cabal/pull/1110#issuecomment-10377708
+buildbot/buildbot.1972.0.4,M_ICODE  via ...ot/status/builder.py#453...481,https://github.com/buildbot/buildbot/pull/1972#issuecomment-178308399
+appcelerator/titanium_mobile.9831.1.2,sdk ver:         M_VERSION_NUMBER  local build,https://github.com/appcelerator/titanium_mobile/pull/9831#issuecomment-367154311
+psychopy/psychopy.1484.1.6,| psychopy/app/builder/components/__init__.py |  M_ICODE  | :arrow_down: |,https://github.com/psychopy/psychopy/pull/1484#issuecomment-323522941
+sonata-project/SonataAdminBundle.4436.4.256,"    at twig_template->displaywitherrorhandling(array('action' => 'list', 'form' => object(formview), 'datagrid' => object(datagrid), 'csrf_token' => '7xswmy_ibwxpacyg06wlpcqmqikjhzfg_sfnblgaue0', 'export_formats' => array('json', 'xml', 'csv', 'xls'), 'breadcrumbs_builder' => object(breadcrumbsbuilder), 'admin' => object(logentryadmin), 'base_template' => 'primaadminbundle::standard_layout.html.twig', 'admin_pool' => object(pool), 'assetic' => array('debug' => true, 'vars' => object(valuecontainer), 'use_controller' => true), 'wrap_fields_with_addons' => false, 'app' => object(appvariable), 'sonata_block' => object(globalvariables), 'sonata_admin' => object(globalvariables), 'sonata_media' => object(globalvariables), 'sonata_user' => object(globalvariables)), array())",https://github.com/sonata-project/SonataAdminBundle/pull/4436#issuecomment-290665533
+caskdata/cdap.8556.1.1,running as a docs build and test:  M_URL  (passes),https://github.com/caskdata/cdap/pull/8556#issuecomment-294066346
+caskdata/cdap.5643.0.0,docs quick build:  M_URL,https://github.com/caskdata/cdap/pull/5643#issuecomment-213635401
+apache/cloudstack.1765.10.0,M_MENTION a jenkins job has been kicked to build packages.,https://github.com/apache/cloudstack/pull/1765#issuecomment-262472054
+pazz/alot.916.1.0,you can also set up the travis account/integration also before you merge this pr.,https://github.com/pazz/alot/pull/916#issuecomment-266455533
+puma/puma.587.0.1,travis bug?,https://github.com/puma/puma/pull/587#issuecomment-57080769
+serge-sans-paille/pythran.205.1.1,refer to this link for build results:  M_URL,https://github.com/serge-sans-paille/pythran/pull/205#issuecomment-35147076
+buildbot/buildbot.3450.2.7,| master/buildbot/data/base.py |  M_ICODE  | :arrow_down: |,https://github.com/buildbot/buildbot/pull/3450#issuecomment-315814580
+concrete5/concrete5.3846.1.3,"we merge from our develop branches (in this case,  M_VERSION_NUMBER .x) into a release branch (release/ M_VERSION_NUMBER ) and, once it's clear that that's going to work, we build the release from the release branch, and then as part of the release we merge the release branch into master.",https://github.com/concrete5/concrete5/pull/3846#issuecomment-221154128
+puppetlabs/puppetdb.1922.3.0,refer to this link for build results (access rights to ci server needed):,https://github.com/puppetlabs/puppetdb/pull/1922#issuecomment-206444611
+openmicroscopy/bioformats.2818.1.12,maven behaviour for reference: implementation-build in manifest.mf set to hash when built from git.,https://github.com/openmicroscopy/bioformats/pull/2818#issuecomment-294784395
+halide/Halide.1205.5.0,"the ""test"" didn't fail, travis errored.",https://github.com/halide/Halide/pull/1205#issuecomment-219838609
+EFForg/https-everywhere.15124.0.0,trigger travis again.,https://github.com/EFForg/https-everywhere/pull/15124#issuecomment-380566240
+redis/redis-rb.647.0.0,can someone help me with the travis fails?,https://github.com/redis/redis-rb/pull/647#issuecomment-287868361
+geoserver/geoserver.2681.3.0,"travis failed on a test unrelated to the pr, could you restart it ?",https://github.com/geoserver/geoserver/pull/2681#issuecomment-351021875
+voidlinux/void-packages.4901.3.0,i don't know why it's not build in voidlinux.,https://github.com/voidlinux/void-packages/pull/4901#issuecomment-251908400
+frappe/erpnext.13217.18.1,i am planning to use the current woocoommerce to erpnext integration but there are things that i think it's a problem during my tests.,https://github.com/frappe/erpnext/pull/13217#issuecomment-417543370
+weld/core.1061.2.0,build 907 outcome was success using a merge of f59720b272204aaf348723c971be4afb30aebc65 on branch master:,https://github.com/weld/core/pull/1061#issuecomment-119862166
+troessner/reek.941.0.0,"whoopsie, i firgot to update the .travis.yml correspondingly.",https://github.com/troessner/reek/pull/941#issuecomment-225286594
+octokit/octokit.net.243.1.0,"as these are just tests and minor fixes, and M_MENTION is rather happy, and the build is green, i'm gonna merge them in and keep working on these",https://github.com/octokit/octokit.net/pull/243#issuecomment-29428998
+openmicroscopy/bioformats.3159.0.1,removed from build bioformats-dev-merge-push#1404.,https://github.com/openmicroscopy/bioformats/pull/3159#issuecomment-395228363
+robotology/yarp.868.8.0,i think  M_ICODE  only works for the paid service (travis-ci.com) :( .. but we can try.,https://github.com/robotology/yarp/pull/868#issuecomment-240074200
+caskdata/cdap.4433.2.0,build passed.,https://github.com/caskdata/cdap/pull/4433#issuecomment-152613100
+mozilla/fireplace.1309.3.0, the adventure of the blanched build,https://github.com/mozilla/fireplace/pull/1309#issuecomment-113223360
+stan-dev/stan.982.0.1,refer to this link for build results (access rights to ci server needed):,https://github.com/stan-dev/stan/pull/982#issuecomment-54065923
+symfony/symfony.3040.0.0,travis is not happy with  M_VERSION_NUMBER ... need to be fiwed + probably submitted against  M_VERSION_NUMBER,https://github.com/symfony/symfony/pull/3040#issuecomment-3374216
+astropy/astropy.2139.9.2,"also, won't this cause a plot to actually pop up if i, say, do  M_ICODE  in an ipython with matplotlib integration?",https://github.com/astropy/astropy/pull/2139#issuecomment-44225280
+puppetlabs/puppetdb.1651.2.0,refer to this link for build results (access rights to ci server needed):,https://github.com/puppetlabs/puppetdb/pull/1651#issuecomment-141167289
+ansible/ansible-modules-extras.185.5.1,"this pr requires revisions, either because it fails to build or by reviewer request.",https://github.com/ansible/ansible-modules-extras/pull/185#issuecomment-203052916
+rapid7/metasploit-framework.5366.3.1,"i also tested your integration branch out and it works perfectly, great work.",https://github.com/rapid7/metasploit-framework/pull/5366#issuecomment-107320965
+xapi-project/xen-api.562.13.9,    cloning into '/usr/local/builds/build-xen-git.hg/obj/repos/stunnel'...,https://github.com/xapi-project/xen-api/pull/562#issuecomment-5540921
+JuliaLang/julia.12827.0.0,ps: this might work with julia's .travis.yml file as well after adding staticfloat/julia-deps to  M_URL  .,https://github.com/JuliaLang/julia/pull/12827#issuecomment-135407336
+bitcoin/bitcoin.13732.5.3,M_ISSUE_MENTION  ([wip][build] add risc-v support to gitian by ken2812221),https://github.com/bitcoin/bitcoin/pull/13732#issuecomment-406865975
+SciTools/iris.2426.0.0,travis claims it does not,https://github.com/SciTools/iris/pull/2426#issuecomment-285647975
+Sylius/Sylius.4470.1.0,force pushed to trigger the builds again!,https://github.com/Sylius/Sylius/pull/4470#issuecomment-195768479
+buildbot/buildbot.482.4.1,"this makes the first call working (creating the chroot instance), but subsequent build will fail with ""2013-02-11 12:15:26+0100 [-] /var/cache/pbuilder/stable-local-buildbot.cow/ is not a file.""",https://github.com/buildbot/buildbot/pull/482#issuecomment-13379996
+strongloop/strong-remoting.195.2.0,is there any way how to change the script values in package.json so that jenkins does not skip the linter?,https://github.com/strongloop/strong-remoting/pull/195#issuecomment-91285286
+xbmc/xbmc.6600.34.0,jenkins build addons please - platform matrix projects seem to behave different then normal freerun jobs grrr,https://github.com/xbmc/xbmc/pull/6600#issuecomment-77835513
+statsmodels/statsmodels.2303.5.0,"imo  M_ICODE  should should not allow pip to try and download/build numpy and scipy, in particular.",https://github.com/statsmodels/statsmodels/pull/2303#issuecomment-77573326
+numpy/numpy.12051.31.0,installing the app should automatically configure pr builds.,https://github.com/numpy/numpy/pull/12051#issuecomment-426009832
+PX4/Firmware.9520.2.0,still fails to build.,https://github.com/PX4/Firmware/pull/9520#issuecomment-392266110
+joomla/joomla-cms.8564.51.11,the main issue is building and distributing a scalable and extensible,https://github.com/joomla/joomla-cms/pull/8564#issuecomment-167842421
+hrydgard/ppsspp.1668.1.4,3. rename and copy libpng- M_VERSION_NUMBER /scripts/pnglibconf.h.prebuild -> ppsspp/libpng/pnglibconf.h,https://github.com/hrydgard/ppsspp/pull/1668#issuecomment-17451873
+joomla/joomla-cms.12400.11.0,looks like test have to be updated to please travis,https://github.com/joomla/joomla-cms/pull/12400#issuecomment-253454101
+sbt/sbt-native-packager.368.13.0,"ah, i can see that it: always remove intermediate containers, even after unsuccessful builds.",https://github.com/sbt/sbt-native-packager/pull/368#issuecomment-57822897
+bitcoin/bitcoin.13448.2.3,"edit, this trips up the linter in travis:",https://github.com/bitcoin/bitcoin/pull/13448#issuecomment-396680683
+servo/servo.520.0.0,M_MENTION build logs:  M_URL,https://github.com/servo/servo/pull/520#issuecomment-19564753
+dimagi/commcare-hq.21760.0.145,"corehq/apps/domain/static/domain/js/case_search.js, line 27 - rewrite property in a functional style (eslint-dimagi/no-unblessed-new)",https://github.com/dimagi/commcare-hq/pull/21760#issuecomment-419128953
+PrestaShop/PrestaShop.9305.16.1,i restarted the build,https://github.com/PrestaShop/PrestaShop/pull/9305#issuecomment-416241470
+puppetlabs/puppetdb.1642.5.0,refer to this link for build results (access rights to ci server needed):,https://github.com/puppetlabs/puppetdb/pull/1642#issuecomment-140833639
+freeorion/freeorion.1863.5.0,"would be good if this could be merged before coming monday, so the next test builds already contain the fix.",https://github.com/freeorion/freeorion/pull/1863#issuecomment-346591284
+OCA/OpenUpgrade.1217.0.0,there's an strange error in travis...,https://github.com/OCA/OpenUpgrade/pull/1217#issuecomment-350061168
+astropy/astropy.762.4.1,perhaps add another mark for it and not run it on travis or something?,https://github.com/astropy/astropy/pull/762#issuecomment-13439204
+getsentry/sentry.8711.0.0,"i don't have access to percy, but i'm pretty sure that the travis failure is unrelated (test_suite=sqlite db=sqlite):",https://github.com/getsentry/sentry/pull/8711#issuecomment-403618373
+2600hz/kazoo.1053.5.0,pushed documentation to branch travis-dialyzer,https://github.com/2600hz/kazoo/pull/1053#issuecomment-105694489
+statsmodels/statsmodels.1325.10.1,we've bumped our minimum versions and we'll see how travis does now.,https://github.com/statsmodels/statsmodels/pull/1325#issuecomment-39488289
+cpputest/cpputest.456.4.0,"not sure why the tests are not build in a library now, they ought to be :) i guess it is to-do.",https://github.com/cpputest/cpputest/pull/456#issuecomment-68035207
+xapi-project/xen-api.408.3.2,    make api-build,https://github.com/xapi-project/xen-api/pull/408#issuecomment-2930835
+bitcoin/bitcoin.1619.38.2,1. it chanages paths in makefile.linux-mingw or otherwise changes build scripts in a way that made them incompatible with the automated testing scripts,https://github.com/bitcoin/bitcoin/pull/1619#issuecomment-8162593
+UnionOfRAD/lithium.492.3.0,yeah it will be ok for travis but it might fail for people which use a different time zone.,https://github.com/UnionOfRAD/lithium/pull/492#issuecomment-5948895
+xbmc/xbmc.11019.3.1,jenkins build this please,https://github.com/xbmc/xbmc/pull/11019#issuecomment-264753608
+xbmc/xbmc.3758.34.0,jenkins build this please,https://github.com/xbmc/xbmc/pull/3758#issuecomment-31058485
+cocos2d/cocos2d-x.16586.0.0,[ci rebuild],https://github.com/cocos2d/cocos2d-x/pull/16586#issuecomment-247855892
+atom/atom.12502.3.2,maybe it has something to do with building without the cache.,https://github.com/atom/atom/pull/12502#issuecomment-245280149
+sympy/sympy.2106.12.0,it seems this breaks the latex build.,https://github.com/sympy/sympy/pull/2106#issuecomment-19526354
+puppetlabs/puppet.5595.2.114,installing travis  M_VERSION_NUMBER,https://github.com/puppetlabs/puppet/pull/5595#issuecomment-277050222
+openSUSE/open-build-service.2648.3.5,project the build results are.,https://github.com/openSUSE/open-build-service/pull/2648#issuecomment-278901051
+gradle/gradle.426.1.3,the integration tests checks the log output of the sscce mentioned above.,https://github.com/gradle/gradle/pull/426#issuecomment-87253245
+zeromq/czmq.1864.7.1,i also investigated some more the other build failures for non-draft builds on windows.,https://github.com/zeromq/czmq/pull/1864#issuecomment-366261759
+NLog/NLog.2055.0.2,"that is why i have introduced netstandard1_4-build, that doesn't depend on these libraries that are not available on all platforms until netstandard2_0",https://github.com/NLog/NLog/pull/2055#issuecomment-292736800
+OpenRA/OpenRA.14427.5.2,"- deviators and ordos combat tanks shouldn't be buildable by the harkonnen player, but due to capturing the  M_ICODE  it is possible.",https://github.com/OpenRA/OpenRA/pull/14427#issuecomment-350573731
+tpaviot/oce.512.4.1,please replace in .travis.build.sh,https://github.com/tpaviot/oce/pull/512#issuecomment-48823119
+statsmodels/statsmodels.4211.4.1,traviscistatus.com,https://github.com/statsmodels/statsmodels/pull/4211#issuecomment-358165871
+dimagi/commcare-hq.4925.1.0,M_MENTION can you fix lint errors?,https://github.com/dimagi/commcare-hq/pull/4925#issuecomment-65111499
+bitcoin/bitcoin.4130.3.4,3. it does not build on either linux i386 or win32 (via mingw cross compile),https://github.com/bitcoin/bitcoin/pull/4130#issuecomment-46823885
+emberjs/ember.js.12575.17.0,ready to merge if build turns out green again.,https://github.com/emberjs/ember.js/pull/12575#issuecomment-178943277
+ipython/ipython.5639.17.1,we'll see if it fixes travis!,https://github.com/ipython/ipython/pull/5639#issuecomment-41341323
+UniversalMediaServer/UniversalMediaServer.1385.1.4,"how did you build, did you use maven or eclipse (or some other ide?)?",https://github.com/UniversalMediaServer/UniversalMediaServer/pull/1385#issuecomment-327057898
+RIOT-OS/RIOT.1482.9.0,"travis points out, that udoo is not building, good point :-) -> will be fixed soon",https://github.com/RIOT-OS/RIOT/pull/1482#issuecomment-51971829
+xbmc/xbmc.3016.8.8,jenkins build this please,https://github.com/xbmc/xbmc/pull/3016#issuecomment-21952379
+openmicroscopy/openmicroscopy.431.4.0,downloaded once more the build from hudson omero.insight- M_VERSION_NUMBER -135-0827b51-dirty-ice33-b42-mac.,https://github.com/openmicroscopy/openmicroscopy/pull/431#issuecomment-9808128
+mne-tools/mne-python.4765.8.0,"bigram frequency and concreteness are continuous, so i am not quite sure what you mean.",https://github.com/mne-tools/mne-python/pull/4765#issuecomment-345555118
+ocaml/opam-repository.8906.0.0,:x: opam-lint errors 7bf1caaf2081c35cad48f882a51ab06830fb71a6,https://github.com/ocaml/opam-repository/pull/8906#issuecomment-292509045
+ocaml/opam-repository.8440.0.1,these packages passed lint tests:  M_ICODE,https://github.com/ocaml/opam-repository/pull/8440#issuecomment-278309540
+shogun-toolbox/shogun.2689.3.0,travis failure unrelated.,https://github.com/shogun-toolbox/shogun/pull/2689#issuecomment-72597232
+DIRACGrid/DIRAC.3752.1.0,"... travis fails because of the format, because i first wrongly targeted the integration branch.",https://github.com/DIRACGrid/DIRAC/pull/3752#issuecomment-405309114
+hrydgard/ppsspp.1682.13.0,M_MENTION is it does not occur only in a release build?,https://github.com/hrydgard/ppsspp/pull/1682#issuecomment-17473064
+mxe/mxe.1116.0.0,the build succeeded.,https://github.com/mxe/mxe/pull/1116#issuecomment-168299771
+wordpress-mobile/WordPress-iOS.10377.1.4,"regarding autolayout, i am more than open to build it programatically, specially considering it's going to be mostly cells, or small views, but i am a little hesitant to do it considering the rest of the project is xib based.",https://github.com/wordpress-mobile/WordPress-iOS/pull/10377#issuecomment-435760681
+appcelerator/titanium_mobile.8826.1.6,xcode version : xcode  M_VERSION_NUMBER  build version 8c1002,https://github.com/appcelerator/titanium_mobile/pull/8826#issuecomment-279845515
+theforeman/foreman.5352.1.0,this is why i would prefer a jenkins/travis/whatever job over hound :),https://github.com/theforeman/foreman/pull/5352#issuecomment-375429883
+apache/cloudstack.1095.1.0,M_MENTION did you build the packages from this branch?,https://github.com/apache/cloudstack/pull/1095#issuecomment-158613584
+scala/scala.5387.1.4,"the more stuff we change randomly because some ide needs it, the harder it becomes to refactor the build to a more standard sbt layout (now that ant is gone) without breaking ide support again.",https://github.com/scala/scala/pull/5387#issuecomment-249827978
+servo/servo.15676.5.0,":zap: previous build results for android, arm32, arm64, linux-dev, linux-rel-css, mac-dev-unit, mac-rel-css, mac-rel-wpt1, mac-rel-wpt2, windows-gnu-dev, windows-msvc-dev are reusable.",https://github.com/servo/servo/pull/15676#issuecomment-281467447
+ofiwg/libfabric.3630.2.0,looks like travis/os-x doesn't like usnic.,https://github.com/ofiwg/libfabric/pull/3630#issuecomment-352551723
+puppetlabs/puppetdb.1801.10.0,refer to this link for build results (access rights to ci server needed):,https://github.com/puppetlabs/puppetdb/pull/1801#issuecomment-171821204
+JuliaLang/julia.12350.20.0,cc M_MENTION @amitmurthy on that travis failure  M_URL,https://github.com/JuliaLang/julia/pull/12350#issuecomment-126690236
+servo/servo.20258.6.4,"24%  build times windows2012-64 opt rusttests taskcluster-c M_VERSION_NUMBER xlarge     2, M_VERSION_NUMBER  -> 1, M_VERSION_NUMBER",https://github.com/servo/servo/pull/20258#issuecomment-374152222
+http4s/http4s.377.1.3,this looks good to me once we can get it to compile and pass travis.,https://github.com/http4s/http4s/pull/377#issuecomment-127800585
+scala/scala.6776.8.29,"     strictoptimizedops.flatmap(iterator, iterablefactory.newbuilder, f)",https://github.com/scala/scala/pull/6776#issuecomment-401305019
+stan-dev/stan.1237.4.0,refer to this link for build results (access rights to ci server needed):,https://github.com/stan-dev/stan/pull/1237#issuecomment-71828753
+buildbot/buildbot.3187.1.9,| master/buildbot/master.py |  M_ICODE  | :arrow_up: |,https://github.com/buildbot/buildbot/pull/3187#issuecomment-301019260
+lattice/quda.607.0.0,"not sure why that build failed, all is good my end...",https://github.com/lattice/quda/pull/607#issuecomment-291987305
+ocaml/opam-repository.7016.0.1,these packages passed lint tests:  M_ICODE,https://github.com/ocaml/opam-repository/pull/7016#issuecomment-233913661
+phpmyadmin/phpmyadmin.11932.3.0,"the codacy report is pretty self-explanatory and sometimes not related to your changes, so for now i'll focus on the travis tests which give several errors.",https://github.com/phpmyadmin/phpmyadmin/pull/11932#issuecomment-183662129
+OCA/account-financial-tools.357.3.0,"the travis error is tracked in  M_URL , but unrelated to this.",https://github.com/OCA/account-financial-tools/pull/357#issuecomment-186940168
+servo/servo.21089.20.1,rebuilding only mac-rel-wpt1...,https://github.com/servo/servo/pull/21089#issuecomment-403225879
+gravitystorm/openstreetmap-carto.3035.14.4,"in fact, imho, it would be good to have eg commercial areas tint building colors, but that's a topic for another discussion.",https://github.com/gravitystorm/openstreetmap-carto/pull/3035#issuecomment-360798496
+open-mpi/ompi.446.2.2,build log,https://github.com/open-mpi/ompi/pull/446#issuecomment-77420418
+caskdata/cdap.3822.1.0,waiting for build to suceed before merging:  M_URL,https://github.com/caskdata/cdap/pull/3822#issuecomment-137597874
+Theano/Theano.942.0.0,i'm running the tests on the gpu as travis don't do that.,https://github.com/Theano/Theano/pull/942#issuecomment-8746378
+ufz/ogs.105.0.0,unfortunatly the travis build could not complete due to an error.,https://github.com/ufz/ogs/pull/105#issuecomment-14615240
+gravitystorm/openstreetmap-carto.3163.22.16,"on a purely technical side, i have no code for hiding the dots on buildings and i don't expect anything working well anytime soon.",https://github.com/gravitystorm/openstreetmap-carto/pull/3163#issuecomment-379487021
+cakephp/cakephp.10380.2.1,if not we could fix them all and bump the level in travis config :smile:,https://github.com/cakephp/cakephp/pull/10380#issuecomment-285168756
+RIOT-OS/RIOT.2381.8.1,what i have to change for successful build tests?,https://github.com/RIOT-OS/RIOT/pull/2381#issuecomment-133790537
+yui/yui3.1073.22.0,did you build the module?,https://github.com/yui/yui3/pull/1073#issuecomment-23149174
+yui/yui3.502.24.3,"it builds components (otherwise it would be pointless, given the fact that we don't commit build files in a pr).",https://github.com/yui/yui3/pull/502#issuecomment-17952694
+cocos2d/cocos2d-x.9237.0.0,[ci rebuild],https://github.com/cocos2d/cocos2d-x/pull/9237#issuecomment-64506338
+dimagi/commcare-hq.4640.14.0,:+1: no lint errors found.,https://github.com/dimagi/commcare-hq/pull/4640#issuecomment-64285437
+puppetlabs/puppetdb.1821.0.0,refer to this link for build results (access rights to ci server needed):,https://github.com/puppetlabs/puppetdb/pull/1821#issuecomment-172989245
+travis-ci/travis-cookbooks.153.17.3,would anyone would want to wait for them on a ci build?,https://github.com/travis-ci/travis-cookbooks/pull/153#issuecomment-29674841
+twitter/scalding.1580.3.3,"as far as i know, the parquet thrift and parquet avro integrations are more used and well tested in production, so i'm interested to know how well this model (pojo/case class instead of using a schema idl like thrift / avro) works out in practice.",https://github.com/twitter/scalding/pull/1580#issuecomment-232765006
+xbmc/xbmc.11352.1.1,"not sure if that would provide anything useful, but feel free to build it both ways and see if you can detect any performance differences.",https://github.com/xbmc/xbmc/pull/11352#issuecomment-270147055
+ocaml/opam-repository.11692.0.0,:white_check_mark: all lint checks passed 53f0d12366d3c62031939b57c4454f1e57966ef8,https://github.com/ocaml/opam-repository/pull/11692#issuecomment-376710047
+webpack/webpack.1060.1.29,"- complexer workflow (multiple build steps, more config)",https://github.com/webpack/webpack/pull/1060#issuecomment-102863868
+servo/servo.13996.83.0,"hmm, android build failure.",https://github.com/servo/servo/pull/13996#issuecomment-263759618
+otwcode/otwarchive.1952.0.30,/home/ao3app/app/shared/bundle/ruby/ M_VERSION_NUMBER /gems/activerecord- M_VERSION_NUMBER /lib/active_record/associations/builder/has_many.rb:42:in  M_ICODE _run__2967359184972704997__destroy__3122133354713587315__callbacks',https://github.com/otwcode/otwarchive/pull/1952#issuecomment-67771663
+mruby/mruby.3455.1.4,"you can probably tell i constructed the revised android toolchain script from pulling apart and piecing together the old one, so i was not comfortable including my personal build scripts as examples.",https://github.com/mruby/mruby/pull/3455#issuecomment-279904253
+gooddata/gooddata-ruby.473.10.0,merged build triggered.,https://github.com/gooddata/gooddata-ruby/pull/473#issuecomment-107947866
+RIOT-OS/RIOT.7309.15.1,you can see in the build output where the cause is,https://github.com/RIOT-OS/RIOT/pull/7309#issuecomment-322246519
+chaijs/chai.816.13.7,but what's needed for development and what's needed for production don't absolutely need to be equal--and eslint 3 isn't really compelling enough.,https://github.com/chaijs/chai/pull/816#issuecomment-257934521
+apache/cloudstack.1666.12.4,M_MENTION @cloudmonger failed tests seems to have failed in build M_ISSUE_MENTION  as well.,https://github.com/apache/cloudstack/pull/1666#issuecomment-247951777
+ocaml/opam-repository.4269.3.0,:x: opam-lint errors 238a438d9756bbd811981387b9359535d07ac756,https://github.com/ocaml/opam-repository/pull/4269#issuecomment-113402669
+hrydgard/ppsspp.10782.4.0,"appveyor is for visual studio / windows builds while travis for everything else, it's common to break windows while developing for example on linux and the opposite, so it helps.",https://github.com/hrydgard/ppsspp/pull/10782#issuecomment-375891185
+rsyslog/rsyslog.614.39.9,"i would love to see it work like travis, e.g.",https://github.com/rsyslog/rsyslog/pull/614#issuecomment-176774974
+mumble-voip/mumble.28.24.0,the dx11 branch works in bf3.. its just a bit tricky to build.,https://github.com/mumble-voip/mumble/pull/28#issuecomment-2599492
+RIOT-OS/RIOT.4126.0.0,travis is green.,https://github.com/RIOT-OS/RIOT/pull/4126#issuecomment-151041882
+stan-dev/stan.1405.21.0,M_MENTION the cpplint tests failed -- too many new warnings.,https://github.com/stan-dev/stan/pull/1405#issuecomment-87035499
+gooddata/gooddata-ruby.821.1.0,build failed (check pipeline).,https://github.com/gooddata/gooddata-ruby/pull/821#issuecomment-287018937
+AnalyticalGraphicsInc/cesium.5118.1.0,"thanks M_MENTION  in the future, we could also look into using travis' built-in deploy steps as well, since i'm not sure what rolling our own is buying us here.",https://github.com/AnalyticalGraphicsInc/cesium/pull/5118#issuecomment-287782530
+voidlinux/void-packages.10048.0.0,travis is complaining about licenses:,https://github.com/voidlinux/void-packages/pull/10048#issuecomment-352214650
+JuliaLang/julia.18230.6.1,can you trigger a build for this branch?,https://github.com/JuliaLang/julia/pull/18230#issuecomment-243117831
+buildbot/buildbot.1454.1.3,"i'm not sure a failing percent is a necessary optimization: we don't want the absolute failure rate, we just want it over the past x builds, which is quite different with querying all the builds.",https://github.com/buildbot/buildbot/pull/1454#issuecomment-66991214
+gooddata/gooddata-ruby.922.6.0,build succeeded (check pipeline).,https://github.com/gooddata/gooddata-ruby/pull/922#issuecomment-305741667
+ocaml/opam-repository.6444.3.0,:white_check_mark: all lint checks passed 8421ba467548e7d791277763756f4abfbd08817d,https://github.com/ocaml/opam-repository/pull/6444#issuecomment-220285460
+melpa/melpa.732.2.2,"the goal of melpa currently is to build snapshot packages, so we strongly prefer to track the branch on which development happens.",https://github.com/melpa/melpa/pull/732#issuecomment-17294468
+bokeh/bokeh.7151.2.1,there still seems to be a problem with  M_ICODE  in the ci builds.,https://github.com/bokeh/bokeh/pull/7151#issuecomment-342376433
+EFForg/https-everywhere.14626.0.1,i'll see whether travis throws the same error again.,https://github.com/EFForg/https-everywhere/pull/14626#issuecomment-368415166
+travis-ci/docs-travis-ci-com.1031.1.4,developers may think that those are the only ways to monitor continuous delivery.,https://github.com/travis-ci/docs-travis-ci-com/pull/1031#issuecomment-287798958
+OpenRA/OpenRA.8839.9.1,"i added a workaround in  M_URL  to avoid doing duplicate checks for every map, but it just shows the insanity of using the inappropriate linter system.",https://github.com/OpenRA/OpenRA/pull/8839#issuecomment-127579978
+cocos2d/cocos2d-x.10512.1.0,[ci rebuild],https://github.com/cocos2d/cocos2d-x/pull/10512#issuecomment-74457245
+ansible/ansible-modules-extras.2148.3.0,some notes from the automated linting:,https://github.com/ansible/ansible-modules-extras/pull/2148#issuecomment-216333846
+caskdata/cdap.5953.3.0,thanks for the review M_MENTION build passed.,https://github.com/caskdata/cdap/pull/5953#issuecomment-229844468
+diaspora/diaspora.4410.106.1,"i don't think we have big bugs in it anymore, so if travis is happy i'd just go ahead and merge.",https://github.com/diaspora/diaspora/pull/4410#issuecomment-22902946
+servo/servo.20065.7.1,"rebuilding only linux-rel-css, mac-rel-wpt1, mac-rel-wpt2...",https://github.com/servo/servo/pull/20065#issuecomment-366361409
+realm/realm-cocoa.1753.1.0,ci has completely been migrated to xcode  M_VERSION_NUMBER  and the build is all green.,https://github.com/realm/realm-cocoa/pull/1753#issuecomment-95398510
+ipython/ipython.3382.2.1,i relaunched the travis build.,https://github.com/ipython/ipython/pull/3382#issuecomment-18787054
+OCA/account-financial-tools.118.1.0,travis error seems unrelated,https://github.com/OCA/account-financial-tools/pull/118#issuecomment-68516543
+sunpy/sunpy.2595.0.0,the docs build is failing because the new page is not in a toctree anywhere:,https://github.com/sunpy/sunpy/pull/2595#issuecomment-383116634
+pgjdbc/pgjdbc.227.7.0,"hi, it would appear something in this pull broke the build.",https://github.com/pgjdbc/pgjdbc/pull/227#issuecomment-67626674
+ultrabug/py3status.679.0.0,i don't know how fix that travis failure.,https://github.com/ultrabug/py3status/pull/679#issuecomment-273476735
+meteor/meteor.7668.111.393,|    │     │  ├─ isopack#getunibuildatarch                         10 ms (1110),https://github.com/meteor/meteor/pull/7668#issuecomment-254308609
+xbmc/xbmc.4402.49.8,2) arch_defines ain't set (general issue in mainline build env - see fix from montellese in pvr pr).,https://github.com/xbmc/xbmc/pull/4402#issuecomment-71332961
+php/php-src.1418.3.15,"since /rtcc doesn't affect release (customer) builds, this won't affect binaries released to customers, but will hopefully alert developers to exploitable bugs before they are exploited by real hackers to compromise real users' data.",https://github.com/php/php-src/pull/1418#issuecomment-121297710
+openzipkin/zipkin.625.2.2,into travis link.,https://github.com/openzipkin/zipkin/pull/625#issuecomment-131855145
+apache/cloudstack.2428.1.0,M_MENTION a jenkins job has been kicked to build packages.,https://github.com/apache/cloudstack/pull/2428#issuecomment-360060204
+fish-shell/fish-shell.462.3.2,"also, autoconf is no longer provided in os x (not even with xcode), which is why we have a parallel build process for os x, which would need to be kept in sync.",https://github.com/fish-shell/fish-shell/pull/462#issuecomment-11504457
+mozilla/shumway.1978.12.4,- lint: passed,https://github.com/mozilla/shumway/pull/1978#issuecomment-70102818
+xbmc/xbmc.7552.0.0,jenkins build addons please,https://github.com/xbmc/xbmc/pull/7552#issuecomment-122687179
+servo/servo.21094.1.2,"i certainly was able to as part of my android-x86 work (on mac), and it worked (slowly) for arm builds too.",https://github.com/servo/servo/pull/21094#issuecomment-400321549
+weld/core.606.1.0,build 583 is now running using a merge of cada411bed4675bb2e87b65b13b7fd436aaca48d on branch master:,https://github.com/weld/core/pull/606#issuecomment-46830374
+weld/core.748.6.0,build 264 outcome was success using a merge of a97ef9ee48096d23ecd03d301690cc7e677a3e9f on branch master:,https://github.com/weld/core/pull/748#issuecomment-64170168
+matplotlib/matplotlib.7768.3.0,"i'm not sure there are any github integrations that support ppc64; maybe copr, but i never understood how their webhooks worked.",https://github.com/matplotlib/matplotlib/pull/7768#issuecomment-271208558
+rackerlabs/otter.1906.1.0,jenkins please run integration tests,https://github.com/rackerlabs/otter/pull/1906#issuecomment-230846876
+RIOT-OS/RIOT.4055.1.2,if it is not a x11 license you might need to contact the original authors and ask for permission for the integration of those files into riot.,https://github.com/RIOT-OS/RIOT/pull/4055#issuecomment-145817067
+ipython/ipython.6933.5.1,"should be ready to go, if mr. travis agrees.",https://github.com/ipython/ipython/pull/6933#issuecomment-63149712
+apache/cloudstack.1813.119.2, build number 585,https://github.com/apache/cloudstack/pull/1813#issuecomment-297331885
+servo/rust-mozjs.430.8.1, * travis timed out,https://github.com/servo/rust-mozjs/pull/430#issuecomment-413330640
+NLog/NLog.2263.56.1,can you show me the command to build the nlog.config-nuget-package then?,https://github.com/NLog/NLog/pull/2263#issuecomment-328323161
+apache/cloudstack.2500.0.0,M_MENTION a jenkins job has been kicked to build packages.,https://github.com/apache/cloudstack/pull/2500#issuecomment-375093478
+mne-tools/mne-python.2735.10.2,when travis is happy,https://github.com/mne-tools/mne-python/pull/2735#issuecomment-166386921
+UniMath/UniMath.115.9.0,"okay, travis seems to have built coqide.",https://github.com/UniMath/UniMath/pull/115#issuecomment-131100636
+opal/opal.1195.17.1,if this is the case then you can run the nashorn engine on travis !,https://github.com/opal/opal/pull/1195#issuecomment-162167778
+xbmc/xbmc.10408.13.0,jenkins build this please,https://github.com/xbmc/xbmc/pull/10408#issuecomment-247779784
+Theano/Theano.5182.12.0,"i think all is good, we can merge when travis pass.",https://github.com/Theano/Theano/pull/5182#issuecomment-271394689
+xbmc/xbmc.7626.18.1,house building is taking a bit,https://github.com/xbmc/xbmc/pull/7626#issuecomment-127567776
+OCA/account-financial-tools.58.1.1,travis red because of M_ISSUE_MENTION,https://github.com/OCA/account-financial-tools/pull/58#issuecomment-58338415
+ocaml/opam-repository.4844.0.233,"warning 26: no field 'install', but a field 'remove': install instructions probably part of 'build'.",https://github.com/ocaml/opam-repository/pull/4844#issuecomment-141046578
+ansible/ansible-modules-core.3071.3.1,"M_MENTION could you rebase again to get rid of the build failure, so this can be marked for inclusion?",https://github.com/ansible/ansible-modules-core/pull/3071#issuecomment-233239081
+ocaml/opam-repository.9620.0.1,these packages passed lint tests:  M_ICODE,https://github.com/ocaml/opam-repository/pull/9620#issuecomment-310870294
+ocaml/opam-repository.9280.0.0,:white_check_mark: all lint checks passed ac0fee5dd0b98b38128b23e08e38b57e5484e6d9,https://github.com/ocaml/opam-repository/pull/9280#issuecomment-303440820
+servo/servo.11134.5.1,- should make the build queue go faster,https://github.com/servo/servo/pull/11134#issuecomment-218566518
+cylc/cylc.2085.0.1,(it passes on travis ci on 1st attempt.),https://github.com/cylc/cylc/pull/2085#issuecomment-266997617
+wp-cli/wp-cli.3496.2.0,ok. running home-travis :),https://github.com/wp-cli/wp-cli/pull/3496#issuecomment-256405418
+craftyjs/Crafty.941.2.4,(i don't know why the ci build failed -- maybe i butchered the newlines?),https://github.com/craftyjs/Crafty/pull/941#issuecomment-124251581
+xbmc/xbmc.4923.26.2,jenkins build this please.,https://github.com/xbmc/xbmc/pull/4923#issuecomment-54466118
+elixir-lang/elixir.8394.2.0,the integration test looks like this so far:,https://github.com/elixir-lang/elixir/pull/8394#issuecomment-439355021
+expertiza/expertiza.1200.8.6,travisbuddy request identifier: 897e5310-c9ae-11e8-a6c9-11724a02104f,https://github.com/expertiza/expertiza/pull/1200#issuecomment-427607585
+JuliaLang/julia.17490.1.0,fft error on travis looks most likely unrelated,https://github.com/JuliaLang/julia/pull/17490#issuecomment-233546760
+puppetlabs/puppetdb.1266.33.1,refer to this link for build results (access rights to ci server needed):,https://github.com/puppetlabs/puppetdb/pull/1266#issuecomment-76117843
+servo/servo.8073.3.1,the regular lint is implemented as a visitor which runs threaded together with the other lints.,https://github.com/servo/servo/pull/8073#issuecomment-149334564
+cylc/cylc.2503.19.3, pycodestyle on travis ci appears to have changed.,https://github.com/cylc/cylc/pull/2503#issuecomment-380362675
+apache/accumulo.35.14.1,"however, i ran into a problem where java-formatter-plugin tries to run on parent pom but fails as the build-tools jar has not been created.",https://github.com/apache/accumulo/pull/35#issuecomment-99889091
+apache/cloudstack.914.10.8,link to logs folder (search by build_no):  M_URL,https://github.com/apache/cloudstack/pull/914#issuecomment-325427915
+musescore/MuseScore.742.0.4,7606qdebug : testmxmlio::voicemapper3() importmusicxml() file '/home/travis/build/musescore/musescore/mtest/musicxml/io/testvoicemapper3.xml' is a valid musicxml file,https://github.com/musescore/MuseScore/pull/742#issuecomment-36841208
+ocaml/opam-repository.4968.0.1,these packages passed lint tests:  M_ICODE,https://github.com/ocaml/opam-repository/pull/4968#issuecomment-147481542
+apache/commons-lang.251.12.9,"the bottom line will return -1, wheras the builder.tostring()... version returns 2. i suspect this is just that they disregarded our issue and start at charat(2) instead of our iterative approach here.",https://github.com/apache/commons-lang/pull/251#issuecomment-285251174
+JuliaLang/julia.8304.1.1,"this is a build error in openblas, after all, and will appear while compiling files that are obviously named  M_ICODE",https://github.com/JuliaLang/julia/pull/8304#issuecomment-55232288
+RIOT-OS/RIOT.9921.0.0,murdock's compile test should suffice for this simple build system update.,https://github.com/RIOT-OS/RIOT/pull/9921#issuecomment-420343531
+pypa/pip.3751.4.0,i think we could merge this as is if someone wants to have a coverage run (without adding an other travis run)/,https://github.com/pypa/pip/pull/3751#issuecomment-341931269
+guard/guard.275.1.0,oops it breaks the specs badly :(  M_URL !/guard/guard/builds/1072250,https://github.com/guard/guard/pull/275#issuecomment-5085040
+Sylius/Sylius.57.1.0,M_MENTION tests fixed - travis build passed :),https://github.com/Sylius/Sylius/pull/57#issuecomment-17785626
+atom/atom.14682.8.4,"the bigger problem though, is that the file count is affecting the build process for atom itself, making it 1hr+ to build packages and making ci time out.",https://github.com/atom/atom/pull/14682#issuecomment-305262119
+twitter/scalding.1431.5.0,we can't write an integration test because of how painful it is to install the native hadoop lzo libraries on mac laptops (though we could probably write a test that only runs in travis).,https://github.com/twitter/scalding/pull/1431#issuecomment-135143011
+webpack/webpack.1007.0.0,coverage remained the same at  M_VERSION_NUMBER % when pulling d34dde6f124a5e5c6aaa1bc09e0180a21f1e900e on simenb:linting into 765a7f104769755dccb3ac6854cb94c3c91e7fd3 on webpack:master.,https://github.com/webpack/webpack/pull/1007#issuecomment-95949995
+numba/numba.2829.1.0,"thanks for this, can confirm it builds and renders correctly.",https://github.com/numba/numba/pull/2829#issuecomment-374896568
+matplotlib/matplotlib.3242.4.0,for windows builds the docs now point to a set of scripts that reportedly reliably build mpl on windows.,https://github.com/matplotlib/matplotlib/pull/3242#issuecomment-59939198
+HoTT/HoTT.702.9.0,travis doesn't like you.,https://github.com/HoTT/HoTT/pull/702#issuecomment-72381933
+caskdata/cdap.10262.17.2,"green build  M_URL , so merging now.",https://github.com/caskdata/cdap/pull/10262#issuecomment-402314220
+ocaml/opam-repository.4914.0.0,:white_check_mark: all lint checks passed c511af5a1cb34d59d458db51222ba7a0ec09f890,https://github.com/ocaml/opam-repository/pull/4914#issuecomment-144741974
+puppetlabs/puppetdb.1736.1.0,refer to this link for build results (access rights to ci server needed):,https://github.com/puppetlabs/puppetdb/pull/1736#issuecomment-157447660
+Baystation12/Baystation12.14401.1.8,"that's what caused the travis build failure, so i'll probably resolve it in a different way.",https://github.com/Baystation12/Baystation12/pull/14401#issuecomment-253423663
+xbmc/xbmc.12103.3.0,"note (since these changes look familar) that this will require more ""ifdeffery"" to not cause build failures.",https://github.com/xbmc/xbmc/pull/12103#issuecomment-301739097
+OpenImageIO/oiio.1806.0.0,"for those curious, i reran the timings on a beefier linux machine where i typically build with  M_ICODE , and the results were similar:",https://github.com/OpenImageIO/oiio/pull/1806#issuecomment-346697329
+servo/servo.8210.3.0,"to build successfully, it requires changes to be made to properties.mako.rs, selector_matching.rs, stylesheets.rs and viewport.rs.",https://github.com/servo/servo/pull/8210#issuecomment-151981007
+CartoDB/cartodb.9926.7.0,"M_MENTION this can't be deployed without the front end changes, so waiting on integration to be ready on M_MENTION side!",https://github.com/CartoDB/cartodb/pull/9926#issuecomment-251642189
+statsmodels/statsmodels.3444.0.2,travis is busy and will still take some time to run the test for this.,https://github.com/statsmodels/statsmodels/pull/3444#issuecomment-277781368
+rubygems/rubygems.2202.7.0,:sunny: test successful - status-travis,https://github.com/rubygems/rubygems/pull/2202#issuecomment-369156368
+grails/grails-core.151.1.0,"i think commit 2ec81cf just missed one change in moving from  M_VERSION_NUMBER .build-snapshot to  M_VERSION_NUMBER .release, and that is what this pull request (and the comment on that request) is about.",https://github.com/grails/grails-core/pull/151#issuecomment-3402622
+astropy/astropy.2647.8.0,"M_MENTION - it seems the travis failure is real, since it happened three times at the same place: with additional dependencies, somehow the tests just stop in  M_ICODE , fourth item.",https://github.com/astropy/astropy/pull/2647#issuecomment-46762393
+apache/cloudstack.2694.11.12,"2018-06-07 00:22:06,902 debug [o.a.c.s.c.configdrivebuilder] (work-job-executor-2:ctx-5bf307a3 job-47/job-48 ctx-9e793f3b) (logid:28315433) [createconfigdriveisoforvm] datatype=metadata, filename=public-keys, content=null",https://github.com/apache/cloudstack/pull/2694#issuecomment-395255319
+vufind-org/vufind.736.0.1,travis ci is failing because packages.zendframework.com is down.,https://github.com/vufind-org/vufind/pull/736#issuecomment-227716324
+apache/thrift.1496.3.5,i think these errors are build configration-related.,https://github.com/apache/thrift/pull/1496#issuecomment-369929380
+cinder/Cinder.1467.3.1,my vote is also for leaving it out of the build system for now until its properly implemented.,https://github.com/cinder/Cinder/pull/1467#issuecomment-222988883
+DarkstarProject/darkstar.3922.0.0,travis build failed with,https://github.com/DarkstarProject/darkstar/pull/3922#issuecomment-311511484
+voidlinux/void-packages.4330.3.1,if i got that right it implies rebuilding every piece of c++ code in the repository or rather filling up a parallel gcc5 repository and thinking about how users can transition their systems from gcc4 to gcc5 in one go?,https://github.com/voidlinux/void-packages/pull/4330#issuecomment-243875726
+praw-dev/praw.418.1.32,"okay, more travis errors.",https://github.com/praw-dev/praw/pull/418#issuecomment-107779285
+Theano/Theano.1655.2.1,we should fix the travis-ci problem in another pr i think.,https://github.com/Theano/Theano/pull/1655#issuecomment-30780400
+puppetlabs/puppetlabs-stdlib.869.0.1,did something break on travis / rspec side?,https://github.com/puppetlabs/puppetlabs-stdlib/pull/869#issuecomment-353838200
+ruflin/Elastica.483.12.0,"looks good, except that somehow there are problems with travis.",https://github.com/ruflin/Elastica/pull/483#issuecomment-32277274
+apache/storm.2241.12.5,its important that we make these perf improvements and also let the community know that there are continuous improvements in storm.,https://github.com/apache/storm/pull/2241#issuecomment-318136515
+lift/framework.1773.18.3,"the current output from lifts flexmenubuilder specification, looks like the following, it has 0 example(s) and that's a bit strange it should have 4. so dose webspecspec ,htmlpropertiesspec and resthelperspec",https://github.com/lift/framework/pull/1773#issuecomment-196020315
+ocaml/opam-repository.11615.0.0,:white_check_mark: all lint checks passed b25dc625513f5e2950cca21ca8ed738c354c30fc,https://github.com/ocaml/opam-repository/pull/11615#issuecomment-374586594
+arangodb/arangodb.6468.0.0,does it work when building packages and such?,https://github.com/arangodb/arangodb/pull/6468#issuecomment-420672857
+puppetlabs/puppetdb.1252.3.1,refer to this link for build results (access rights to ci server needed):,https://github.com/puppetlabs/puppetdb/pull/1252#issuecomment-73355790
+libgit2/objective-git.516.1.4,"i'll remove that commit, and you can probably see the timeout failure once that build runs.",https://github.com/libgit2/objective-git/pull/516#issuecomment-135798892
+mixxxdj/mixxx.1690.2.1,unfortunately mac build fails,https://github.com/mixxxdj/mixxx/pull/1690#issuecomment-392968983
+cocos2d/cocos2d-x.7876.15.5,- is there any building scripts for them?,https://github.com/cocos2d/cocos2d-x/pull/7876#issuecomment-58011927
+ansible/ansible-modules-core.5776.0.1,"this pr requires revisions, either because it fails to build or by reviewer request.",https://github.com/ansible/ansible-modules-core/pull/5776#issuecomment-264016005
+cocos2d/cocos2d-x.7576.0.0,[ci rebuild],https://github.com/cocos2d/cocos2d-x/pull/7576#issuecomment-49967733
+ocaml/opam-repository.5924.0.0,:white_check_mark: all lint checks passed 6b28e6711b81f69fe43a8bae0b5a408a88b1116b,https://github.com/ocaml/opam-repository/pull/5924#issuecomment-194791672
+servo/servo.19441.27.1,"rebuilding only linux-rel-css, linux-rel-wpt...",https://github.com/servo/servo/pull/19441#issuecomment-348982095
+mochajs/mocha.1559.0.1,if we don't start building with browserify soon i'm gonna suicide,https://github.com/mochajs/mocha/pull/1559#issuecomment-74919011
+ocaml/opam-repository.5472.0.0,:white_check_mark: all lint checks passed e664cc55015343c20112f1524c8af9b10260a6a8,https://github.com/ocaml/opam-repository/pull/5472#issuecomment-173343163
+MinecraftForge/MinecraftForge.4170.8.8,"the only way an automated converter does it would be to dump all permutations in files, works but need to write the code to build up the recipes first (and once you have the code why export to json?",https://github.com/MinecraftForge/MinecraftForge/pull/4170#issuecomment-316943483
+cocos2d/cocos2d-x.7608.10.0,[ci rebuild],https://github.com/cocos2d/cocos2d-x/pull/7608#issuecomment-50704812
+xbmc/xbmc.8455.0.0,jenkins build this please,https://github.com/xbmc/xbmc/pull/8455#issuecomment-160288515
+travis-ci/travis-build.213.30.2,"so this should be fine after the upgrade of our build environment, though it's curious why it doesn't resort to installing it in this case, as that should be possible.",https://github.com/travis-ci/travis-build/pull/213#issuecomment-40226250
+nipy/dipy.497.6.0,M_MENTION i had to restart one of the travis buildbots which was timed out.,https://github.com/nipy/dipy/pull/497#issuecomment-67549223
+sbt/sbt-native-packager.714.0.0,"i believe the build for 8e15f97 failed because i already pushed a new revision before the linux tests even started, leading to an out-of-sync  M_ICODE .",https://github.com/sbt/sbt-native-packager/pull/714#issuecomment-164275995
+ocaml/opam-repository.12792.0.0,:sunny: all lint checks passed 71a2a477019ddbe13742ea53c3746502fe03955a,https://github.com/ocaml/opam-repository/pull/12792#issuecomment-429601260
+OpenRA/OpenRA.8196.4.4,not for microsoft.build.utilities.v M_VERSION_NUMBER .dll (which was an atrocious naming decision they finally fixed in msbuild 14).,https://github.com/OpenRA/OpenRA/pull/8196#issuecomment-103938581
+apache/cloudstack.1375.0.25,- integration.smoke.test_guest_vlan_range.testdedicateguestvlanrange,https://github.com/apache/cloudstack/pull/1375#issuecomment-198122730
+Codeception/Codeception.2800.1.0,i don't know why does it fail to authenticate against github.com in php  M_VERSION_NUMBER  builds,https://github.com/Codeception/Codeception/pull/2800#issuecomment-184233049
+GoldenCheetah/GoldenCheetah.1238.4.19,with this gc src.pro does not work any more as it points to the same release lib in both debug and release builds of gc.,https://github.com/GoldenCheetah/GoldenCheetah/pull/1238#issuecomment-70122485
+svaarala/duktape.975.62.0,"it's probably building against master, but master doesn't have any missing setter/getter cases for built-ins so it's something i overlooked.",https://github.com/svaarala/duktape/pull/975#issuecomment-253468730
+scummvm/scummvm.14.3.3,"then, whenever any of these is enabled (be it by --enable-all-engines or individually), set a flag (say, ""_taintedbuild"") to true.",https://github.com/scummvm/scummvm/pull/14#issuecomment-1019840
+pulp/pulp.1956.3.2,skipping changelog.triggering rhel5-nptriggering f20-nptriggering rhel7-nptriggering rhel6-nptriggering f21-nprhel5-np completed with result successf20-np completed with result failurerhel7-np completed with result failurerhel6-np completed with result failuref21-np completed with result failurestarted calculate disk usage of buildfinished calculation of disk usage of build in 0 secondsstarted calculate disk usage of workspacefinished calculation of disk usage of workspace in  2 secondsetting status of 333e73cbe542ab1b727375ebab22789175726e6a to failure with url  M_URL  and message: merged build finished.,https://github.com/pulp/pulp/pull/1956#issuecomment-116663626
+buildbot/buildbot.2314.6.0,"after more thought, and looking at vault, i agree that indeed a naive implementation using the buildbot db is not something desirable.",https://github.com/buildbot/buildbot/pull/2314#issuecomment-232312435
+xbmc/xbmc.3635.1.0,jenkins build this please,https://github.com/xbmc/xbmc/pull/3635#issuecomment-30243990
+mozilla/shumway.933.2.4,- lint: passed,https://github.com/mozilla/shumway/pull/933#issuecomment-27760947
+servo/servo.1253.0.0,"by the way, this branch might have some nondeterministic parallel build failures.",https://github.com/servo/servo/pull/1253#issuecomment-28460173
+ofiwg/fabtests.551.7.1,there's one occasional travis failure with  M_ICODE  which is already reported but i haven't seen this before.,https://github.com/ofiwg/fabtests/pull/551#issuecomment-247198290
+robotology/yarp.672.5.4,"1. i think you can just install the script, i wouldn't care about python being installed or not, since this is a runtime dependency and not a build dependency.",https://github.com/robotology/yarp/pull/672#issuecomment-182897346
+hwi/HWIOAuthBundle.500.1.1,"indeed, all the login are include inside it :) i'm waiting her integration inside next version of hwioauthbundle",https://github.com/hwi/HWIOAuthBundle/pull/500#issuecomment-40292274
+strongloop/strong-remoting.25.0.1,"to trigger a build add comment - "".test\w+please""",https://github.com/strongloop/strong-remoting/pull/25#issuecomment-29521932
+pulp/pulp.1813.3.0,refer to this link for build results (access rights to ci server needed):,https://github.com/pulp/pulp/pull/1813#issuecomment-95279522
+scala/scala.2667.22.0,M_MENTION maybe we can track some kind of dbuild config file in the repo?,https://github.com/scala/scala/pull/2667#issuecomment-19943249
+pypa/pip.3791.1.3,- git version  M_VERSION_NUMBER  fails (travis),https://github.com/pypa/pip/pull/3791#issuecomment-225392951
+mozilla/pdf.js.9230.11.4,lint: passed,https://github.com/mozilla/pdf.js/pull/9230#issuecomment-350329185
+ocaml/opam-repository.5678.2.0,ocp-build.,https://github.com/ocaml/opam-repository/pull/5678#issuecomment-187423289
+qgis/QGIS-Documentation.807.8.2,tested and builds fine.,https://github.com/qgis/QGIS-Documentation/pull/807#issuecomment-180377083
+astropy/astropy.432.15.3,i could then store it in  M_ICODE  and any developer who wants to build dmgs would then do (the first time),https://github.com/astropy/astropy/pull/432#issuecomment-9482972
+mozilla/pdf.js.5756.8.4,- lint: passed,https://github.com/mozilla/pdf.js/pull/5756#issuecomment-96073199
+Growstuff/growstuff.716.12.2,"the latest code now passes the travis test, but hmm it must be using the sql search which i didn't mean to really.",https://github.com/Growstuff/growstuff/pull/716#issuecomment-74789973
+symfony/symfony.25453.0.0,"travis and appveyor are not related to this, the console tests are fixed but we should fix the other too.",https://github.com/symfony/symfony/pull/25453#issuecomment-350975918
+middleman/middleman.1169.0.0,coverage increased (+ M_VERSION_NUMBER %) when pulling 8d346e74a57b0446475c5bae671da5e621a45dbb on datapimp:before-build-hook into 3b3ed654b77461c8351e7752fcd17e123a619a7a on middleman:v3-stable.,https://github.com/middleman/middleman/pull/1169#issuecomment-34138501
+rackerlabs/otter.1386.0.0,jenkins please run integration tests,https://github.com/rackerlabs/otter/pull/1386#issuecomment-97548780
+espressomd/espresso.745.18.0,"travis actually builds, it was a network connection error that broke the last.",https://github.com/espressomd/espresso/pull/745#issuecomment-240100763
+stan-dev/stan.1469.7.0,refer to this link for build results (access rights to ci server needed):,https://github.com/stan-dev/stan/pull/1469#issuecomment-109139817
+mantisbt/mantisbt.332.1.0,"i agree with this change on principle, it's a good thing overall that will increase quality of our build process, but will need to test this seriously before giving a +1 for merge",https://github.com/mantisbt/mantisbt/pull/332#issuecomment-56336482
+mozilla/fjord.509.10.0,"ok. after travis gives me the green light, i'll squish everything down, double-check the code, push it to upstream in a branch and test it out on stage.",https://github.com/mozilla/fjord/pull/509#issuecomment-77205993
+keycloak/keycloak.3417.0.0,tests are now failing on travis,https://github.com/keycloak/keycloak/pull/3417#issuecomment-255969448
+Theano/Theano.934.2.0,"by the way, since most of the functionality this pr changes is on the gpu, travis isn't much use here.",https://github.com/Theano/Theano/pull/934#issuecomment-8637760
+pulp/pulp.3658.1.1,make travis happy.,https://github.com/pulp/pulp/pull/3658#issuecomment-423549314
+apache/cloudstack.2211.24.2,travis job now also run unit tests for systemvm/python  code and runs pylint etc.,https://github.com/apache/cloudstack/pull/2211#issuecomment-348918856
+ruflin/Elastica.105.11.1,"if one of travis-ci guys is around basel (switzerland) one day, let me know.",https://github.com/ruflin/Elastica/pull/105#issuecomment-2781038
+weld/core.875.17.0,build 537 outcome was success using a merge of 3d2d97092722bd1ac1348368a3789e0b2813ca27 on branch master:,https://github.com/weld/core/pull/875#issuecomment-76927531
+xbmc/xbmc.6997.7.1,M_MENTION can you fire off another build thanks.,https://github.com/xbmc/xbmc/pull/6997#issuecomment-95288509
+ocaml/opam-repository.8743.1.7,things in release  M_VERSION_NUMBER  does not pass ci (though i could build  M_VERSION_NUMBER  without camlp4,https://github.com/ocaml/opam-repository/pull/8743#issuecomment-287746730
+gradle/gradle.4787.0.1,"i removed  M_ICODE  and by that also discovered, and removed, the one integration test we had.",https://github.com/gradle/gradle/pull/4787#issuecomment-376064710
+projectblacklight/blacklight.1240.0.0,"the travis build failure is just in jruby, and is in bundle install.",https://github.com/projectblacklight/blacklight/pull/1240#issuecomment-139000677
+scala/scala.5032.6.0,ide build is failing due to  M_URL,https://github.com/scala/scala/pull/5032#issuecomment-196142073
+PX4/Firmware.2938.14.2,"the build script must be able to detect that the current platform is linux, and adjust the build automatically.",https://github.com/PX4/Firmware/pull/2938#issuecomment-145676141
+xbmc/xbmc.6408.15.2,should try to build with updated libssh as well but that's for another discussion.,https://github.com/xbmc/xbmc/pull/6408#issuecomment-75449124
+symfony/symfony.14983.1.0,"M_MENTION of course :)  i was thinking of a similar solution, as i did not really see a reason why the newly build rows should be stored back in the original property, but i did not want to change that as there might have been a reason i did not see or understand.",https://github.com/symfony/symfony/pull/14983#issuecomment-112161170
+stan-dev/stan.923.1.1,refer to this link for build results (access rights to ci server needed):,https://github.com/stan-dev/stan/pull/923#issuecomment-53954077
+openmicroscopy/openmicroscopy.1377.0.1,travis build failed.,https://github.com/openmicroscopy/openmicroscopy/pull/1377#issuecomment-22571054
+mxe/mxe.1382.13.0,i've tested a native linux build on the unpatched source.,https://github.com/mxe/mxe/pull/1382#issuecomment-233706051
+shogun-toolbox/shogun.2286.4.0,M_MENTION btw ping me if travis is green and i can merge things (sometimes loose the overview here),https://github.com/shogun-toolbox/shogun/pull/2286#issuecomment-45475335
+magento/magento2.7742.5.1,"i had to change the unit test to change the expected result (this sounds horrible, but it just wasn't correct) - but now the integration test fails and my understanding of these tests is insufficient to deal with this issue.",https://github.com/magento/magento2/pull/7742#issuecomment-312203550
+OpenTreeMap/otm-core.3007.0.1,"cryptic build output, edited here for readability:",https://github.com/OpenTreeMap/otm-core/pull/3007#issuecomment-282403771
+scikit-learn/scikit-learn.11545.9.0,"ok, travis and circle passed.",https://github.com/scikit-learn/scikit-learn/pull/11545#issuecomment-405540901
+sinonjs/sinon.453.3.0,"the problem is that when i now build sinon, there is no global in the packaged sinon.js file.",https://github.com/sinonjs/sinon/pull/453#issuecomment-39814390
+jshint/jshint.2100.5.3,"i highly prefer a linter with good opinions (like jshint), rather than no opinions (like eslint).",https://github.com/jshint/jshint/pull/2100#issuecomment-263111744
+praw-dev/praw.529.2.2,also something funny happened with travis during your last commit.,https://github.com/praw-dev/praw/pull/529#issuecomment-141821132
+dib-lab/khmer.364.4.1,refer to this link for build results:  M_URL,https://github.com/dib-lab/khmer/pull/364#issuecomment-39212485
+psychopy/psychopy.2066.0.5,| psychopy/app/builder/dialogs/dlgsconditions.py |  M_ICODE  | :arrow_up: |,https://github.com/psychopy/psychopy/pull/2066#issuecomment-430336603
+pypa/pip.1572.24.3,"actually, build-via-wheel is likely the easiest bit (modulo issues with packages that don't play nicely with wheels) because it avoids all the complexities of managing/rebuilding/etc the cache.",https://github.com/pypa/pip/pull/1572#issuecomment-53477840
+ClusterLabs/pacemaker.1063.0.9,"and finally, to be able to use get_version in lrmd i should add liblrmd to it's build which conflicts with this commit.",https://github.com/ClusterLabs/pacemaker/pull/1063#issuecomment-228560526
+heroku/heroku-buildpack-ruby.4.3.3,"(it was a pain to invoke  M_ICODE  from a build script, because heroku assumes it's in an interactive tty.)",https://github.com/heroku/heroku-buildpack-ruby/pull/4#issuecomment-3561865
+xapi-project/xen-api.640.18.16,    cloning into /usr/local/builds/build-xen-git.hg/obj/repos/xen-api-libs...,https://github.com/xapi-project/xen-api/pull/640#issuecomment-6189219
+gradle/gradle.4747.6.11,"btw, i wouldn't know how to declare my ap if it would actually want to manage all of its state itself and would like to play nicely with gradle, not letting gradle manage anything but still not wanting to slow down the build.",https://github.com/gradle/gradle/pull/4747#issuecomment-374399288
+sympy/sympy.2478.24.1,i tested the doc build locally and everything looks good.,https://github.com/sympy/sympy/pull/2478#issuecomment-28872673
+cpputest/cpputest.458.3.0,"i guess i am trying to say that as far as i can tell, nobody (outside of travis and yourself) is ever going to reach the point where the -p test would be run.",https://github.com/cpputest/cpputest/pull/458#issuecomment-68181852
+xbmc/xbmc.7560.1.0,jenkins build this please,https://github.com/xbmc/xbmc/pull/7560#issuecomment-122873959
+ocaml/opam-repository.9314.0.0,:white_check_mark: all lint checks passed d94a41b300df6c802e79def316b87b2280790dd2,https://github.com/ocaml/opam-repository/pull/9314#issuecomment-304071070
+mozilla/shumway.2298.11.4,- lint: passed,https://github.com/mozilla/shumway/pull/2298#issuecomment-138139134
+dimagi/commcare-hq.21596.0.0,"fixed typos, killed build",https://github.com/dimagi/commcare-hq/pull/21596#issuecomment-414350644
+yesodweb/yesod.1305.28.13,ab\build\web\cookie.o ),https://github.com/yesodweb/yesod/pull/1305#issuecomment-285475224
+github/linguist.4274.1.0,build is failing because of another license issue:,https://github.com/github/linguist/pull/4274#issuecomment-424225283
+brianfrankcooper/YCSB.787.11.1,see travis-ci/travis-ci#5227.,https://github.com/brianfrankcooper/YCSB/pull/787#issuecomment-249976817
+dib-lab/khmer.306.0.1,refer to this link for build results:  M_URL,https://github.com/dib-lab/khmer/pull/306#issuecomment-36286719
+apache/cloudstack.815.20.2, build number 124,https://github.com/apache/cloudstack/pull/815#issuecomment-223719758
+ocaml/opam-repository.5100.0.0,:white_check_mark: all lint checks passed 609fbf92a102e475c25db6d4820b34951e5e00c4,https://github.com/ocaml/opam-repository/pull/5100#issuecomment-155168878
+opal/opal.868.6.0,"M_MENTION add the fail mark (maybe with a comment), i tried to update it ""quickly"" without success once and my next priority is on fixing opal-rails travis build (passes locally) so i don't think i'll try again for a while.",https://github.com/opal/opal/pull/868#issuecomment-102980618
+xbmc/xbmc.2906.3.0,these changes have only been introduced in nightly/monthly builds so imo forcing a rescan between nightly build versions is not really necessary as long as it's fixed for the final release.,https://github.com/xbmc/xbmc/pull/2906#issuecomment-19957304
+Sylius/Sylius.3553.2.0,"M_MENTION there is no rush with it, we can wait for travis.",https://github.com/Sylius/Sylius/pull/3553#issuecomment-155046458
+openmicroscopy/ome-documentation.996.0.0,builds correctly.,https://github.com/openmicroscopy/ome-documentation/pull/996#issuecomment-56497291
+servo/servo.6804.5.0,":zap: previous build results for android, gonk, linux1, linux3, mac1, mac2, mac3 are reusable.",https://github.com/servo/servo/pull/6804#issuecomment-125881382
+twisted/twisted.73.1.8,"when i set up travis, i pretty much did nothing and just got what they gave me.",https://github.com/twisted/twisted/pull/73#issuecomment-221513801
+xbmc/xbmc.3277.3.0,you might want to look into the existing archives if they have a readme.txt where i describe how the packages are build.,https://github.com/xbmc/xbmc/pull/3277#issuecomment-24513359
+rspec/rspec-core.2437.1.5,update our travis build so that cucumber 2.x is installed on ruby  M_VERSION_NUMBER + while 1.x is installed on ruby  M_VERSION_NUMBER  and  M_VERSION_NUMBER  -- assuming we're using a compatible subset of cucumber that works on both versions (or can easily get our use of cucumber down to a compatible subset).,https://github.com/rspec/rspec-core/pull/2437#issuecomment-311539471
+jacoco/jacoco.525.6.1,it occurred to me that it'd be convenient for me if this gets merged somewhat soon because of the pull request that i'm building on top if it that adds filtering (  M_URL  ).,https://github.com/jacoco/jacoco/pull/525#issuecomment-302589214
+xapi-project/xen-api.562.51.13,    cloning into '/usr/local/builds/build-xen-git.hg/obj/repos/xen-api-libs'...,https://github.com/xapi-project/xen-api/pull/562#issuecomment-6326033
+libgit2/libgit2.1677.4.1,"using the latest version objectivegit (master branch), i'm able to run  M_ICODE  from the command line and have it build without a problem.",https://github.com/libgit2/libgit2/pull/1677#issuecomment-19992573
+RIOT-OS/RIOT.8921.50.0,just tested on os x after (looong) toolchain building.,https://github.com/RIOT-OS/RIOT/pull/8921#issuecomment-403852989
+sebastianbergmann/phpunit.1282.1.0,"it works well, i am only not sure whether travis-ci-fail.xml fits to your coding style.",https://github.com/sebastianbergmann/phpunit/pull/1282#issuecomment-46080992
+adobe/brackets.1661.2.1,i think i messed up the jslint results panel resize when doing some cleaning before the pull request... fixed now :),https://github.com/adobe/brackets/pull/1661#issuecomment-8908923
+magento/magento2.3633.2.1,these (currently beta) trusty builds on travis gce infrastructure seem to be very finicky as of late…,https://github.com/magento/magento2/pull/3633#issuecomment-195450973
+Baystation12/Baystation12.18569.0.0,"looks good, i'll poke it after travis finishes.",https://github.com/Baystation12/Baystation12/pull/18569#issuecomment-328279525
+owncloud/documentation.2148.0.0,backports come after seeing if this builds correctly on rotor.,https://github.com/owncloud/documentation/pull/2148#issuecomment-182200754
+Pylons/pyramid.1618.4.0,but the owner already granted access for travis-ci.,https://github.com/Pylons/pyramid/pull/1618#issuecomment-86478739
+rubygems/rubygems.1884.9.0,:sunny: test successful - status-travis,https://github.com/rubygems/rubygems/pull/1884#issuecomment-354444942
+sympy/sympy.1407.20.21,docs build command: make html-errors,https://github.com/sympy/sympy/pull/1407#issuecomment-7499356
+scala/scala.5402.30.10,"looking at scalac warnings under -xlint, i think missing-interpolator should give a pass to  M_ICODE  because normally you'd write  M_ICODE , although in general an arbitrary interpolator could be doing an arbitrary operation on  M_ICODE .",https://github.com/scala/scala/pull/5402#issuecomment-291928547
+ocaml/opam-repository.11894.0.1,these packages passed lint tests:  M_ICODE,https://github.com/ocaml/opam-repository/pull/11894#issuecomment-386064924
+xbmc/xbmc.10894.2.0,jenkins build this with addons please,https://github.com/xbmc/xbmc/pull/10894#issuecomment-266246760
+libgit2/libgit2.1779.1.3,i'd love to cut that build time in half again.,https://github.com/libgit2/libgit2/pull/1779#issuecomment-22582842
+puppetlabs/puppetdb.1129.5.1,refer to this link for build results (access rights to ci server needed):,https://github.com/puppetlabs/puppetdb/pull/1129#issuecomment-60043559
+quicksilver/Quicksilver.1279.26.0,"re the following crash, M_MENTION had this crash, but couldn't reproduce with a fresh build of the release branch.",https://github.com/quicksilver/Quicksilver/pull/1279#issuecomment-11507523
+universal-ctags/ctags.150.0.0,"please check docs.travis-ci.com/user/build-configuration/ section "" the build matrix"".",https://github.com/universal-ctags/ctags/pull/150#issuecomment-64765062
+bokeh/bokeh.4207.10.0,great news M_MENTION does this mean that i will need to build a dev release of bokeh to get pyscript working for python  M_VERSION_NUMBER ?,https://github.com/bokeh/bokeh/pull/4207#issuecomment-214909741
+AnalyticalGraphicsInc/cesium.5498.21.1,"current status works well in my machine, but it still failed on travis ci",https://github.com/AnalyticalGraphicsInc/cesium/pull/5498#issuecomment-310753750
+libgit2/objective-git.552.1.0,"hah, tricked travis :muscle:",https://github.com/libgit2/objective-git/pull/552#issuecomment-185041070
+mozilla/addons-server.9493.0.2,"i silenced the  M_ICODE  tasks to not overwhelm travis with too much, too fast output to stdout, with a bit of luck this fixes our random  M_ICODE  failure",https://github.com/mozilla/addons-server/pull/9493#issuecomment-424591479
+servo/servo.9093.39.1,rebuilding only linux-rel...,https://github.com/servo/servo/pull/9093#issuecomment-172053945
+gravitystorm/openstreetmap-carto.590.1.0,so building in forest will have visible tree symbols on it?,https://github.com/gravitystorm/openstreetmap-carto/pull/590#issuecomment-44789765
+webpack/webpack.8018.16.0,unfortunately microsoft-hosted builds don't yet support caching between builds.,https://github.com/webpack/webpack/pull/8018#issuecomment-421057145
+openmicroscopy/openmicroscopy.3417.3.1,removed from build ome- M_VERSION_NUMBER -merge-push#737.,https://github.com/openmicroscopy/openmicroscopy/pull/3417#issuecomment-72150160
+caskdata/cdap.9712.0.0,build passed  M_URL,https://github.com/caskdata/cdap/pull/9712#issuecomment-338833920
+mixxxdj/mixxx.169.8.0,btw -- to test the sandbox mode you have to bundle the app and sign it with mixxx's developer private key (which only i and the build server have).,https://github.com/mixxxdj/mixxx/pull/169#issuecomment-33616592
+mne-tools/mne-python.2777.2.0,travis is happy...,https://github.com/mne-tools/mne-python/pull/2777#issuecomment-170326191
+OSU-Net/cyder.471.41.0,i should mention that i don't think i was able to create an initial build with the old system either.,https://github.com/OSU-Net/cyder/pull/471#issuecomment-33182467
+open-mpi/ompi.3260.4.1,"fixed the webhooks, we think, so trying to rebuild again.",https://github.com/open-mpi/ompi/pull/3260#issuecomment-290478641
+nipy/dipy.497.6.2,just restart this bot from the travis interface if you see that happening again.,https://github.com/nipy/dipy/pull/497#issuecomment-67549223
+sonata-project/SonataPageBundle.523.8.0,can i help you with this travis problem?,https://github.com/sonata-project/SonataPageBundle/pull/523#issuecomment-137675096
+mikel/mail.785.1.0,"travis error is just a random failure again, good to go M_MENTION  ?",https://github.com/mikel/mail/pull/785#issuecomment-53754966
+EFForg/https-everywhere.9901.0.0,"M_MENTION @jeremyn, this fixes travis (1/2)",https://github.com/EFForg/https-everywhere/pull/9901#issuecomment-301229515
+xapi-project/xen-api.1511.15.2,if you list each file explicitly then rpm will warn you if the list of files your build produces doesn't match the list in the spec file.,https://github.com/xapi-project/xen-api/pull/1511#issuecomment-30649251
+mavlink/qgroundcontrol.4131.6.0,"windows builds now, but all other os break.",https://github.com/mavlink/qgroundcontrol/pull/4131#issuecomment-261800412
+coq/coq.454.63.0,"sometimes, people forgot to build the doc.",https://github.com/coq/coq/pull/454#issuecomment-299005648
+numpy/numpy.268.3.2,"i haven't actually tried to build a c reference yet, and i guess it's about time.",https://github.com/numpy/numpy/pull/268#issuecomment-5501208
+mxe/mxe.1714.4.2,it builds on debian wheezy and the command is,https://github.com/mxe/mxe/pull/1714#issuecomment-287436177
+pypa/pip.4769.6.1,"i don't think users will care that we started running integration tests on windows (and ""how much do users care about x"" is sort of the standard to judge if something needs to be in the change log or not).",https://github.com/pypa/pip/pull/4769#issuecomment-334804315
+UniMath/UniMath.456.2.1,this will bring you to a website which lists the packages and their build status.,https://github.com/UniMath/UniMath/pull/456#issuecomment-246020194
+appleseedhq/appleseed.1656.0.0,builds with vs 2012 so good to merge once review comments have been addressed!,https://github.com/appleseedhq/appleseed/pull/1656#issuecomment-334934536
+supercollider/supercollider.3373.4.2,"so, there is at least something wrong with the distributed x86 build of libsndfile  M_VERSION_NUMBER , for this project.",https://github.com/supercollider/supercollider/pull/3373#issuecomment-356645096
+gradle/gradle.3016.1.10,"but, buildship is able to adjust the runtime classpath such that it removes the output location of individual source folders.",https://github.com/gradle/gradle/pull/3016#issuecomment-332115210
+webpack/webpack.7870.1.1,"the most important ci builds succeeded, we’ll review the pull request soon.",https://github.com/webpack/webpack/pull/7870#issuecomment-411796505
+fog/fog.822.1.0,seems that i'm building on  M_URL,https://github.com/fog/fog/pull/822#issuecomment-4824520
+citation-style-language/styles.1766.0.6,"like travis, we try very hard to keep the styles repository neat and organized, so we will often ask you to make some minor changes to your styles before we accept them into our repository.",https://github.com/citation-style-language/styles/pull/1766#issuecomment-158645780
+JuliaLang/julia.8428.12.1,"i could probably limit that to just 94334bc0b0b572f186fa43227409fcdfd4a1290f for consistent naming on the buildbots though, and not backport the rest of it.",https://github.com/JuliaLang/julia/pull/8428#issuecomment-76854416
+JuliaLang/julia.22210.5.6,| build from scratch (incl.,https://github.com/JuliaLang/julia/pull/22210#issuecomment-306640511
+qbittorrent/qBittorrent.3222.6.2,here is a build:  M_URL  M_VERSION_NUMBER alpha_based_on_a2c48646ae20_rev M_VERSION_NUMBER z,https://github.com/qbittorrent/qBittorrent/pull/3222#issuecomment-112860357
+wbond/package_control_channel.6389.0.1,closing and opening to trigger builds again..,https://github.com/wbond/package_control_channel/pull/6389#issuecomment-310896530
+qgis/QGIS.3886.34.2,"everything seems ok but i still got the next error from travis ""the job exceeded the maximum time limit for jobs, and has been terminated"".",https://github.com/qgis/QGIS/pull/3886#issuecomment-271784588
+DIRACGrid/DIRAC.3682.0.0,coverage increased (+ M_VERSION_NUMBER %) to  M_VERSION_NUMBER % when pulling 18f3d704fee54dd27d97a7c88b6f142455213f2d on zmathe:dev_main_branch into 2318cc8cd9745b481c1e97935ae965f6d65805e4 on diracgrid:integration.,https://github.com/DIRACGrid/DIRAC/pull/3682#issuecomment-388745065
+statsmodels/statsmodels.3597.9.1,i think pandas is also seeing unexpected build failures.,https://github.com/statsmodels/statsmodels/pull/3597#issuecomment-332621778
+dimagi/commcare-hq.5451.0.0,:+1: no lint errors found.,https://github.com/dimagi/commcare-hq/pull/5451#issuecomment-73031898
+servo/servo.14829.0.2, * M_MENTION python/servo/post_build_commands.py,https://github.com/servo/servo/pull/14829#issuecomment-270063577
+Theano/Theano.312.0.6,"-  M_URL , set the type to be of the current input dtype, not of the one during graph build time.",https://github.com/Theano/Theano/pull/312#issuecomment-3551053
+fontforge/fontforge.2110.0.0,"well, it passes travis.",https://github.com/fontforge/fontforge/pull/2110#issuecomment-77639698
+OP2/PyOP2.131.2.0,buildbot pass:  M_URL,https://github.com/OP2/PyOP2/pull/131#issuecomment-12101824
+JuliaLang/julia.9780.0.1,"can you force push to this branch or open another pr, something went wrong with travis here.",https://github.com/JuliaLang/julia/pull/9780#issuecomment-70118574
+symfony/symfony.4365.4.1,it seems weird that  M_ICODE  creates the process instead of returning the builder like any other method of the builder,https://github.com/symfony/symfony/pull/4365#issuecomment-5840898
+django-oscar/django-oscar.367.0.2,this is causing the travis tests to fail here:  M_URL,https://github.com/django-oscar/django-oscar/pull/367#issuecomment-10372794
+caskdata/cdap.9033.0.0,build in  M_URL,https://github.com/caskdata/cdap/pull/9033#issuecomment-305964266
+rapid7/metasploit-framework.2445.0.0,"hold up because of the travis error, even when doesn't look related to the pr, giving the chance to M_MENTION to look into it.",https://github.com/rapid7/metasploit-framework/pull/2445#issuecomment-25478209
+SciTools/iris.1414.7.0,thanks M_MENTION the code changes are fine except for 1 style point (noted in-line) and 3 pep8 whitespace test failures (see the travis ci results link for more details).,https://github.com/SciTools/iris/pull/1414#issuecomment-62409501
+silverstripe/silverstripe-cms.1263.1.0,i tried bouncing travis but it's not working.,https://github.com/silverstripe/silverstripe-cms/pull/1263#issuecomment-133226113
+weld/core.956.1.0,build 715 is now running using a merge of 816ca497d73218f5f2575d601a9915789e014521 on branch  M_VERSION_NUMBER :,https://github.com/weld/core/pull/956#issuecomment-93973387
+puppetlabs/puppetdb.777.7.1,refer to this link for build results:  M_URL,https://github.com/puppetlabs/puppetdb/pull/777#issuecomment-31026624
+akeneo/pim-community-dev.8128.0.0,all behat are green locally last complete build,https://github.com/akeneo/pim-community-dev/pull/8128#issuecomment-389493108
+dimagi/commcare-hq.5558.0.0,:+1: no lint errors found.,https://github.com/dimagi/commcare-hq/pull/5558#issuecomment-74573245
+sonata-project/SonataMediaBundle.1442.8.31,this is typically the case for prs that fix the build or add,https://github.com/sonata-project/SonataMediaBundle/pull/1442#issuecomment-394121550
+cloudfoundry/bosh.1251.5.9,/home/travis/build/cloudfoundry/bosh/bosh-dev/lib/bosh/dev/tasks/spec.rake:100:in  M_ICODE block (6 levels) in ',https://github.com/cloudfoundry/bosh/pull/1251#issuecomment-218978719
+coq/coq.6646.5.0,the build here  M_URL  had passed for 64bits but not for 32bits.,https://github.com/coq/coq/pull/6646#issuecomment-360427241
+k9mail/k-9.5.5.4,"if this solves the problem, i can verify if it still builds in aosp, if you don't have an aosp tree to test it with.",https://github.com/k9mail/k-9/pull/5#issuecomment-1085966
+RIOT-OS/RIOT.9507.17.4,      $(info ci-build: skipping link step),https://github.com/RIOT-OS/RIOT/pull/9507#issuecomment-409843949
+sonata-project/SonataAdminBundle.2286.3.0,M_MENTION : how do we inject the breadcrumbs builder and do not introduce bc-breaks ?,https://github.com/sonata-project/SonataAdminBundle/pull/2286#issuecomment-51751331
+radare/radare2.9536.0.0,not sure why travis is red here,https://github.com/radare/radare2/pull/9536#issuecomment-369165377
+servo/servo.18859.6.1,"rebuilding only linux-rel-wpt, mac-rel-wpt3...",https://github.com/servo/servo/pull/18859#issuecomment-336358183
+JuliaLang/julia.6028.38.8,"i don't see the big advantage (unless you build a lot of code that isn't set up to be cross-compiled easily) - the difference for ci is just that the vm's already have git installed, so they have msys1 installed and i can use that straight away without needing to download cygwin.",https://github.com/JuliaLang/julia/pull/6028#issuecomment-37994718
+numpy/numpy.9806.3.1,"i assume that went uncommented as it seems the obvious thing to do (e.g., the travis config is a dot-file).",https://github.com/numpy/numpy/pull/9806#issuecomment-333406211
+xapi-project/xen-api.756.0.2,    make api-build,https://github.com/xapi-project/xen-api/pull/756#issuecomment-6910958
+buildbot/buildbot.1570.2.2,i think startcb is useful when people want to know if buildbot starts running on a gerrit patchset.,https://github.com/buildbot/buildbot/pull/1570#issuecomment-76901184
+swagger-api/swagger-ui.892.2.2,they fail for me locally and travis seems mad too.,https://github.com/swagger-api/swagger-ui/pull/892#issuecomment-72294050
+geany/geany.358.16.0,stupid question that came to my mind when building and seeing the status: does this still work with binary relocation?,https://github.com/geany/geany/pull/358#issuecomment-60593367
+pypa/pip.2048.3.1,if at some point the distutils import error gets fixed we can revisit using pylint.,https://github.com/pypa/pip/pull/2048#issuecomment-66616732
+ggreer/the_silver_searcher.1021.2.0,i found that sometimes i get the same results as travis and the  M_ICODE .,https://github.com/ggreer/the_silver_searcher/pull/1021#issuecomment-263103996
+coq/coq.8697.1.6,"this is a stm tool, indeed good point, we should build it and install.",https://github.com/coq/coq/pull/8697#issuecomment-428640141
+jquery/jquery.3956.8.1,"i cloned jquery into node_modules/jquery, did  M_ICODE  and always created a fresh build.",https://github.com/jquery/jquery/pull/3956#issuecomment-360994459
+buildbot/buildbot.1909.1.4,M_ICODE  via ...ot/status/builder.py#453...481,https://github.com/buildbot/buildbot/pull/1909#issuecomment-153413940
+scummvm/scummvm.1.6.0,maybe this would be a better place for the build instructions?,https://github.com/scummvm/scummvm/pull/1#issuecomment-785990
+h5bp/html5-boilerplate.687.2.2,and if you're using the build-script you will have to take a look at  M_ICODE  in which you can add stylesheets via  M_ICODE .,https://github.com/h5bp/html5-boilerplate/pull/687#issuecomment-1803468
+mozilla/fjord.624.0.2,travis is green.,https://github.com/mozilla/fjord/pull/624#issuecomment-127229467
+magento/magento2.2464.0.1,in order to further process your pr we will have to wait for the travis build infrastructure to be fixed for the tests to pass.,https://github.com/magento/magento2/pull/2464#issuecomment-159524771
+puppetlabs/puppetdb.1143.10.1,refer to this link for build results (access rights to ci server needed):,https://github.com/puppetlabs/puppetdb/pull/1143#issuecomment-63138542
+matplotlib/matplotlib.1557.3.3,try rebuilding later today with numpy  M_VERSION_NUMBER .,https://github.com/matplotlib/matplotlib/pull/1557#issuecomment-11006464
+camptocamp/c2cgeoportal.574.3.1,another approach would be to use  M_ICODE  and  M_ICODE  files in the  M_ICODE  and let jsbuild do the ordering/concatenation for us.,https://github.com/camptocamp/c2cgeoportal/pull/574#issuecomment-17004957
+FreeCAD/FreeCAD.1812.0.0,the python3 build fails:,https://github.com/FreeCAD/FreeCAD/pull/1812#issuecomment-443428724
+apache/cloudstack.798.9.37,integration.smoke.test_portable_publicip.testportablepublicipacquire,https://github.com/apache/cloudstack/pull/798#issuecomment-212768046
+bitcoin/bitcoin.5422.9.0,"note that this will delay travis results somewhat, i'd think but hopefully not too much.",https://github.com/bitcoin/bitcoin/pull/5422#issuecomment-67729227
+buildbot/buildbot.3621.2.7,| worker/buildbot_worker/runprocess.py |  M_ICODE  | :arrow_up: |,https://github.com/buildbot/buildbot/pull/3621#issuecomment-329973118
+mozilla/shumway.2281.2.4,- lint: passed,https://github.com/mozilla/shumway/pull/2281#issuecomment-111176269
+servo/servo.8942.11.0,":zap: previous build results for android, gonk, linux-dev, mac-dev-ref-unit, mac-rel-wpt are reusable.",https://github.com/servo/servo/pull/8942#issuecomment-164114663
+sympy/sympy.15185.13.1,"no, travis will not automatically fail any commits without test case, for now.",https://github.com/sympy/sympy/pull/15185#issuecomment-419666959
+gooddata/gooddata-ruby.970.11.0,build succeeded (gate pipeline).,https://github.com/gooddata/gooddata-ruby/pull/970#issuecomment-318082658
+dimagi/commcare-hq.21795.0.0,not sure why build is reporting still in progress but if you click through it ran,https://github.com/dimagi/commcare-hq/pull/21795#issuecomment-420225035
+troessner/reek.1284.0.0,"it’s downright fascinating – once travis started resolving  M_ICODE  to  M_ICODE  the problem with  M_ICODE  went away but now it breaks with a missing  M_ICODE , despite it being clearly there in the  M_ICODE  group 🤔",https://github.com/troessner/reek/pull/1284#issuecomment-354135980
+voidlinux/void-packages.4440.2.0,"hmm, only i686 and x86_64 glib packages build correctly... looking into it...",https://github.com/voidlinux/void-packages/pull/4440#issuecomment-230862739
+nengo/nengo.502.4.0,"they'd still get a build time error in that case, but no error at model construction.",https://github.com/nengo/nengo/pull/502#issuecomment-59258603
+openscad/openscad.1802.6.0,"hm, i guess the challenge is that we're using qmake both to build dependable binaries as to build development binaries with potentially partial configs.",https://github.com/openscad/openscad/pull/1802#issuecomment-255740765
+open-mpi/ompi.3873.10.0,"crud - that won't work here as the component integration functions must include their respective pmix headers, and we cannot reference component headers in the base as we don't know where they are when the base is being built.",https://github.com/open-mpi/ompi/pull/3873#issuecomment-325377187
+servo/servo.9660.9.1,rebuilding only linux-rel...,https://github.com/servo/servo/pull/9660#issuecomment-185029910
+servo/servo.21809.37.0,":zap: previous build results for android, android-x86, arm32, arm64, linux-dev, linux-rel-css, linux-rel-wpt, mac-dev-unit, mac-rel-css1, mac-rel-wpt1, mac-rel-wpt2, mac-rel-wpt3, mac-rel-wpt4, status-taskcluster, windows-msvc-dev are reusable.",https://github.com/servo/servo/pull/21809#issuecomment-425230356
+ocaml/opam-repository.7573.0.0,the build is failing on  M_VERSION_NUMBER :,https://github.com/ocaml/opam-repository/pull/7573#issuecomment-251595778
+halide/Halide.450.9.18,not build the main library with debugging by default.),https://github.com/halide/Halide/pull/450#issuecomment-54839319
+lattice/quda.607.1.1,can you see what went wrong with these build tests?,https://github.com/lattice/quda/pull/607#issuecomment-293046040
+OpenSlides/OpenSlides.3926.6.0,i tried to fix the warnings in travis.,https://github.com/OpenSlides/OpenSlides/pull/3926#issuecomment-430776176
+gooddata/gooddata-ruby.910.7.0,build failed (check pipeline).,https://github.com/gooddata/gooddata-ruby/pull/910#issuecomment-304825499
+xapi-project/xen-api.798.3.0,M_EMAIL ⇒  M_EMAIL build succeeded.,https://github.com/xapi-project/xen-api/pull/798#issuecomment-7429725
+apache/cloudstack.1263.2.17,integration.smoke.test_affinity_groups_projects.testdeployvmwithaffinitygroup,https://github.com/apache/cloudstack/pull/1263#issuecomment-203392098
+melpa/melpa.3532.6.1,package should build in the next few hours.,https://github.com/melpa/melpa/pull/3532#issuecomment-180714054
+xbmc/xbmc.7939.0.0,jenkins build addons please,https://github.com/xbmc/xbmc/pull/7939#issuecomment-136483707
+jquery/jquery-ui.614.2.0,can't build jquery-ui using grunt...,https://github.com/jquery/jquery-ui/pull/614#issuecomment-4633838
+servo/servo.14361.7.16,"  │ assertion failed: !self.suspended.get() (thread scriptthread pipelineid { namespace_id: pipelinenamespaceid(0), index: pipelineindex(1) }, at /users/servo/buildbot/slave/mac-rel-wpt1/build/components/script/dom/servoparser/mod.rs:315)",https://github.com/servo/servo/pull/14361#issuecomment-262991459
+rtfd/readthedocs.org.4556.16.28,"i'm not familiar with  M_ICODE , but for best chances of integration with rtd, we'd want the workflow to work as similar to what we already have as possible.",https://github.com/rtfd/readthedocs.org/pull/4556#issuecomment-416783843
+concrete5/concrete5.726.2.0,in which case we might want to build something on top of carbon?,https://github.com/concrete5/concrete5/pull/726#issuecomment-52455302
+bitcoin/bitcoin.12971.6.2,we would like to use qt  M_VERSION_NUMBER + to build the next release anyways.,https://github.com/bitcoin/bitcoin/pull/12971#issuecomment-381460418
+duckduckgo/zeroclickinfo-spice.546.0.1,"for my part, i don't care much about the specific semantics of how it is going to build the query string and such.",https://github.com/duckduckgo/zeroclickinfo-spice/pull/546#issuecomment-40783597
+mockito/mockito.928.0.12,| ...internal/matchers/apachecommons/equalsbuilder.java |  M_ICODE  |  M_ICODE  | :x: |,https://github.com/mockito/mockito/pull/928#issuecomment-277431767
+atom/atom.1994.5.0,"normal users will not follow the ""building""-guide, but use their package manager.",https://github.com/atom/atom/pull/1994#issuecomment-42478346
+xbmc/xbmc.10220.0.1,jenkins build and merge,https://github.com/xbmc/xbmc/pull/10220#issuecomment-237152058
+sympy/sympy.14758.8.3,"regarding tests, is this tested on travis?",https://github.com/sympy/sympy/pull/14758#issuecomment-396723558
+buildbot/buildbot.2155.2.2,"it seems like the builds are associated during worker startup just as they would be previously, only now multiple will be happening in parallel.",https://github.com/buildbot/buildbot/pull/2155#issuecomment-213149096
+apache/libcloud.1137.3.1,"however, the lint is broken: consider running  M_ICODE  locally.",https://github.com/apache/libcloud/pull/1137#issuecomment-338104476
+RIOT-OS/RIOT.2198.10.0,travis seems broken.,https://github.com/RIOT-OS/RIOT/pull/2198#issuecomment-88553754
+phpmyadmin/phpmyadmin.1022.1.0,"M_MENTION build has not failed, its just stopped due to an error (no output has been received in the last 10 minutes, this potentially indicates a stalled build or something wrong with the build itself.).",https://github.com/phpmyadmin/phpmyadmin/pull/1022#issuecomment-37063492
+magento/magento2.2446.0.1,we have to wait for the travis build infrastructure to be fixed before we can continue to process your pr.,https://github.com/magento/magento2/pull/2446#issuecomment-159525787
+ocaml/opam-repository.4638.4.2,"travis is still working from the old build matrix, so the jobs have  M_ICODE  versions, but the build script is expecting  M_ICODE  versions.",https://github.com/ocaml/opam-repository/pull/4638#issuecomment-129806696
+mixxxdj/mixxx.645.7.0,"automated message from buildbot: mixxx admins, is this safe to test?",https://github.com/mixxxdj/mixxx/pull/645#issuecomment-121382626
+xapi-project/xen-api.425.2.0,M_EMAIL ⇒  M_EMAIL build succeeded.,https://github.com/xapi-project/xen-api/pull/425#issuecomment-3186255
+musescore/MuseScore.2491.15.4,"the link name change would have to be done after accepting the pr, in order for builds to work, initially, so i'm not going to change that now.",https://github.com/musescore/MuseScore/pull/2491#issuecomment-203347370
+apache/thrift.1361.33.15,to run the cross tests (just like travis ci):,https://github.com/apache/thrift/pull/1361#issuecomment-343668377
+puppetlabs/puppetlabs-stdlib.880.3.0,M_MENTION do you have some pointers about building a rpm from a puppet module?,https://github.com/puppetlabs/puppetlabs-stdlib/pull/880#issuecomment-371588201
+apache/thrift.1609.2.0,build failure was unrelated.,https://github.com/apache/thrift/pull/1609#issuecomment-429296340
+stan-dev/stan.128.1.1,refer to this link for build results:  M_URL,https://github.com/stan-dev/stan/pull/128#issuecomment-19732701
+buildbot/buildbot.2835.1.6,| master/buildbot/secrets/providers/vault.py |  M_ICODE  | |,https://github.com/buildbot/buildbot/pull/2835#issuecomment-284150096
+matplotlib/matplotlib.11491.0.1,from this bug report i take it you are building the docs on a windows machine?,https://github.com/matplotlib/matplotlib/pull/11491#issuecomment-400502117
+caskdata/cdap.5292.0.2,also verified that the  M_ICODE  test now passes on standalone as well as cluster (will open pr for integration tests shortly to add lineage information for the datasets used with  M_EMAIL annotation).,https://github.com/caskdata/cdap/pull/5292#issuecomment-195819547
+sympy/sympy.1912.11.0,"travisci is not happy, but the failure (in python  M_VERSION_NUMBER ) is unrelated.",https://github.com/sympy/sympy/pull/1912#issuecomment-16235319
+mne-tools/mne-python.3423.0.2,M_MENTION okay for me to merge once travis comes back happy?,https://github.com/mne-tools/mne-python/pull/3423#issuecomment-232390314
+scikit-image/scikit-image.516.26.2,these travis failures have really been annoying.,https://github.com/scikit-image/scikit-image/pull/516#issuecomment-16794120
+openmicroscopy/openmicroscopy.2966.13.1,i've merged the  M_ICODE  output once more for the merge c++ build with two  M_ICODE s and used  M_ICODE  and  M_ICODE  on the resulting text file.,https://github.com/openmicroscopy/openmicroscopy/pull/2966#issuecomment-53438722
+stephenmcd/mezzanine.485.13.0,the traceback i'm getting is the same as the failed travis build.,https://github.com/stephenmcd/mezzanine/pull/485#issuecomment-10941895
+shopware/shopware.143.7.0,i'm mostly interested in the deploying angle and would like to point out that in many cases it would be preferable to build the cache via cli and switch to that instantly.,https://github.com/shopware/shopware/pull/143#issuecomment-74139688
+MariaDB/server.760.0.14,could not install system database from /home/dan/repos/build-mariadb-server- M_VERSION_NUMBER /mysql-test/var/log/bootstrap.sql,https://github.com/MariaDB/server/pull/760#issuecomment-390105957
+sul-dlss/argo.590.0.0,"in the travis results, we can see that some of the  M_ICODE  are failing because the new user model has not been applied to those specs.",https://github.com/sul-dlss/argo/pull/590#issuecomment-189076793
+dimagi/commcare-hq.11149.2.1,"that test passes locally now, but good to wait on full build anyways.",https://github.com/dimagi/commcare-hq/pull/11149#issuecomment-207079168
+joblib/joblib.670.3.45,filename   = '/tmp/pytest-of-travis/pytest-0/test_joblib_compression_format0/test.pkl',https://github.com/joblib/joblib/pull/670#issuecomment-384918268
+xbmc/xbmc.7231.48.1,jenkins build this please,https://github.com/xbmc/xbmc/pull/7231#issuecomment-111273583
+ocaml/opam-repository.1302.2.0,i think you mixed then up... qrencode has the wrong depext (see travis failure at e.g.,https://github.com/ocaml/opam-repository/pull/1302#issuecomment-28604854
+OpenSC/OpenSC.241.12.17,"to build without openssl, i had to hack at some routines.",https://github.com/OpenSC/OpenSC/pull/241#issuecomment-58719839
+cakephp/cakephp.7258.1.0,phpcs build should be fixed now.,https://github.com/cakephp/cakephp/pull/7258#issuecomment-132848935
+apache/libcloud.786.1.4,that's the reason to see pylint failing.,https://github.com/apache/libcloud/pull/786#issuecomment-219874116
+swagger-api/swagger-codegen.6735.0.27,"after it is all said and done, the person generating the library can simply run 'build' (either through npm scripts or through build.bat or the corresponding build.sh) and to publish super easily npm publish (cause all the registries and names should be set).",https://github.com/swagger-api/swagger-codegen/pull/6735#issuecomment-338357779
+citation-style-language/styles.3416.6.0,"(sorry, my bad, i misread the travis report -- we'll need to figure out what to do about the nz style)",https://github.com/citation-style-language/styles/pull/3416#issuecomment-377819645
+forcedotcom/SalesforceMobileSDK-Android.1711.0.8,no lint results.,https://github.com/forcedotcom/SalesforceMobileSDK-Android/pull/1711#issuecomment-394007854
+numpy/numpy.6938.55.1,could someone try rerunning my appveyor build?,https://github.com/numpy/numpy/pull/6938#issuecomment-185664007
+gooddata/gooddata-ruby.1248.22.0,the gooddata-ruby-lcm-integration-tests-zuul is failing because of a combination of broken staging and issue tma-1001 but passing locally if run against staging1,https://github.com/gooddata/gooddata-ruby/pull/1248#issuecomment-405610553
+caskdata/cdap.5046.1.2,build is running here -  M_URL,https://github.com/caskdata/cdap/pull/5046#issuecomment-175871918
+jacoco/jacoco.475.0.0,M_MENTION not sure why a single build (9-ea-stable) fails.,https://github.com/jacoco/jacoco/pull/475#issuecomment-270311340
+xbmc/xbmc.1004.5.0,i don't understand the churn of the build system going on here.,https://github.com/xbmc/xbmc/pull/1004#issuecomment-5889721
+camptocamp/c2cgeoportal.574.3.4,anyway i think using the closurecompiler to build our own javascript (with simple_optimizations only) would be much better than using jsmin (which is the default when using jsbuild).,https://github.com/camptocamp/c2cgeoportal/pull/574#issuecomment-17004957
+bitcoinjs/bitcoinjs-lib.525.0.0,can't merge due to failing integration tests :(,https://github.com/bitcoinjs/bitcoinjs-lib/pull/525#issuecomment-175453601
+gradle/gradle.1107.1.2,"when running the build normally, the play application is left running inside the  M_ICODE  and we wait for a ctrl-d. when running the build in continuous mode, we don't wait for the ctrl-d as this execution mode already does that.",https://github.com/gradle/gradle/pull/1107#issuecomment-270957802
+puppetlabs/puppetdb.1141.6.1,refer to this link for build results (access rights to ci server needed):,https://github.com/puppetlabs/puppetdb/pull/1141#issuecomment-62184073
+voidlinux/void-packages.10552.2.0,"it works for me locally, too, this is just what travis complains about.",https://github.com/voidlinux/void-packages/pull/10552#issuecomment-356285371
+dropwizard/dropwizard.592.0.1,looks like findbugs was taking a long time travis killed the build.,https://github.com/dropwizard/dropwizard/pull/592#issuecomment-44203484
+symfony/symfony.16897.1.0,"M_MENTION hope the test is ok. needed to get my own formbuilder instance cause the default ""getbuilder"" method used by all other tests has default options including the constraints index.",https://github.com/symfony/symfony/pull/16897#issuecomment-163675423
+xapi-project/xen-api.3342.1.2,looking into it with M_MENTION - most likely our rpms for travis are outdated.,https://github.com/xapi-project/xen-api/pull/3342#issuecomment-345731617
+joomla/joomla-cms.4661.13.0,M_MENTION did i just kill travis?,https://github.com/joomla/joomla-cms/pull/4661#issuecomment-61990019
+DIRACGrid/DIRAC.2863.26.0,coverage increased (+ M_VERSION_NUMBER %) to  M_VERSION_NUMBER % when pulling e5c1ca10c75643e8bfbeb12d75bdea626b3fea41 on vipersec:rss_all_resources into 5476fd938bb579633ac80a88f1f7ce663524dcff on diracgrid:integration.,https://github.com/DIRACGrid/DIRAC/pull/2863#issuecomment-274083681
+psychopy/psychopy.1502.1.4,| psychopy/app/builder/experiment.py |  M_ICODE  | :arrow_down: |,https://github.com/psychopy/psychopy/pull/1502#issuecomment-326335391
+Theano/Theano.6286.25.0,"the travis failure with ""assertionerror:  M_VERSION_NUMBER "" is probably just a random glitch.",https://github.com/Theano/Theano/pull/6286#issuecomment-324265393
+JuliaLang/julia.16873.0.0,"thinking about testing this, maybe check if there's no branch/call instruction in  M_ICODE  for release build and at most one for debug build (the stack overflow detection can introduce a call)?",https://github.com/JuliaLang/julia/pull/16873#issuecomment-225292727
+php/php-src.974.2.0,"i've just restarted the build, maybe it was just some intermittent problem with travis as the error (some missing xml header file) doesn't seem related to the changes.",https://github.com/php/php-src/pull/974#issuecomment-68635900
+OpenRA/OpenRA.9100.1.0,thats because every unit is done under 1 second :) when you disable the instantbuild the sound comes back,https://github.com/OpenRA/OpenRA/pull/9100#issuecomment-131938651
+wbond/package_control_channel.5885.1.1,"in terms of sublime plugin, for example, the best sublimelinter, if you want to lint js and css,  you may install",https://github.com/wbond/package_control_channel/pull/5885#issuecomment-258913659
+JuliaLang/julia.27401.17.0,i'm seeing a similar  M_ICODE  in travis for lots of recent prs (e.g.,https://github.com/JuliaLang/julia/pull/27401#issuecomment-395192915
+servo/servo.2832.1.0,"travis passed, merge?",https://github.com/servo/servo/pull/2832#issuecomment-48920633
+wikimedia/wikipedia-ios.423.3.2,"otherwise, i've cherry-picked other commits to fix the (somehow never fixed or re-introduced  M_ICODE  flake in travis).",https://github.com/wikimedia/wikipedia-ios/pull/423#issuecomment-175648095
+bitcoin/bitcoin.12607.6.8,"if you'd like me to try building with different parameters, or check for the presence of certain files/directories, please let me know.",https://github.com/bitcoin/bitcoin/pull/12607#issuecomment-370830967
+buildbot/buildbot.1772.10.2,"and since travis doesn't use it, i just assumed it was an old tool that was no longer in use, but was still left in the repo for reasons.",https://github.com/buildbot/buildbot/pull/1772#issuecomment-126957861
+rapid7/metasploit-framework.7795.34.1,would allow us to land this asap without inadvertently upsetting any of the builds.,https://github.com/rapid7/metasploit-framework/pull/7795#issuecomment-276820658
+JuliaLang/julia.27616.9.1,otherwise there will be no compat compatible with the latest build.,https://github.com/JuliaLang/julia/pull/27616#issuecomment-397949846
+JuliaLang/julia.20427.5.0,"moving c code around and getting the build system to be happy with it can be a fair amount of work, especially if the hopefully-not-too-distant plan is to replace it anyway?",https://github.com/JuliaLang/julia/pull/20427#issuecomment-277428702
+servo/servo.2766.6.0,"since we don't use makefiles anymore, this will have to be redone as mach changes and saltfs changes for buildbot.",https://github.com/servo/servo/pull/2766#issuecomment-66840714
+OpenImageIO/oiio.106.5.0,you'll also need to make the following changes to get it to build:,https://github.com/OpenImageIO/oiio/pull/106#issuecomment-1408246
+scala/scala.3911.24.0,pls rebuild all,https://github.com/scala/scala/pull/3911#issuecomment-52210718
+dimagi/commcare-hq.11958.16.0,M_MENTION resolved conflicts...should we merge after build or hold out until tomorrow?,https://github.com/dimagi/commcare-hq/pull/11958#issuecomment-226278805
+apache/cloudstack.868.8.2, build number 407,https://github.com/apache/cloudstack/pull/868#issuecomment-283326054
+stan-dev/stan.1046.0.1,refer to this link for build results (access rights to ci server needed):,https://github.com/stan-dev/stan/pull/1046#issuecomment-57041225
+qgis/QGIS.4064.4.1,"in travis (afaik) there is a server to test against, but i can't find a test template to inspire writing a test.",https://github.com/qgis/QGIS/pull/4064#issuecomment-276041164
+getsentry/sentry.9115.3.0,"M_MENTION i'll add tests through integration configuration acceptance tests, any other blockers on getting this in?",https://github.com/getsentry/sentry/pull/9115#issuecomment-407863337
+buildbot/buildbot.3089.2.1,i agree it is a pain that this goes the buildmaster log file.,https://github.com/buildbot/buildbot/pull/3089#issuecomment-290144949
+OPM/opm-parser.749.1.0,jenkins build this please,https://github.com/OPM/opm-parser/pull/749#issuecomment-205229752
+servo/servo.13412.19.1,"i recommend  M_ICODE  and push the result, which will use the test run log from the build machine as the source for the updates.",https://github.com/servo/servo/pull/13412#issuecomment-249438152
+stan-dev/stan.322.0.2,i verified that the manual builds without errors.,https://github.com/stan-dev/stan/pull/322#issuecomment-27014704
+sinonjs/sinon.783.1.1,"so far it's not installing on my mac, nor on travis",https://github.com/sinonjs/sinon/pull/783#issuecomment-122307039
+matplotlib/matplotlib.12179.11.0,"ha, it's even worse, now travis fails as well for some unrelated reason.",https://github.com/matplotlib/matplotlib/pull/12179#issuecomment-426102439
+scala/scala.6286.6.0,/rebuild 932deb8,https://github.com/scala/scala/pull/6286#issuecomment-368243146
+racket/racket.1466.2.0,"M_MENTION yes, it breaks the travis build for packages created via  M_ICODE  until  M_VERSION_NUMBER  is out.",https://github.com/racket/racket/pull/1466#issuecomment-254968525
+elastic/logstash.3179.1.1,- build a local plugin.,https://github.com/elastic/logstash/pull/3179#issuecomment-100161910
+composer/composer.5518.1.6,"the production repository located at the root of the web server, but the developers repository located at the continuous integration server in subdirectory because the main page contains overview info.",https://github.com/composer/composer/pull/5518#issuecomment-247473456
+RIOT-OS/RIOT.4058.8.0,i think still attribute((used)) will be necessary when building with lto.,https://github.com/RIOT-OS/RIOT/pull/4058#issuecomment-148021890
+gradle/gradle.4514.0.0,ci build:  M_URL,https://github.com/gradle/gradle/pull/4514#issuecomment-368334023
+xbmc/xbmc.6298.0.0,jenkins build this please,https://github.com/xbmc/xbmc/pull/6298#issuecomment-72082467
+OPM/opm-parser.1092.0.0,jenkins build this with downstreams please,https://github.com/OPM/opm-parser/pull/1092#issuecomment-309282944
+xbmc/xbmc.6009.2.0,jenkins build this please,https://github.com/xbmc/xbmc/pull/6009#issuecomment-67863115
+weld/core.986.1.0,build 780 is now running using a merge of fcb2671c22b7d8cee0c06103038a8b34161b92ac on branch  M_VERSION_NUMBER :,https://github.com/weld/core/pull/986#issuecomment-105515025
+mozilla/fjord.589.0.1,r+ w/ travis pass,https://github.com/mozilla/fjord/pull/589#issuecomment-108043628
+caskdata/cdap.4052.0.9,[info] integration-test-standalone ....................... success [ M_VERSION_NUMBER s],https://github.com/caskdata/cdap/pull/4052#issuecomment-141612267
+apache/cloudstack.1330.11.3, build number 127,https://github.com/apache/cloudstack/pull/1330#issuecomment-201243710
+apache/cloudstack.1624.6.1,will see what happened with travis ( M_URL ).,https://github.com/apache/cloudstack/pull/1624#issuecomment-243074917
+ocaml/opam-repository.12790.0.0,:sunny: all lint checks passed 3d6f660bf447aa8e1c96c1435d81e5f1cae22b2a,https://github.com/ocaml/opam-repository/pull/12790#issuecomment-429359288
+bitcoin/bitcoin.11342.4.0,5d09a71f8925f3f132321140b44b946dthe last travis run for this pull request was 302 days ago and is thus outdated.,https://github.com/bitcoin/bitcoin/pull/11342#issuecomment-406702579
+adobe/brackets.7616.15.1,grunt uses jshint to lint (instead of jslint used in brackets) which i think that isn't showing those errors.,https://github.com/adobe/brackets/pull/7616#issuecomment-41509925
+cocos2d/cocos2d-x.2295.0.1,"i am not familiar with cocosbuilder's plugin system, so i have no idea about that.",https://github.com/cocos2d/cocos2d-x/pull/2295#issuecomment-15776838
+openmicroscopy/bioformats.975.4.1,the issue was the tests not building on 32-bit platforms where  M_ICODE  is 32-bits and hence long literals can't exceed the size limit.,https://github.com/openmicroscopy/bioformats/pull/975#issuecomment-38399001
+xbmc/xbmc.6996.4.0,jenkins build and merge (build only to see if nothing else broke by accident),https://github.com/xbmc/xbmc/pull/6996#issuecomment-98059135
+RIOT-OS/RIOT.9539.1.0,"might be a problem with the git version, on my macos with git  M_VERSION_NUMBER  rebase is working fine - but murdock and travis use git version  M_VERSION_NUMBER  (or older).",https://github.com/RIOT-OS/RIOT/pull/9539#issuecomment-404063569
+cocos2d/cocos2d-x.7631.5.0,[ci rebuild],https://github.com/cocos2d/cocos2d-x/pull/7631#issuecomment-50965773
+ofiwg/libfabric.4473.0.0,seems travis-ci is going mad.,https://github.com/ofiwg/libfabric/pull/4473#issuecomment-426876414
+paramiko/paramiko.5.3.2,setuptools or buildout (not sure which exactly is the culprit) scans that for download links (braindead behavior imo).,https://github.com/paramiko/paramiko/pull/5#issuecomment-508463
+JuliaLang/julia.7855.4.1,we can't set configs like that for debian buildd machines.,https://github.com/JuliaLang/julia/pull/7855#issuecomment-51332991
+open-mpi/ompi.565.1.0,refer to this link for build results (access rights to ci server needed):,https://github.com/open-mpi/ompi/pull/565#issuecomment-97629481
+mozilla/pdf.js.2526.3.4,- lint: passed,https://github.com/mozilla/pdf.js/pull/2526#issuecomment-11892755
+airbnb/javascript.1314.3.0,that comes from the neutrino-lint-base package,https://github.com/airbnb/javascript/pull/1314#issuecomment-282517356
+obspy/obspy.1185.2.1,"i did look into using it as a library to build off of, but i figured i'd be better off with python and obspy.",https://github.com/obspy/obspy/pull/1185#issuecomment-158205166
+rubygems/rubygems.2333.4.0,:sunny: test successful - status-travis,https://github.com/rubygems/rubygems/pull/2333#issuecomment-401117678
+apache/cloudstack.1622.30.0,M_MENTION a jenkins job has been kicked to build packages.,https://github.com/apache/cloudstack/pull/1622#issuecomment-264376390
+OpenRA/OpenRA.10510.2.0,"ok, seems like this works for all buildings except walls.",https://github.com/OpenRA/OpenRA/pull/10510#issuecomment-171765093
+openmicroscopy/openmicroscopy.3879.24.1,you should find this to be fixed in the next merge build.,https://github.com/openmicroscopy/openmicroscopy/pull/3879#issuecomment-114466713
+mozilla/pdf.js.2781.8.0,/botio-linux lint,https://github.com/mozilla/pdf.js/pull/2781#issuecomment-14060089
+dimagi/commcare-hq.4543.12.0,:+1: no lint errors found.,https://github.com/dimagi/commcare-hq/pull/4543#issuecomment-65651733
+gradle/gradle.3403.0.0,M_MENTION added an integration test.,https://github.com/gradle/gradle/pull/3403#issuecomment-343009830
+ocaml/opam-repository.11215.0.0,:white_check_mark: all lint checks passed 0b120e989b5841e3db28687c580ac2d10a8d2795,https://github.com/ocaml/opam-repository/pull/11215#issuecomment-357001685
+buildbot/buildbot.2708.10.1,i'm willing to merge this patch as its pretty harmless (provided you fix the lint issue),https://github.com/buildbot/buildbot/pull/2708#issuecomment-277345519
+servo/servo.11168.20.0,"M_MENTION sure, there's no problem right now if appveyor fails, we check windows in our own buildbots :)",https://github.com/servo/servo/pull/11168#issuecomment-222924239
+JuliaLang/julia.9051.0.0,travis appears to claim that you've introduced a typo into the makefile.,https://github.com/JuliaLang/julia/pull/9051#issuecomment-63591418
+kohana/core.444.2.0,we should probably add  M_VERSION_NUMBER  and  M_VERSION_NUMBER  to our travisci configuration.,https://github.com/kohana/core/pull/444#issuecomment-33595309
+supercollider/supercollider.2763.7.3,"it would be nice to have somebody with your insight to look at the sndfile integration in sc, which i think works okay, but is a bit of a mess because of multiple hasty adjustments in the past.",https://github.com/supercollider/supercollider/pull/2763#issuecomment-284157035
+curl/curl.2906.0.0,M_MENTION could you please gives us more details about build error you've observed?,https://github.com/curl/curl/pull/2906#issuecomment-415005102
+hrydgard/ppsspp.997.753.1,this lastest build see dont has bgm,https://github.com/hrydgard/ppsspp/pull/997#issuecomment-18052048
+adobe/brackets.10788.7.8,trying to build something more intelligent than what is already there for free seems like a waste of effort to me.,https://github.com/adobe/brackets/pull/10788#issuecomment-97931267
+openmicroscopy/bioformats.715.9.0,builds fine without gtest.,https://github.com/openmicroscopy/bioformats/pull/715#issuecomment-25702622
+duckduckgo/zeroclickinfo-goodies.984.55.6,using those we can build the desired output.,https://github.com/duckduckgo/zeroclickinfo-goodies/pull/984#issuecomment-129694297
+scikit-learn/scikit-learn.4161.52.4,"building more complex pipelines, each step needs to do the delegation for  M_ICODE  and  M_ICODE  correctly, then everything works out.",https://github.com/scikit-learn/scikit-learn/pull/4161#issuecomment-76624890
+bitcoin/bitcoin.1674.35.0,"now that is interesting with just -fstack-protector as flag, the M_MENTION build passes the sanity-testing, but when testing it with testnet it leads to missbehaviour (blkindex.dat could not be loaded or with a clean datadir it shows wallet.dat corrupted / damaged).",https://github.com/bitcoin/bitcoin/pull/1674#issuecomment-7856753
+mozilla/mozmill-ci.143.1.2,"what i'm not sure about though is that these jobs are named after branches release-mozilla-beta and release-mozilla-release, and therefore the branch discrepancy could cause confusion... i couldn't see any past builds for these jobs to get a better understanding.",https://github.com/mozilla/mozmill-ci/pull/143#issuecomment-7905849
+tpaviot/oce.47.2.0,"builds on windows (rebased copy), but i don't really know how to test the runtime behavoir at the moment.",https://github.com/tpaviot/oce/pull/47#issuecomment-1468318
+drush-ops/drush.1655.1.0,are you using the built in drush integration in phpstorm?,https://github.com/drush-ops/drush/pull/1655#issuecomment-146479041
+ruflin/Elastica.436.3.2,tomorrow i will test with 512 per instance to see whether travis accepts this amount of ram to be used.,https://github.com/ruflin/Elastica/pull/436#issuecomment-22060313
+astropy/astropy.3795.5.0,"the failure on travis is due to the docs building with sphinx  M_VERSION_NUMBER  (because i guess the sphinx version wasn't pinned), but i don't think the  M_VERSION_NUMBER .x branch has been updated to include the fixes for sphinx  M_VERSION_NUMBER .",https://github.com/astropy/astropy/pull/3795#issuecomment-106313443
+shogun-toolbox/shogun.2767.1.0,most of the other travis errors seem unrelated,https://github.com/shogun-toolbox/shogun/pull/2767#issuecomment-78463029
+dimagi/commcare-hq.4664.3.0,:+1: no lint errors found.,https://github.com/dimagi/commcare-hq/pull/4664#issuecomment-61305540
+voidlinux/void-packages.14406.0.3,=> firefox-esr-i18n- M_VERSION_NUMBER _1: building [meta] ...,https://github.com/voidlinux/void-packages/pull/14406#issuecomment-390052988
+xbmc/xbmc.9007.4.0,thx M_MENTION ;) almost done (one rbpi testbuild left then jenkins is open for business again...),https://github.com/xbmc/xbmc/pull/9007#issuecomment-177532272
+chaplinjs/chaplin.407.1.1,M_ICODE  alone won't build the project from a fresh clone.,https://github.com/chaplinjs/chaplin/pull/407#issuecomment-12763833
+bitcoin/bitcoin.3461.9.2,1. it chanages paths in makefile.linux-mingw or otherwise changes build scripts in a way that made them incompatible with the automated testing scripts (please tweak those patches in qa/pull-tester),https://github.com/bitcoin/bitcoin/pull/3461#issuecomment-47074195
+JuliaLang/julia.10743.29.6,"i won't, but to prove a point i (or anyone else) could go push a broken commit to openspecfun master right now and it would break the julia build for everyone doing a fresh clone.",https://github.com/JuliaLang/julia/pull/10743#issuecomment-107389449
+RIOT-OS/RIOT.4164.4.1,let's wait for build tests..,https://github.com/RIOT-OS/RIOT/pull/4164#issuecomment-203108810
+ruby/ruby.1942.0.2,"also, in  M_ICODE  line 6,  M_ICODE  needs to be changed to  M_ICODE  for travis to pass.",https://github.com/ruby/ruby/pull/1942#issuecomment-416401398
+curl/curl.3216.3.0,the appveyor failure is unrelated - i didn't bother to retrigger those builds.,https://github.com/curl/curl/pull/3216#issuecomment-435531727
+xbmc/xbmc.6891.85.1,building ....,https://github.com/xbmc/xbmc/pull/6891#issuecomment-98484079
+gooddata/gooddata-ruby.918.1.0,build failed (check pipeline).,https://github.com/gooddata/gooddata-ruby/pull/918#issuecomment-305126928
+dimagi/commcare-hq.1268.0.0,looks like you'll need to update the submodule ref for travis to pass,https://github.com/dimagi/commcare-hq/pull/1268#issuecomment-24919065
+servo/servo.11101.11.1,i guess i should split the gc zeal stuff in its own pr to first add some buildbots that use it?,https://github.com/servo/servo/pull/11101#issuecomment-218720909
+EFForg/https-everywhere.11934.7.0,adding more tests to  M_ICODE  increases the overall running time of travis.,https://github.com/EFForg/https-everywhere/pull/11934#issuecomment-322938182
+dita-ot/dita-ot.1606.0.1,"the changes to build.xml should not be merged, thus this pull request should not be merged as is.",https://github.com/dita-ot/dita-ot/pull/1606#issuecomment-29656096
+openmicroscopy/openmicroscopy.4140.0.0,tested on trout/integration.,https://github.com/openmicroscopy/openmicroscopy/pull/4140#issuecomment-138484887
+psychopy/psychopy.1533.2.1,therefore this pr builds the foundation for another one to come.,https://github.com/psychopy/psychopy/pull/1533#issuecomment-332293206
+numpy/numpy.9543.5.3,can you point me to a document / command that shows how to build the docs?,https://github.com/numpy/numpy/pull/9543#issuecomment-321939738
+ets-berkeley-edu/calcentral.6767.0.0,failing travis because it doesn't recognize the ruby 2 syntax i tried to sneak past it.,https://github.com/ets-berkeley-edu/calcentral/pull/6767#issuecomment-317896737
+puppetlabs/puppet.2130.2.4,     # ./spec/integration/type/file_spec.rb:79,https://github.com/puppetlabs/puppet/pull/2130#issuecomment-30059404
+matplotlib/matplotlib.4688.0.0,"grr, the pep8 build won't install...",https://github.com/matplotlib/matplotlib/pull/4688#issuecomment-121127919
+servo/servo.3061.1.0,travis ci build failed:,https://github.com/servo/servo/pull/3061#issuecomment-53141871
+ocaml/opam-repository.8583.0.0,:x: opam-lint errors 5eb5cd6c7f820f62403cc993e4c4ed564ed770e8,https://github.com/ocaml/opam-repository/pull/8583#issuecomment-283373243
+xapi-project/xen-api.527.7.0,M_EMAIL ⇒  M_EMAIL build succeeded.,https://github.com/xapi-project/xen-api/pull/527#issuecomment-5068968
+ocaml/opam-repository.4370.0.589,"warning 26: no field 'install', but a field 'remove': install instructions probably part of 'build'.",https://github.com/ocaml/opam-repository/pull/4370#issuecomment-118397614
+universal-ctags/ctags.233.1.1,"sure it'd be nice and all, but you get 16 builds of almost 50mins (if not more) -- the whole thing failed because 5 builds timed out (and one failed completely, independently of us) after 11h26mins worth of machine time.",https://github.com/universal-ctags/ctags/pull/233#issuecomment-73805560
+ocaml/opam-repository.10222.0.1,these packages passed lint tests:  M_ICODE,https://github.com/ocaml/opam-repository/pull/10222#issuecomment-327239559
+caskdata/cdap.5642.1.0,build successful:  M_URL .,https://github.com/caskdata/cdap/pull/5642#issuecomment-214456780
+bitcoin/bitcoin.3951.0.4,3. it does not build on either linux i386 or win32 (via mingw cross compile),https://github.com/bitcoin/bitcoin/pull/3951#issuecomment-38498367
+matplotlib/matplotlib.3387.4.2,once travis is happy i will merge this.,https://github.com/matplotlib/matplotlib/pull/3387#issuecomment-59586819
+FriendsOfPHP/PHP-CS-Fixer.785.10.0,"hi guys, should i fix this issue that failed the build?",https://github.com/FriendsOfPHP/PHP-CS-Fixer/pull/785#issuecomment-65948976
+wbond/package_control_channel.6042.0.0,"because you're using  M_ICODE , you're plugin will only work with build  M_ICODE  and higher (you need to update the  M_ICODE .",https://github.com/wbond/package_control_channel/pull/6042#issuecomment-269721670
+libgit2/libgit2sharp.1298.16.1,"after a thorough clean and rebuild, it now seems to be working!",https://github.com/libgit2/libgit2sharp/pull/1298#issuecomment-209662542
+JuliaLang/julia.14863.10.0,"given that we no longer do  M_ICODE , it is not so bad to rebuild deps, i feel.",https://github.com/JuliaLang/julia/pull/14863#issuecomment-182297611
+libgit2/libgit2sharp.799.53.0,i restarted the build.,https://github.com/libgit2/libgit2sharp/pull/799#issuecomment-54076405
+haskell/cabal.3197.20.0,"M_MENTION fyi, travis is finally green (including  ghc head)!",https://github.com/haskell/cabal/pull/3197#issuecomment-192859458
+ezsystems/ezpublish-kernel.2025.1.0,M_MENTION @bdunogier could you please restart travis ?,https://github.com/ezsystems/ezpublish-kernel/pull/2025#issuecomment-309688274
+serge-sans-paille/pythran.99.60.0,merged build triggered.,https://github.com/serge-sans-paille/pythran/pull/99#issuecomment-18955743
+Theano/Theano.5950.1.0,i merged this pr before the pr in libgpuarray as jenkins and travis passed.,https://github.com/Theano/Theano/pull/5950#issuecomment-302133436
+ExactTarget/fuelux.1679.0.2,- helps jslint more easily determine globals (jshint seems fine with it),https://github.com/ExactTarget/fuelux/pull/1679#issuecomment-172905977
+apache/libcloud.913.0.1,"as far as i know this file is automatically generated by pylint (i could be wrong, it might be example included in pylint docs) so if that's indeed the case it might be a good idea to also fix it upstream :)",https://github.com/apache/libcloud/pull/913#issuecomment-254634837
+JuliaLang/julia.4665.13.0,i'm betting it was the missing  M_ICODE  that caused the travis build error.,https://github.com/JuliaLang/julia/pull/4665#issuecomment-27801715
+ocaml/opam-repository.5104.0.0,:white_check_mark: all lint checks passed 2307bb85cc4ecca29134a4c4fb5637cfb82d7339,https://github.com/ocaml/opam-repository/pull/5104#issuecomment-155218817
+apache/cloudstack.1403.4.70,integration.smoke.test_vm_life_cycle.testdeployvm,https://github.com/apache/cloudstack/pull/1403#issuecomment-196078641
+citation-style-language/styles.1145.0.2,i have read the travis error but i don't know how to make it right.,https://github.com/citation-style-language/styles/pull/1145#issuecomment-56960441
+scala/scala.5061.13.0,i removed the suffix that tells the ci to only build the last commit and then  M_ICODE .,https://github.com/scala/scala/pull/5061#issuecomment-216726674
+DIRACGrid/DIRAC.3263.3.0,changes unknown when pulling 7b7990323c238a2e51fda046aa9f80788285e37e on fstagni:v6r18-fixes-5 into  on diracgrid:integration.,https://github.com/DIRACGrid/DIRAC/pull/3263#issuecomment-281311244
+cleanflight/cleanflight.511.1.0,after closing and reopen travis ci builds are running without problems.,https://github.com/cleanflight/cleanflight/pull/511#issuecomment-75258687
+xbmc/xbmc.11051.0.0,jenkins build this please,https://github.com/xbmc/xbmc/pull/11051#issuecomment-264661573
+wp-cli/wp-cli.4139.4.1,i'm assuming i should refactor to build off of the work done in M_ISSUE_MENTION  ?,https://github.com/wp-cli/wp-cli/pull/4139#issuecomment-313138456
+xbmc/xbmc.10464.1.0,jenkins build and merge,https://github.com/xbmc/xbmc/pull/10464#issuecomment-247141555
+stan-dev/stan.1218.3.4,"as a start, i just edited the file to make it pass cpplint, which looks like it was the latest ci failure.",https://github.com/stan-dev/stan/pull/1218#issuecomment-94956118
+scala/scala.6268.4.6,there was that one time we accidentally deleted all of our nightly builds 😱😱😱),https://github.com/scala/scala/pull/6268#issuecomment-358523850
+mozilla/pdf.js.3570.14.4,- lint: passed,https://github.com/mozilla/pdf.js/pull/3570#issuecomment-23445686
+pyinstaller/pyinstaller.3048.3.2,"there aren't many timestamps in the appveyor build-log, but here's the link:",https://github.com/pyinstaller/pyinstaller/pull/3048#issuecomment-347732132
+JuliaLang/julia.7362.6.3,"also more-minor concerns of travis and appveyor overwrite each other on github pr status indicators at the moment, hopefully github will eventually fix their api so there's a better solution for that.",https://github.com/JuliaLang/julia/pull/7362#issuecomment-46773176
+rspec/rspec-core.838.0.1,i ran this myself from master on  M_VERSION_NUMBER  and it passes so i'm assuming the failure is a travis heisenbug.,https://github.com/rspec/rspec-core/pull/838#issuecomment-15993825
+cocos2d/cocos2d-x.7950.1.0,[ci rebuild],https://github.com/cocos2d/cocos2d-x/pull/7950#issuecomment-55093993
+PX4/Firmware.2981.1.2,i'll probably go as far as integrating it in travis and just ship the default master build with it.,https://github.com/PX4/Firmware/pull/2981#issuecomment-147735083
+xbmc/xbmc.8723.34.1,especially for intel hd i currently have some 10 thousand users running master builds daily on an optimized intel flavor of openelec -> no complaints at all.,https://github.com/xbmc/xbmc/pull/8723#issuecomment-202307475
+stan-dev/stan.423.38.2,"on wed, dec 4, 2013 at 11:06 pm, stan buildbot  M_EMAIL",https://github.com/stan-dev/stan/pull/423#issuecomment-29870344
+buildbot/buildbot.635.16.2,"- [x] success/failure states are explicitly mapped, and 'error' is used as a failback for all other buildbot states.",https://github.com/buildbot/buildbot/pull/635#issuecomment-15651302
+openmicroscopy/openmicroscopy.1326.2.0,updated by build omero-submods-develop#133.,https://github.com/openmicroscopy/openmicroscopy/pull/1326#issuecomment-20501856
+buildbot/buildbot.516.4.3,"3. thanks, i will have a look at the buildsets.",https://github.com/buildbot/buildbot/pull/516#issuecomment-8356170
+ros/rosdistro.15889.0.0,"food for thoughts: i remember that this information is also stored by the roswiki, known by the ros_buildfarm somehow and likely other places.",https://github.com/ros/rosdistro/pull/15889#issuecomment-327899984
+mavlink/qgroundcontrol.4168.1.1,"the build system grabs the latest each time, so this is really only an issue for developers and other people that compile.",https://github.com/mavlink/qgroundcontrol/pull/4168#issuecomment-255550809
+lisa-lab/pylearn2.1029.2.1,"to confirm, travis don't run gpu tests.",https://github.com/lisa-lab/pylearn2/pull/1029#issuecomment-49223573
+curl/curl.571.0.4,"we plan to monitor build results in case there are more build errors to fix, but please let us know if you need us to make any specific changes.",https://github.com/curl/curl/pull/571#issuecomment-167813284
+numpy/numpy.106.0.0,"looks good to me, and builds/tests fine.",https://github.com/numpy/numpy/pull/106#issuecomment-1540544
+obspy/obspy.1044.15.0,"of course, setting that environment variable was only useful if running appveyor's own msbuild scripts.",https://github.com/obspy/obspy/pull/1044#issuecomment-101167706
+guard/guard.633.2.0,"ok :) by the way - tests for guard-rspec are not passing on travis, as they depend on this guard changes and in the readme you specify to not change the version.",https://github.com/guard/guard/pull/633#issuecomment-58339067
+OpenSC/OpenSC.861.7.7,"when M_ISSUE_MENTION  is finally merged, i would also like to see travis-ci or appveyor modified to compile against both openssl- M_VERSION_NUMBER  and openssl- M_VERSION_NUMBER  in at least one test.",https://github.com/OpenSC/OpenSC/pull/861#issuecomment-250736965
+keycloak/keycloak.3759.0.3,further we need pr to documentation as well as integration tests added to be able to accept this contribution.,https://github.com/keycloak/keycloak/pull/3759#issuecomment-272804054
+cvmfs/cvmfs.2054.0.1,please have a look at the travis issues.,https://github.com/cvmfs/cvmfs/pull/2054#issuecomment-364364667
+slick/slick.1538.9.0,M_MENTION flaky enough to pass locally but fail on build machine,https://github.com/slick/slick/pull/1538#issuecomment-230759864
+PX4/Firmware.8172.2.1,M_MENTION there's some build dependency missing for incremental builds: disabling the driver and building the target gave me:,https://github.com/PX4/Firmware/pull/8172#issuecomment-338670511
+cleanflight/cleanflight.2199.0.1,the travis fail is not related to the contents of this pr.,https://github.com/cleanflight/cleanflight/pull/2199#issuecomment-223276543
+JuliaLang/julia.21550.0.1,i'm going to close and reopen to trigger a new build without overwriting the old logs.,https://github.com/JuliaLang/julia/pull/21550#issuecomment-297194253
+NLog/NLog.1397.28.0,travis (mono) just builds?,https://github.com/NLog/NLog/pull/1397#issuecomment-217441577
+phpDocumentor/phpDocumentor2.728.8.2,- assets files copy: i created M_ISSUE_MENTION  (would nice to not have to build my own template just for that),https://github.com/phpDocumentor/phpDocumentor2/pull/728#issuecomment-15336834
+ofiwg/libfabric.1075.14.3,"that page also states, ""it is also ensures that the build is reproducible and uses always the same features"", which makes me think that dynamically generating the buildrequires may be undesirable.",https://github.com/ofiwg/libfabric/pull/1075#issuecomment-112917911
+sonata-project/SonataAdminBundle.3788.5.0,M_MENTION you should use classify instead to keep travis green.,https://github.com/sonata-project/SonataAdminBundle/pull/3788#issuecomment-218167086
+hrydgard/ppsspp.1672.9.0,"i tried to run ./android-build.sh , and after setting up the paths, it just gets stuck on the configure stage.",https://github.com/hrydgard/ppsspp/pull/1672#issuecomment-17460001
+ocaml/opam-repository.10704.0.0,:white_check_mark: all lint checks passed 8c8b26890e54e8e70b11d92622e24071a6bca40a,https://github.com/ocaml/opam-repository/pull/10704#issuecomment-344562141
+servo/servo.13553.20.1,that changeset just broke building on windows.,https://github.com/servo/servo/pull/13553#issuecomment-252131489
+rackerlabs/otter.1887.11.0,jenkins please run integration tests,https://github.com/rackerlabs/otter/pull/1887#issuecomment-219168080
+ros/rosdistro.597.2.0,"whoa, continuous integration is pretty cool.",https://github.com/ros/rosdistro/pull/597#issuecomment-15412172
+mne-tools/mne-python.5212.32.1,"it somehow evolved to become what it is now :d - so what M_MENTION means would be to implement the final api and build the example around it, right?",https://github.com/mne-tools/mne-python/pull/5212#issuecomment-396310147
+xbmc/xbmc.2198.1.0,seems more in line with windows build indeed,https://github.com/xbmc/xbmc/pull/2198#issuecomment-13329889
+sonata-project/SonataDoctrinePhpcrAdminBundle.493.1.18,this is typically the case for prs that fix the build or add,https://github.com/sonata-project/SonataDoctrinePhpcrAdminBundle/pull/493#issuecomment-331419721
+supercollider/supercollider.3662.5.0,M_MENTION it seems that the last 14 prs qt builds are failing due to  M_ICODE  throwing the following error:,https://github.com/supercollider/supercollider/pull/3662#issuecomment-381734129
+ocaml/opam-repository.8638.0.0,:white_check_mark: all lint checks passed 422f2c52cd73bace4afccd2f3304290b591da82e,https://github.com/ocaml/opam-repository/pull/8638#issuecomment-284718572
+dimagi/commcare-hq.5661.0.0,:+1: no lint errors found.,https://github.com/dimagi/commcare-hq/pull/5661#issuecomment-75664657
+scikit-learn/scikit-learn.2217.0.0,i have no words to describe how useful travis is.,https://github.com/scikit-learn/scikit-learn/pull/2217#issuecomment-21541622
+AFNetworking/AFNetworking.996.1.0,could we just add a build phase step to call pod update ourselves?,https://github.com/AFNetworking/AFNetworking/pull/996#issuecomment-18020990
+apache/mahout.242.0.0,so the decision is to take and include all vcl code in the build?,https://github.com/apache/mahout/pull/242#issuecomment-225973553
+openframeworks/openFrameworks.922.11.16,conflict (rename/delete): examples/android/androidvboexample/build.properties deleted in head and renamed in aa68b7d14c393ad3a59489147aed289bd1c6ba73.,https://github.com/openframeworks/openFrameworks/pull/922#issuecomment-4519992
+ajaxorg/ace.1338.13.0,M_MENTION this is automatically generating the list of themes available at build time and wrapping them up in a module.,https://github.com/ajaxorg/ace/pull/1338#issuecomment-16085764
+ocaml/opam-repository.8207.3.0,opensuse builds fail because of M_ISSUE_MENTION  but otherwise that seems to work :),https://github.com/ocaml/opam-repository/pull/8207#issuecomment-270594873
+symfony/symfony.15079.17.0,"M_MENTION this would mean that the formbuilder would mean a special knowledge about builtin types, making them special.",https://github.com/symfony/symfony/pull/15079#issuecomment-114883496
+getlantern/lantern.3216.21.3,"so, let's see travis results!",https://github.com/getlantern/lantern/pull/3216#issuecomment-145084842
+darktable-org/darktable.1808.5.1,i don't know where to look for previous build logs.,https://github.com/darktable-org/darktable/pull/1808#issuecomment-437595213
+open-mpi/ompi.559.4.0,refer to this link for build results (access rights to ci server needed):,https://github.com/open-mpi/ompi/pull/559#issuecomment-97054574
+ansible/ansible-modules-core.1581.27.0,it appears the build failure is unrelated to commit 7f9451fed67cdb4c8e5652bd440cc0b902e7ad2f.,https://github.com/ansible/ansible-modules-core/pull/1581#issuecomment-117342490
+voidlinux/void-packages.11229.9.1,"it uses system lua, doesn't build in /tmp...",https://github.com/voidlinux/void-packages/pull/11229#issuecomment-371315915
+inveniosoftware/invenio.2542.6.1,you are blocking travis queue!,https://github.com/inveniosoftware/invenio/pull/2542#issuecomment-63820353
+cocos2d/cocos2d-x.13646.2.0,[ci rebuild],https://github.com/cocos2d/cocos2d-x/pull/13646#issuecomment-136628960
+ansible/ansible-modules-extras.3103.0.1,"this pr requires revisions, either because it fails to build or by reviewer request.",https://github.com/ansible/ansible-modules-extras/pull/3103#issuecomment-251923622
+mozilla/kitsune.2577.6.0,"travis is happy, merging!",https://github.com/mozilla/kitsune/pull/2577#issuecomment-112975215
+mixxxdj/mixxx.390.3.11,"approach 1: use q_assert, only enable q_assert for build=debug",https://github.com/mixxxdj/mixxx/pull/390#issuecomment-63263894
+fabric/fabric.567.2.11,requested: sed -i.bak -r -e 's/\'host\': \'\'/\'host\': \'dbhost\'/g' /opt/project/project-demo/buildout-project/site/settings.py,https://github.com/fabric/fabric/pull/567#issuecomment-4286284
+apache/cloudstack.810.15.0,builds were aborted probably because the pr was merged.,https://github.com/apache/cloudstack/pull/810#issuecomment-139969167
+xapi-project/xen-api.771.8.0,M_EMAIL ⇒  M_EMAIL build succeeded.,https://github.com/xapi-project/xen-api/pull/771#issuecomment-7182181
+coq/coq.489.5.0,"ok so the full build took 43 minutes, yay!",https://github.com/coq/coq/pull/489#issuecomment-288073486
+supercollider/supercollider.2299.7.4,"os x builds into the supercollider.app/contents and then we have to copy those file out to a separate folder, fixup_bundle etc.",https://github.com/supercollider/supercollider/pull/2299#issuecomment-242924646
+cjdelisle/cjdns.263.6.5,"also if travis disappeared one day, porting to another ci would be trivial...",https://github.com/cjdelisle/cjdns/pull/263#issuecomment-21664291
+puppetlabs/puppet.2236.5.1,M_MENTION talk with M_MENTION and matt and came to the conclusion that making this a build time configuration and having packages that are built to have puppet in a different location would work well for them.,https://github.com/puppetlabs/puppet/pull/2236#issuecomment-33610921
+ocaml/opam-repository.5230.0.38,"warning 26: no field 'install', but a field 'remove': install instructions probably part of 'build'.",https://github.com/ocaml/opam-repository/pull/5230#issuecomment-161280898
+scriptcs/scriptcs.1216.52.261,done building project,https://github.com/scriptcs/scriptcs/pull/1216#issuecomment-292011743
+ocaml/opam-repository.4671.0.0,:exclamation: opam-lint warnings 90c265e1729f963ec11d457dc8b1664ef96514e4,https://github.com/ocaml/opam-repository/pull/4671#issuecomment-131485927
+sonata-project/SonataAdminBundle.4934.0.28,this is typically the case for prs that fix the build or add,https://github.com/sonata-project/SonataAdminBundle/pull/4934#issuecomment-363079537
+fish-shell/fish-shell.4798.4.3,"~~it can't be included in the cmake build since cmake builds out-of-tree, so it can't modify the source files (by design), at least not without a manual copy step afterwards.~~",https://github.com/fish-shell/fish-shell/pull/4798#issuecomment-372751623
+RIOT-OS/RIOT.798.3.1,fewer makefiles speed up the build process.,https://github.com/RIOT-OS/RIOT/pull/798#issuecomment-36827569
+expressjs/express.3183.2.2,"their travis ci config only tests on node.js 4 & 6. it does seem like beta9 supports node.js  M_VERSION_NUMBER , so that's good, but all it's deps use  M_ICODE  which means that we can turn around and can no longer build express if this suddenly changes.",https://github.com/expressjs/express/pull/3183#issuecomment-275877432
+quicksilver/Quicksilver.1579.4.2,if you want to get rid of it then try building directly from source.,https://github.com/quicksilver/Quicksilver/pull/1579#issuecomment-24430821
+ros/rosdistro.15086.0.2,could you give more details about the packages that fail to build ?,https://github.com/ros/rosdistro/pull/15086#issuecomment-304409000
+xapi-project/xen-api.160.4.0,build succeeded.,https://github.com/xapi-project/xen-api/pull/160#issuecomment-1185196
+weld/core.943.7.0,build 703 outcome was success using a merge of 57c1fa731f002dbc06ffbf73b1f4d2cb90379378 on branch master:,https://github.com/weld/core/pull/943#issuecomment-93209876
+scala/scala-lang.546.4.3,the last few steps from building the site and getting to production are still a bit mysterious to me.,https://github.com/scala/scala-lang/pull/546#issuecomment-261994078
+gooddata/gooddata-ruby.526.1.0,merged build started.,https://github.com/gooddata/gooddata-ruby/pull/526#issuecomment-122249233
+scala/scala.2406.3.0,"fwiw, i get the test failure sporadically on vanilla build of the branch, no optimise.",https://github.com/scala/scala/pull/2406#issuecomment-17027228
+buildbot/buildbot.1408.1.0,those failed builds:,https://github.com/buildbot/buildbot/pull/1408#issuecomment-65447717
+clawpack/pyclaw.250.3.0,"just to clarify --- all i ask is that you enable testing at travis ci, so that the  M_ICODE  is actually executed on each pr, because i cannot do that myself and this is a prerequisite for any further work on travis.",https://github.com/clawpack/pyclaw/pull/250#issuecomment-17146441
+scikit-learn/scikit-learn.7970.23.0,(travis is failing because of a flake8 issue....) also can we merge as is?,https://github.com/scikit-learn/scikit-learn/pull/7970#issuecomment-270667618
+cython/cython.2453.4.0,"M_MENTION how do you build your ""xxx/cython.pyx""?",https://github.com/cython/cython/pull/2453#issuecomment-404455890
+keycloak/keycloak.3565.78.1,we'll see what travis does here ^ i suppose...,https://github.com/keycloak/keycloak/pull/3565#issuecomment-311659271
+matplotlib/matplotlib.1305.3.1,building on macos x  M_VERSION_NUMBER  now works!,https://github.com/matplotlib/matplotlib/pull/1305#issuecomment-8832751
+ComputationalRadiationPhysics/picongpu.2007.0.1,this structure is coming from the effect that fieldtmp can not receive fields to the guard to build a local volume without borders.,https://github.com/ComputationalRadiationPhysics/picongpu/pull/2007#issuecomment-298619178
+cloudfoundry/bosh.1072.2.3,we've merged and it's going through validation (unit/integration/bats) now.,https://github.com/cloudfoundry/bosh/pull/1072#issuecomment-169173667
+bitcoin/bitcoin.7920.5.1,eta given from travis is monday.,https://github.com/bitcoin/bitcoin/pull/7920#issuecomment-213666799
+sul-dlss/argo.102.5.1,i'll be doing some testing today to see if i can get this figured out for both travis and laptops.,https://github.com/sul-dlss/argo/pull/102#issuecomment-153816175
+HoTT/HoTT.900.0.1,feel free to merge when travis is happy.,https://github.com/HoTT/HoTT/pull/900#issuecomment-338175793
+gitextensions/gitextensions.722.4.8,jenkins/hudson to build daily/nightly),https://github.com/gitextensions/gitextensions/pull/722#issuecomment-15571284
+mozilla/shumway.609.2.4,- lint: passed,https://github.com/mozilla/shumway/pull/609#issuecomment-23788779
+OpenMW/openmw.1709.1.1,usually they use nightly builds for that.,https://github.com/OpenMW/openmw/pull/1709#issuecomment-391245657
+pyne/pyne.795.1.2,i'll also add a travis test to validate the json wellformedness for the tutorial notebooks.,https://github.com/pyne/pyne/pull/795#issuecomment-166762941
+travis-ci/travis-build.1542.6.4,the same problem can be seen also in other bioconductor packages with recent build attempts (e.g.,https://github.com/travis-ci/travis-build/pull/1542#issuecomment-436677423
+xapi-project/xen-api.485.1.0,M_EMAIL ⇒  M_EMAIL build succeeded.,https://github.com/xapi-project/xen-api/pull/485#issuecomment-4078661
+elastic/logstash.5411.3.1,when build pass feel free to merge.,https://github.com/elastic/logstash/pull/5411#issuecomment-223109659
+ocaml/opam-repository.4514.0.0,:white_check_mark: all lint checks passed 1c9e13ee313b083f0bbb9d06300dd82f952328be,https://github.com/ocaml/opam-repository/pull/4514#issuecomment-123314504
+apache/thrift.1088.17.4,but not updated build scripts fully.,https://github.com/apache/thrift/pull/1088#issuecomment-272632425
+xapi-project/xen-api.562.90.12,    cloning:  M_URL  to /usr/local/builds/build-xen-git.hg/obj/repos/xen-api,https://github.com/xapi-project/xen-api/pull/562#issuecomment-7041849
+apache/commons-lang.103.6.6,  com.ibm.oti.jcl.build = 20150630_255633,https://github.com/apache/commons-lang/pull/103#issuecomment-192982662
+numpy/numpy.5296.2.0,M_MENTION i originally hit an  M_ICODE  while building the current dev version of pytables:,https://github.com/numpy/numpy/pull/5296#issuecomment-63731619
+matplotlib/matplotlib.7032.0.7,/home/travis/build/matplotlib/matplotlib/lib/matplotlib/axes/_axes.py:2708:80: e501 line too long (91 > 79 characters),https://github.com/matplotlib/matplotlib/pull/7032#issuecomment-244790165
+rapid7/metasploit-framework.3552.1.0,"travis finished running without errors, merging.",https://github.com/rapid7/metasploit-framework/pull/3552#issuecomment-49642558
+ocaml/opam-repository.5353.0.0,:white_check_mark: all lint checks passed 123aa6d73f7fde9acb7d1251aceca0955a1771f5,https://github.com/ocaml/opam-repository/pull/5353#issuecomment-168241363
+xbmc/xbmc.11598.1.0,jenkins build this please,https://github.com/xbmc/xbmc/pull/11598#issuecomment-277013639
+PX4/Firmware.7380.2.0,travis seems to be stuck somewhere...,https://github.com/PX4/Firmware/pull/7380#issuecomment-323608008
+astropy/astropy.192.55.0,"the tests are now passing on all python/numpy versions on mac and linux (ignore the failures on the astropy jenkins for macos x, the build publishing is having issues).",https://github.com/astropy/astropy/pull/192#issuecomment-5420103
+coq/coq.8766.4.1,"M_ICODE  uses  M_ICODE  which performs a brute-force iteration over all the objects in  M_ICODE , then inspecting the tag and building a list of objects.",https://github.com/coq/coq/pull/8766#issuecomment-431852771
+mne-tools/mne-python.257.1.15,"  file ""/builds/workspace/make/arch/ubuntu64/mne/fixes.py"", line 257, in",https://github.com/mne-tools/mne-python/pull/257#issuecomment-11313528
+buildbot/buildbot.3860.0.3,| master/buildbot/__init__.py |  M_ICODE  | :arrow_up: |,https://github.com/buildbot/buildbot/pull/3860#issuecomment-354552131
+SciTools/cartopy.902.6.6,"the examples are going to get run by sphinx-gallery each time the docs build, so that's a good way to test which of them are still building or not.",https://github.com/SciTools/cartopy/pull/902#issuecomment-312134353
+citation-style-language/styles.1085.0.1,"once this has been merged, we might want to extend the travis tests to check for unused macros, so i don't have to do this again in the future.",https://github.com/citation-style-language/styles/pull/1085#issuecomment-53665004
+wet-boew/wet-boew.5478.2.0,"you can still lint locally, but this takes it out of the default flow since it it the bulk of the build time right now",https://github.com/wet-boew/wet-boew/pull/5478#issuecomment-43921737
+diaspora/diaspora.1751.1.1,we can connect our services to the database and would be happy to look for a smooth integration.,https://github.com/diaspora/diaspora/pull/1751#issuecomment-3086378
+PCSX2/pcsx2.2550.2.0,"well it's only exclusive to debug builds for a reason, as it's not complete yet.",https://github.com/PCSX2/pcsx2/pull/2550#issuecomment-412356542
+gooddata/gooddata-ruby.1022.2.0,build failed (check-extended pipeline).,https://github.com/gooddata/gooddata-ruby/pull/1022#issuecomment-329119530
+livecode/livecode.3161.4.0,M_MENTION please fix the windows build issue!,https://github.com/livecode/livecode/pull/3161#issuecomment-157683191
+RIOT-OS/RIOT.3047.13.0,ack when travis is happy.,https://github.com/RIOT-OS/RIOT/pull/3047#issuecomment-106317978
+dimagi/commcare-hq.12690.3.0,M_MENTION : finally a green build.,https://github.com/dimagi/commcare-hq/pull/12690#issuecomment-239132166
+apache/cloudstack.1396.1.18,- integration.smoke.test_privategw_acl.testprivategwacl,https://github.com/apache/cloudstack/pull/1396#issuecomment-196858713
+Unidata/netcdf-c.912.0.0,looks like travis failed on the hdf4 file fetches...,https://github.com/Unidata/netcdf-c/pull/912#issuecomment-377090936
+qgis/QGIS.2056.5.3,- we in the plugin should remove things in the xml that will be build by qgis.,https://github.com/qgis/QGIS/pull/2056#issuecomment-105788129
+ocaml/opam-repository.7787.0.0,:exclamation: opam-lint warnings d707ba1a2ad583f448734cbf2f0422b45421f861,https://github.com/ocaml/opam-repository/pull/7787#issuecomment-259464155
+xbmc/xbmc.3537.0.0,jenkins build this please,https://github.com/xbmc/xbmc/pull/3537#issuecomment-27556040
+scikit-learn/scikit-learn.436.0.0,"looks good, all tests pass, coverage is 94%,  M_ICODE  is mostly white in the body of the functions, the doc is still building and the examples give reasonable output.",https://github.com/scikit-learn/scikit-learn/pull/436#issuecomment-2688390
+bitcoin/bitcoin.12941.5.3,"there is detection in the build system, so we only build this code if the function exists in the first place - overriding the warning is 100% valid.",https://github.com/bitcoin/bitcoin/pull/12941#issuecomment-380387593
+pgjdbc/pgjdbc.435.17.2,"the release cadence of parent modules should be much less: build dependency, plugin and jdk changes.",https://github.com/pgjdbc/pgjdbc/pull/435#issuecomment-161588960
+libgit2/libgit2.616.1.1,cmake (and many other) vms are planned and plenty of other projects such as parrot/parrot build much more complex c code.,https://github.com/libgit2/libgit2/pull/616#issuecomment-4885221
+weld/core.799.15.0,build 383 outcome was failure using a merge of cb3b56f9fbaaa5d0f777fddd2f9de6932a068dc3 on branch master:,https://github.com/weld/core/pull/799#issuecomment-67847204
+xbmc/xbmc.12032.3.3,definitely need to see how this works with other builds.,https://github.com/xbmc/xbmc/pull/12032#issuecomment-298247040
+2600hz/kazoo.4439.1.0,"sadly, the build still breaks with the default setting of  M_ICODE , so whatever dependency changes were done didn't fix that issue.",https://github.com/2600hz/kazoo/pull/4439#issuecomment-355070421
+yui/yui3.350.6.1,"the logic didn't change, it's just clean up for lint purposes.",https://github.com/yui/yui3/pull/350#issuecomment-10824407
+RIOT-OS/RIOT.6727.13.3,- boards with unsatisfied features may throw a warning but build anyway,https://github.com/RIOT-OS/RIOT/pull/6727#issuecomment-304691412
+projectblacklight/blacklight.991.3.0,looks like the travis build failed due to travis flakyness on only one of the jobs.,https://github.com/projectblacklight/blacklight/pull/991#issuecomment-58912363
+buildbot/buildbot.617.0.2,    master/buildbot/process/buildstep.py:27: 'locks' imported but unused,https://github.com/buildbot/buildbot/pull/617#issuecomment-12740740
+strongloop/strong-remoting.77.5.1,"to accept patch and trigger a build add comment "".ok\w+to\w+test.""",https://github.com/strongloop/strong-remoting/pull/77#issuecomment-47690209
+realm/realm-cocoa.416.3.0,test-all doesn't build the docs or the examples.,https://github.com/realm/realm-cocoa/pull/416#issuecomment-45828981
+drush-ops/drush.3052.21.1,i have this working ok on my existing setup that i used for working on drupal code builder.,https://github.com/drush-ops/drush/pull/3052#issuecomment-339348777
+ExactTarget/fuelux.787.1.1,rebasing with current master should resolve the build fail.,https://github.com/ExactTarget/fuelux/pull/787#issuecomment-60653655
+libgit2/libgit2sharp.1072.0.8,"the ssh tests are a bit of a hassle to set up, but you can copy the code from libgit2's travis script.",https://github.com/libgit2/libgit2sharp/pull/1072#issuecomment-108848135
+linkedin/dustjs.434.2.5,"however, is it as easy as just running travis in ie 8 to test it?",https://github.com/linkedin/dustjs/pull/434#issuecomment-36703966
+pypa/pip.803.6.0,any news on the travis testing problem?,https://github.com/pypa/pip/pull/803#issuecomment-22377618
+bitcoin/bitcoin.2252.54.0,"automatic sanity-testing: failed build/test, see  M_URL  for binaries and test log.",https://github.com/bitcoin/bitcoin/pull/2252#issuecomment-13594375
+JuliaLang/julia.24326.0.0,"there is one travis failure which is ligbit2 related, one appveyor failure where the build does not even start, and one circleci failure which has a bunch of ""processexitedexception""; they all seem un-related to this pr, which would be good to go i think.",https://github.com/JuliaLang/julia/pull/24326#issuecomment-339940265
+yesodweb/yesod.959.3.1,should be ready to go (pending travis).,https://github.com/yesodweb/yesod/pull/959#issuecomment-85222873
+mozilla/shumway.572.9.4,- lint: passed,https://github.com/mozilla/shumway/pull/572#issuecomment-23470696
+astropy/astropy.1786.12.1,the build passes.,https://github.com/astropy/astropy/pull/1786#issuecomment-29481621
+puppetlabs/packaging.316.5.0,M_MENTION green build with the above.,https://github.com/puppetlabs/packaging/pull/316#issuecomment-50694916
+open-mpi/ompi.4003.4.0,the ibm ci (pgi compiler) build failed!,https://github.com/open-mpi/ompi/pull/4003#issuecomment-319518887
+Fyrd/caniuse.362.0.0,"hey M_MENTION you'll want to put that info in the notes for now, can't just add a new version like that (that's why the travis is complaining).",https://github.com/Fyrd/caniuse/pull/362#issuecomment-28122875
+xbmc/xbmc.9193.6.0,jenkins build this please,https://github.com/xbmc/xbmc/pull/9193#issuecomment-189524623
+nipy/dipy.617.3.1,the interesting question is if the picture (and related build) is only triggerred on merge on the master branch (which means that the build will always pass according to how things are usually going) or that it might break from time to time.,https://github.com/nipy/dipy/pull/617#issuecomment-87538631
+swagger-api/swagger-codegen.1843.1.0,M_MENTION please rebase on the latest master to resolve the merge conflicts and issue with travis ci,https://github.com/swagger-api/swagger-codegen/pull/1843#issuecomment-169917920
+OCA/web.954.0.0,travis is red,https://github.com/OCA/web/pull/954#issuecomment-396537449
+stripe/stripe-java.482.0.0,"wow, this is one discerning linter :) thanks for the detailed pr description + info.",https://github.com/stripe/stripe-java/pull/482#issuecomment-377266339
+rackerlabs/otter.1679.0.0,jenkins please run integration tests,https://github.com/rackerlabs/otter/pull/1679#issuecomment-133597667
+astropy/astropy.4416.2.1,my one question is whether we should be suggesting users install homebrew in order to build on osx.,https://github.com/astropy/astropy/pull/4416#issuecomment-168737723
+radare/radare2.11168.0.0,i have no idea why travis red,https://github.com/radare/radare2/pull/11168#issuecomment-414657661
+appcelerator/titanium_mobile.9329.0.8,sdk ver:  M_VERSION_NUMBER  local build,https://github.com/appcelerator/titanium_mobile/pull/9329#issuecomment-323239582
+ufz/ogs.211.2.1,if it compiles on vs 2012 then i guess gcc on travis will be happy too :yum:,https://github.com/ufz/ogs/pull/211#issuecomment-23780211
+serge-sans-paille/pythran.271.0.1,refer to this link for build results:  M_URL,https://github.com/serge-sans-paille/pythran/pull/271#issuecomment-47220358
+pypa/pip.1465.6.10,while an arbitrary dylib in the python.org build is linked to:,https://github.com/pypa/pip/pull/1465#issuecomment-36953347
+weld/core.403.6.0,triggering build using a merge of f54eb5a761054089281d7d40048ad1f987356b4a on branch  M_VERSION_NUMBER :,https://github.com/weld/core/pull/403#issuecomment-27794938
+technomancy/leiningen.1179.14.4,"could you set  M_ICODE  to  M_ICODE  inside travis, and make it run once ?",https://github.com/technomancy/leiningen/pull/1179#issuecomment-17969020
+OpenMW/openmw.1542.0.3,"there were talks of using recast to build navmeshes, i'm just not sure how well that would adapt to changing environments (like scripts disabling objects) as your solution presumably does (?)",https://github.com/OpenMW/openmw/pull/1542#issuecomment-342549395
+pypa/pip.2529.0.0,"i prefer the longer tracebacks, especially on travis since it shows the variables and code at each layer.",https://github.com/pypa/pip/pull/2529#issuecomment-81591127
+cmangos/mangos-classic.90.5.5,"to be honest, i never build a playable server without this patch.",https://github.com/cmangos/mangos-classic/pull/90#issuecomment-97035363
+JuliaLang/julia.25699.1.1,M_MENTION is something causing log messages to be hidden during the build?,https://github.com/JuliaLang/julia/pull/25699#issuecomment-359855026
+mozilla/pdf.js.3354.9.5,276ms -- build point array,https://github.com/mozilla/pdf.js/pull/3354#issuecomment-19281543
+apache/thrift.1468.1.7,seems like cmake on travis fails to detect the preinstalled gradle wrapper in lib/java whereas i can get the same working locally.,https://github.com/apache/thrift/pull/1468#issuecomment-357576700
+ocaml/opam-repository.11155.0.0,:white_check_mark: all lint checks passed 1785ba45abce7eacb5fa54a59dc38faaad177119,https://github.com/ocaml/opam-repository/pull/11155#issuecomment-355010226
+voidlinux/void-packages.9286.3.29,make[3]: leaving directory '/builddir/ddcutil- M_VERSION_NUMBER /src/util',https://github.com/voidlinux/void-packages/pull/9286#issuecomment-345363510
+scikit-learn/scikit-learn.3304.41.5,annoy index build time:   M_VERSION_NUMBER,https://github.com/scikit-learn/scikit-learn/pull/3304#issuecomment-52405929
+buildbot/buildbot.1911.0.3,M_ICODE  via ...ot/status/builder.py#381...414,https://github.com/buildbot/buildbot/pull/1911#issuecomment-153504309
+Azure/azure-xplat-cli.3564.0.0,is this built with the ci or are you just checking in source for a binary we depend on and we never build this until we make new changes?,https://github.com/Azure/azure-xplat-cli/pull/3564#issuecomment-297497551
+forkcms/forkcms.773.7.2,i think this makes is a better match for fork cms since we're moving towards a full stack symfony integration.,https://github.com/forkcms/forkcms/pull/773#issuecomment-50763690
+bitcoin/bitcoin.13687.1.0,travis failure:,https://github.com/bitcoin/bitcoin/pull/13687#issuecomment-405566105
+activemerchant/active_merchant.964.0.0,activemerchant integrations have been extracted into  M_URL .,https://github.com/activemerchant/active_merchant/pull/964#issuecomment-45146666
+Valloric/YouCompleteMe.344.2.0,if only travis ci had a visual studio build bot i could ensure things like this don't happen (or at least that they are fixed asap).,https://github.com/Valloric/YouCompleteMe/pull/344#issuecomment-18466919
+openmicroscopy/openmicroscopy.4749.7.1,removed from build omero-dev-merge-push#432.,https://github.com/openmicroscopy/openmicroscopy/pull/4749#issuecomment-244646728
+JuliaLang/julia.15219.9.1,"we're still kind of supporting building against old llvm until we've fixed the compiler performance regressions, and on  M_VERSION_NUMBER  this gives a warning on startup that  M_ICODE .",https://github.com/JuliaLang/julia/pull/15219#issuecomment-194778894
+servo/servo.13041.10.1,rebuilding only linux-rel...,https://github.com/servo/servo/pull/13041#issuecomment-242665195
+gooddata/gooddata-ruby.1058.13.0,build succeeded (gate pipeline).,https://github.com/gooddata/gooddata-ruby/pull/1058#issuecomment-344258873
+yiisoft/yii2.1309.3.1,the base querybuilder class provides a  M_ICODE  method that is only for sqlite3  M_VERSION_NUMBER  and upwards.,https://github.com/yiisoft/yii2/pull/1309#issuecomment-29163705
+bitcoin/bitcoin.12715.5.4,work/build: $(base_build_dir),https://github.com/bitcoin/bitcoin/pull/12715#issuecomment-374728723
+caskdata/cdap.8206.5.0,build passed merging.,https://github.com/caskdata/cdap/pull/8206#issuecomment-282538888
+RIOT-OS/RIOT.6026.25.1,"this way they will still be apparent in the cis logs, but will not lead to failing builds.",https://github.com/RIOT-OS/RIOT/pull/6026#issuecomment-275687371
+OPM/ewoms.259.3.0,jenkins build this with downstreams please,https://github.com/OPM/ewoms/pull/259#issuecomment-355059120
+ParadiseSS13/Paradise.7609.20.0,"a broken chest/head is pretty much a death sentence to most solo and non bone regenerating antagonists (good luck getting to surgery or having them actually help you when the whole station is looking for you), this would compound the problem a lot more, stopping the pre splinting of non broken limbs does seem like the perfect solution for the cheese without dooming most solo antagonists.",https://github.com/ParadiseSS13/Paradise/pull/7609#issuecomment-310444837
+ocaml/opam-repository.11172.0.1,these packages passed lint tests:  M_ICODE,https://github.com/ocaml/opam-repository/pull/11172#issuecomment-355691469
+jordansissel/fpm.1339.6.4,    from build.rb:666:in  M_ICODE each',https://github.com/jordansissel/fpm/pull/1339#issuecomment-306345995
+matplotlib/matplotlib.4694.23.0,M_MENTION i think it is failing on the doc builds because you need to install traitlets in that case too,https://github.com/matplotlib/matplotlib/pull/4694#issuecomment-121769289
+shogun-toolbox/shogun.2009.4.4,"however, my submodule shogun-data cannot pass the travis.",https://github.com/shogun-toolbox/shogun/pull/2009#issuecomment-37763858
+xapi-project/xen-api.160.2.0,build succeeded.,https://github.com/xapi-project/xen-api/pull/160#issuecomment-1183081
+rackerlabs/otter.1927.1.0,jenkins please run integration tests,https://github.com/rackerlabs/otter/pull/1927#issuecomment-240272886
+JuliaLang/julia.3078.8.1,"discounting for a typo, this merge broke the build on mingw :(",https://github.com/JuliaLang/julia/pull/3078#issuecomment-17924756
+servo/servo.15935.0.3," * M_MENTION components/style/gecko_bindings/bindings.rs, components/style/gecko_bindings/structs_debug.rs, components/style/gecko_string_cache/atom_macro.rs, components/style/build_gecko.rs, components/style/gecko_bindings/structs_release.rs",https://github.com/servo/servo/pull/15935#issuecomment-286322102
+apache/storm.1712.0.0,"the travis failure here is an odd one, it looks like it failed because some integration tests that didn't run before are now running and took so long travis timed them out.",https://github.com/apache/storm/pull/1712#issuecomment-249266048
+BuildCraft/BuildCraft.1839.0.0,this is a buildcraft  M_VERSION_NUMBER  report.,https://github.com/BuildCraft/BuildCraft/pull/1839#issuecomment-44025470
+astaxie/beego.2586.8.1,build passes,https://github.com/astaxie/beego/pull/2586#issuecomment-298320805
+clawpack/pyclaw.422.1.2,i'll restart travis.,https://github.com/clawpack/pyclaw/pull/422#issuecomment-46248520
+balderdashy/sails.2110.2.6,then it drops the table and rebuilds it and re-inserts all the data again.,https://github.com/balderdashy/sails/pull/2110#issuecomment-52127165
+camptocamp/c2cgeoportal.2671.3.0,M_MENTION travis is green,https://github.com/camptocamp/c2cgeoportal/pull/2671#issuecomment-262244491
+magento/magento2.10403.6.0,"thanks, your findings look great to me, especially that there was  M_ICODE  in some tests not containing number and that there are actually some integration and functional tests enforcing this logic.",https://github.com/magento/magento2/pull/10403#issuecomment-320225698
+PX4/Firmware.8332.16.16,it can also be seen in the jenkins build history that this tested good multiple times last night after we finished it up.,https://github.com/PX4/Firmware/pull/8332#issuecomment-350274869
+libgit2/objective-git.381.0.1,"unfortunately, i'm having an issue building the objectivegit target after these changes:",https://github.com/libgit2/objective-git/pull/381#issuecomment-48235906
+apache/cloudstack.2535.6.0,M_MENTION a jenkins job has been kicked to build packages.,https://github.com/apache/cloudstack/pull/2535#issuecomment-379212063
+xbmc/xbmc.9018.7.0,jenkins build and merge,https://github.com/xbmc/xbmc/pull/9018#issuecomment-179148260
+ets-berkeley-edu/calcentral.3155.2.0,M_MENTION travis build's still red.,https://github.com/ets-berkeley-edu/calcentral/pull/3155#issuecomment-64685430
+servo/servo.19152.74.0,i'm having trouble building on fedora after this change.,https://github.com/servo/servo/pull/19152#issuecomment-345171030
+xetorthio/jedis.1095.1.0,"ok. i have post pull request to master branch, but it seems that the ci builds failed on oraclejdk7.",https://github.com/xetorthio/jedis/pull/1095#issuecomment-133246292
+bitcoin/bitcoin.13247.2.0,5d09a71f8925f3f132321140b44b946dthe last travis run for this pull request was 65 days ago and is thus outdated.,https://github.com/bitcoin/bitcoin/pull/13247#issuecomment-406906681
+adobe/brackets.5119.4.0,M_MENTION we have made some changes to the shell to give it a dark look in sprint 32.  can you make sure your code still builds and runs with these changes.,https://github.com/adobe/brackets/pull/5119#issuecomment-26863326
+bitcoin/bitcoin.10742.21.3,it would be nice to make it build after the first commit.,https://github.com/bitcoin/bitcoin/pull/10742#issuecomment-324144570
+rubygems/rubygems.1135.4.0,it may depend on the builder we're using what kind of exception is raised as well.,https://github.com/rubygems/rubygems/pull/1135#issuecomment-70779666
+meteor/meteor.7668.86.1249,"| rebuild app...................................................1,844 ms (1)",https://github.com/meteor/meteor/pull/7668#issuecomment-253823726
+ruby/ruby.432.21.8,i'm going to try building on linux with -fno-omit-frame-pointer.,https://github.com/ruby/ruby/pull/432#issuecomment-27342305
+sonata-project/SonataAdminBundle.4043.2.0,"also, you should test the new way of building the class, as well as the exception.",https://github.com/sonata-project/SonataAdminBundle/pull/4043#issuecomment-237896673
+DataDog/dd-agent.1350.1.4,- you installed replication on the redis ci instances but can you add some integration tests to see if this metric is actually here (for the proper versions of redis)!,https://github.com/DataDog/dd-agent/pull/1350#issuecomment-73140592
+musescore/MuseScore.2723.15.16,"so seems like encrypted address is way to go...will fall back to git commiters email if can't decrypt, which makes it convienint for people like me who want to get notified when i build on my own travis.",https://github.com/musescore/MuseScore/pull/2723#issuecomment-233052072
+dimagi/commcare-hq.8785.5.23,weren't positive about the structure and didn't have the resources to build,https://github.com/dimagi/commcare-hq/pull/8785#issuecomment-150695481
+ocaml/opam-repository.3391.1.0,i'm restarting the failed travis build now that M_ISSUE_MENTION  is merged.,https://github.com/ocaml/opam-repository/pull/3391#issuecomment-70231327
+caskdata/cdap.10712.0.0,latest green build:  M_URL,https://github.com/caskdata/cdap/pull/10712#issuecomment-424139141
+SOCI/soci.326.2.9,"2. install instantclient 64-bit and use it to build soci, but still connect to the installed oracle 10g 32-bit.",https://github.com/SOCI/soci/pull/326#issuecomment-95502897
+astropy/astropy.4308.12.0,M_MENTION - the build is passing on appveyor :) i restarted travis so all the ticks are green here.,https://github.com/astropy/astropy/pull/4308#issuecomment-156428857
+musescore/MuseScore.3645.5.8,build instructions and dependencies for msvc are attached to the first post in this conversation.,https://github.com/musescore/MuseScore/pull/3645#issuecomment-385859381
+ufz/ogs.928.4.1,is it possible to improve this and leave the pending/yellow status until all *-pr builds are executed?,https://github.com/ufz/ogs/pull/928#issuecomment-165114868
+xbmc/xbmc.11824.9.1,jenkins build and merge,https://github.com/xbmc/xbmc/pull/11824#issuecomment-286266786
+BuildCraft/BuildCraft.253.4.0,"so should i update it to only download it if it needs to download forge, and also exclude the other build.xml and the build.number file or it will be ignored?",https://github.com/BuildCraft/BuildCraft/pull/253#issuecomment-8537498
+gitextensions/gitextensions.4839.1.0,this change introduces a regression in the appveyor build verbosity.,https://github.com/gitextensions/gitextensions/pull/4839#issuecomment-382169056
+xbmc/xbmc.9833.0.5,"for the binary addon buildsystem it still has my +1, even though i see a small disadvantage of  M_ICODE  being a bit more difficult to use.",https://github.com/xbmc/xbmc/pull/9833#issuecomment-220075722
+bitcoin/bitcoin.1658.5.6,3. it does not build on either linux i386 or win32 (via mingw cross compile),https://github.com/bitcoin/bitcoin/pull/1658#issuecomment-7568156
