@@ -6,6 +6,10 @@ from ngramizer import *
 
 from pymongo import MongoClient
 
+'''
+
+Used for first batch
+
 terms = [
     "build",
     "continuous",
@@ -14,6 +18,22 @@ terms = [
     "lint",
 
 ]
+
+tag = "ci_mention"
+'''
+
+terms = [
+    "success",
+    "failure",
+    "build",
+    "status",
+    "check",
+    "pass",
+    "fail",
+    "travis"
+]
+
+tag="ci_mention_extended"
 
 mongo_client = MongoClient()
 database = mongo_client["graduation"]
@@ -78,7 +98,7 @@ for project in projects:
                         "identifier":location,
                         "sentence" : sentence,
                         "url" : comment["html_url"],
-                        "type" : ["ci_mention"]
+                        "type" : [tag]
                     }
 
                     mention_in_db = mentions_collection.find_one({ 
@@ -86,6 +106,11 @@ for project in projects:
 
                     if mention_in_db is None:
                         mentions_collection.insert_one(mention_found)
+                    else:
+                        if not tag in mention_in_db["type"]:
+                            mention_in_db["type"].append(tag)
+
+                            mentions_collection.replace_one({'_id':mention_in_db["_id"]}, mention_in_db)
 
                 line += 1
             nr_comment += 1
