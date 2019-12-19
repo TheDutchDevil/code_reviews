@@ -9,7 +9,7 @@ database = mongo_client["graduation"]
 
 mentions_collection = database["mentions"]
 
-mentions = list(mentions_collection.find({}, {'_id': 0, 'type': 0}))
+mentions = list(mentions_collection.find({'type':'ci_mention_extended'}, {'_id': 0, 'type': 0}))
 
 sample = random.sample(mentions, 1000)
 
