@@ -19,7 +19,8 @@ The main file used to scrape information the Python script
 `scrape_project_from_github.py`. As input this file requires
 a .csv containing the slugs of the repositories that should be 
 mined, and a connection to a running [GHTorrent](http://ghtorrent.org/) 
-instance.
+instance. As output this script requires connection to a MongoDB
+instance, such that scraped items can be stored. 
 
 For each slug in the input csv the script first queries the `GHTorrent`
 to determine whether that project has more than 1,000 general 
@@ -45,9 +46,34 @@ data is split over 4 collections because of MongoDB limitations. These
 4 collections are, `projects`, `issues`, `pull_requests`, and `commits`.
 
 To efficiently scrape data from `GitHub` the scrape script uses several
-threads, and cycles through a set of tokens defined in `gh_tokens.py`.
+threads, and cycles through a set of tokens defined in `gh_tokens.py`
+(More tokens == more speed).
 
 ## Processing
+
+When it comes to processing the scraped data there are several Python
+scripts and cells that take data in the MongoDb instance and augment it
+by adding fields. 
+
+* `analysis/first_travis_build.ipynb`:<br><br>
+This notebook contains a set of cells that uses a set 
+of heuristics (including the GitHub 
+[commit statuses](https://developer.github.com/v3/repos/statuses/)) to
+find the oldest Travis build associated with a pull-request, and to determine
+whether Travis was the first CI service used by the project. This result is then
+written to the MongoDB database by setting the fields `status_travis_date (date)`
+and `travis_is_oldest_ci (bool)`. 
+
+* `find_effective_comments.py`: <br><br>
+This Python script uses the script `analysis/effective_comments/find_effective.py`
+to process all pull requests in the MongoDB instance to find effective
+review comments as defined by 
+[Bosu et al.](https://www.microsoft.com/en-us/research/publication/characteristics-of-useful-code-reviews-an-empirical-study-at-microsoft/).
+This information is needed to run the RDD model that models the impact
+of Continuous Integration on effective comments in code reviews. 
+
+
+
 
 ## Analysis
 
