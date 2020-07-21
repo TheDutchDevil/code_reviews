@@ -84,12 +84,26 @@ of Continuous Integration on effective comments in code reviews.
 Please use the following BibTex snippet to cite this work:
 
 ```
-@INPROCEEDINGS{TheSilentHelper,  
-author={N. {Cassee} and B. {Vasilescu} and A. {Serebrenik}},  
-booktitle={2020 IEEE 27th International Conference on Software Analysis, Evolution and Reengineering (SANER)},   
-title={The Silent Helper: The Impact of Continuous Integration on Code Reviews},   
-year={2020},  
-volume={},  
-number={},  
-pages={423-434},}
+@inproceedings{DBLP:conf/wcre/CasseeVS20,
+author = {Nathan Cassee and
+Bogdan Vasilescu and
+Alexander Serebrenik},
+editor = {Kostas Kontogiannis and
+Foutse Khomh and
+Alexander Chatzigeorgiou and
+Marios{-}Eleftherios Fokaefs and
+Minghui Zhou},
+title = {The Silent Helper: The Impact of Continuous Integration on Code Reviews},
+booktitle = {27th {IEEE} International Conference on Software Analysis, Evolution
+and Reengineering, {SANER} 2020, London, ON, Canada, February 18-21,
+2020},
+pages = {423--434},
+publisher = {{IEEE}},
+year = {2020},
+url = {https://doi.org/10.1109/SANER48275.2020.9054818},
+doi = {10.1109/SANER48275.2020.9054818},
+timestamp = {Thu, 16 Apr 2020 16:52:52 +0200},
+biburl = {https://dblp.org/rec/conf/wcre/CasseeVS20.bib},
+bibsource = {dblp computer science bibliography, https://dblp.org}
+}
 ```
