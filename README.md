@@ -84,5 +84,12 @@ of Continuous Integration on effective comments in code reviews.
 Please use the following BibTex snippet to cite this work:
 
 ```
-@misc{}
+@INPROCEEDINGS{TheSilentHelper,  
+author={N. {Cassee} and B. {Vasilescu} and A. {Serebrenik}},  
+booktitle={2020 IEEE 27th International Conference on Software Analysis, Evolution and Reengineering (SANER)},   
+title={The Silent Helper: The Impact of Continuous Integration on Code Reviews},   
+year={2020},  
+volume={},  
+number={},  
+pages={423-434},}
 ```
