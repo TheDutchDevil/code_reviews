@@ -9,6 +9,9 @@ There are several parts to this repository, data collection and pre-processing h
 Python, some analysis and the plots have been generated using Python Jupyter Notebooks, and 
 the statistical models have been run using Jupyter Notebooks in R. 
 
+Several directories contain an archive folder, these folders contain files
+that have not been used in the final analysis. 
+
 # Steps
 
 For each of the steps this readme will direct you to some files of note. 
@@ -73,11 +76,20 @@ This information is needed to run the RDD model that models the impact
 of Continuous Integration on effective comments in code reviews. 
 
 
-
-
 ## Analysis
 
+* `analysis/share_of_comments.ipynb`: <br><br>
+This jupyter notebook contains the cells that are used for data-export for the
+actual time-series models. Generates `generated/metrics_for_time_series.csv`
+which contains aggregated time series data used for the RDD models. Several
+cells in the ipnyb generate this file. Other cells generate other files that 
+might not be relevant for the analysis. 
+
 ## Models
+
+* `analysis/time_series_models.ipnyb`: <br><br>
+R Jupyter notebook that contains the actual RDD models. For each model a cell 
+exists that is used to build the model, and output the model information. 
 
 # Cite
 
