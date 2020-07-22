@@ -1,5 +1,0 @@
-actual,pred,sentence
-Travis Build,False positive,looking a the travisci config the build sends the commands to configure and make a bin.
-Travis Build,False positive,closing this pr as new build is triggered to recreate this pr.
-Travis Build,False positive,"once master is building again, i'll rebase or merge it back in."
-Travis Build,False positive,(build fail not real)
